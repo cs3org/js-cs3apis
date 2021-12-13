@@ -649,6 +649,80 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.createContainer =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.storage.provider.v1beta1.TouchFileRequest,
+ *   !proto.cs3.storage.provider.v1beta1.TouchFileResponse>}
+ */
+const methodDescriptor_GatewayAPI_TouchFile = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/TouchFile',
+  grpc.web.MethodType.UNARY,
+  cs3_storage_provider_v1beta1_provider_api_pb.TouchFileRequest,
+  cs3_storage_provider_v1beta1_provider_api_pb.TouchFileResponse,
+  /** @param {!proto.cs3.storage.provider.v1beta1.TouchFileRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  cs3_storage_provider_v1beta1_provider_api_pb.TouchFileResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.cs3.storage.provider.v1beta1.TouchFileRequest,
+ *   !proto.cs3.storage.provider.v1beta1.TouchFileResponse>}
+ */
+const methodInfo_GatewayAPI_TouchFile = new grpc.web.AbstractClientBase.MethodInfo(
+  cs3_storage_provider_v1beta1_provider_api_pb.TouchFileResponse,
+  /** @param {!proto.cs3.storage.provider.v1beta1.TouchFileRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  cs3_storage_provider_v1beta1_provider_api_pb.TouchFileResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.TouchFileRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.cs3.storage.provider.v1beta1.TouchFileResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.storage.provider.v1beta1.TouchFileResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.touchFile =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/TouchFile',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_TouchFile,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.TouchFileRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.storage.provider.v1beta1.TouchFileResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.touchFile =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/TouchFile',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_TouchFile);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.cs3.storage.provider.v1beta1.DeleteRequest,
  *   !proto.cs3.storage.provider.v1beta1.DeleteResponse>}
  */
