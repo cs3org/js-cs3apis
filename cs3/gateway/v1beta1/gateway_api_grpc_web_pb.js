@@ -34,6 +34,8 @@ var cs3_ocm_invite_v1beta1_invite_api_pb = require('../../../cs3/ocm/invite/v1be
 
 var cs3_ocm_provider_v1beta1_provider_api_pb = require('../../../cs3/ocm/provider/v1beta1/provider_api_pb.js')
 
+var cs3_permissions_v1beta1_permissions_api_pb = require('../../../cs3/permissions/v1beta1/permissions_api_pb.js')
+
 var cs3_preferences_v1beta1_preferences_api_pb = require('../../../cs3/preferences/v1beta1/preferences_api_pb.js')
 
 var cs3_rpc_v1beta1_status_pb = require('../../../cs3/rpc/v1beta1/status_pb.js')
@@ -6701,6 +6703,80 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.cancelTransfer =
       request,
       metadata || {},
       methodDescriptor_GatewayAPI_CancelTransfer);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.permissions.v1beta1.CheckPermissionRequest,
+ *   !proto.cs3.permissions.v1beta1.CheckPermissionResponse>}
+ */
+const methodDescriptor_GatewayAPI_CheckPermission = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/CheckPermission',
+  grpc.web.MethodType.UNARY,
+  cs3_permissions_v1beta1_permissions_api_pb.CheckPermissionRequest,
+  cs3_permissions_v1beta1_permissions_api_pb.CheckPermissionResponse,
+  /** @param {!proto.cs3.permissions.v1beta1.CheckPermissionRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  cs3_permissions_v1beta1_permissions_api_pb.CheckPermissionResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.cs3.permissions.v1beta1.CheckPermissionRequest,
+ *   !proto.cs3.permissions.v1beta1.CheckPermissionResponse>}
+ */
+const methodInfo_GatewayAPI_CheckPermission = new grpc.web.AbstractClientBase.MethodInfo(
+  cs3_permissions_v1beta1_permissions_api_pb.CheckPermissionResponse,
+  /** @param {!proto.cs3.permissions.v1beta1.CheckPermissionRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  cs3_permissions_v1beta1_permissions_api_pb.CheckPermissionResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.permissions.v1beta1.CheckPermissionRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.cs3.permissions.v1beta1.CheckPermissionResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.permissions.v1beta1.CheckPermissionResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.checkPermission =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/CheckPermission',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_CheckPermission,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.permissions.v1beta1.CheckPermissionRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.permissions.v1beta1.CheckPermissionResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.checkPermission =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/CheckPermission',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_CheckPermission);
 };
 
 
