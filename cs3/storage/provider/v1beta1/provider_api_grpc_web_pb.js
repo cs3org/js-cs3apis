@@ -2014,6 +2014,302 @@ proto.cs3.storage.provider.v1beta1.ProviderAPIPromiseClient.prototype.unsetArbit
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.storage.provider.v1beta1.SetLockRequest,
+ *   !proto.cs3.storage.provider.v1beta1.SetLockResponse>}
+ */
+const methodDescriptor_ProviderAPI_SetLock = new grpc.web.MethodDescriptor(
+  '/cs3.storage.provider.v1beta1.ProviderAPI/SetLock',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.storage.provider.v1beta1.SetLockRequest,
+  proto.cs3.storage.provider.v1beta1.SetLockResponse,
+  /** @param {!proto.cs3.storage.provider.v1beta1.SetLockRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.storage.provider.v1beta1.SetLockResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.cs3.storage.provider.v1beta1.SetLockRequest,
+ *   !proto.cs3.storage.provider.v1beta1.SetLockResponse>}
+ */
+const methodInfo_ProviderAPI_SetLock = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.cs3.storage.provider.v1beta1.SetLockResponse,
+  /** @param {!proto.cs3.storage.provider.v1beta1.SetLockRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.storage.provider.v1beta1.SetLockResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.SetLockRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.cs3.storage.provider.v1beta1.SetLockResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.storage.provider.v1beta1.SetLockResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.storage.provider.v1beta1.ProviderAPIClient.prototype.setLock =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.storage.provider.v1beta1.ProviderAPI/SetLock',
+      request,
+      metadata || {},
+      methodDescriptor_ProviderAPI_SetLock,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.SetLockRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.storage.provider.v1beta1.SetLockResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.cs3.storage.provider.v1beta1.ProviderAPIPromiseClient.prototype.setLock =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.storage.provider.v1beta1.ProviderAPI/SetLock',
+      request,
+      metadata || {},
+      methodDescriptor_ProviderAPI_SetLock);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.storage.provider.v1beta1.GetLockRequest,
+ *   !proto.cs3.storage.provider.v1beta1.GetLockResponse>}
+ */
+const methodDescriptor_ProviderAPI_GetLock = new grpc.web.MethodDescriptor(
+  '/cs3.storage.provider.v1beta1.ProviderAPI/GetLock',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.storage.provider.v1beta1.GetLockRequest,
+  proto.cs3.storage.provider.v1beta1.GetLockResponse,
+  /** @param {!proto.cs3.storage.provider.v1beta1.GetLockRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.storage.provider.v1beta1.GetLockResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.cs3.storage.provider.v1beta1.GetLockRequest,
+ *   !proto.cs3.storage.provider.v1beta1.GetLockResponse>}
+ */
+const methodInfo_ProviderAPI_GetLock = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.cs3.storage.provider.v1beta1.GetLockResponse,
+  /** @param {!proto.cs3.storage.provider.v1beta1.GetLockRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.storage.provider.v1beta1.GetLockResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.GetLockRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.cs3.storage.provider.v1beta1.GetLockResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.storage.provider.v1beta1.GetLockResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.storage.provider.v1beta1.ProviderAPIClient.prototype.getLock =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.storage.provider.v1beta1.ProviderAPI/GetLock',
+      request,
+      metadata || {},
+      methodDescriptor_ProviderAPI_GetLock,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.GetLockRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.storage.provider.v1beta1.GetLockResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.cs3.storage.provider.v1beta1.ProviderAPIPromiseClient.prototype.getLock =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.storage.provider.v1beta1.ProviderAPI/GetLock',
+      request,
+      metadata || {},
+      methodDescriptor_ProviderAPI_GetLock);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.storage.provider.v1beta1.RefreshLockRequest,
+ *   !proto.cs3.storage.provider.v1beta1.RefreshLockResponse>}
+ */
+const methodDescriptor_ProviderAPI_RefreshLock = new grpc.web.MethodDescriptor(
+  '/cs3.storage.provider.v1beta1.ProviderAPI/RefreshLock',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.storage.provider.v1beta1.RefreshLockRequest,
+  proto.cs3.storage.provider.v1beta1.RefreshLockResponse,
+  /** @param {!proto.cs3.storage.provider.v1beta1.RefreshLockRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.storage.provider.v1beta1.RefreshLockResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.cs3.storage.provider.v1beta1.RefreshLockRequest,
+ *   !proto.cs3.storage.provider.v1beta1.RefreshLockResponse>}
+ */
+const methodInfo_ProviderAPI_RefreshLock = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.cs3.storage.provider.v1beta1.RefreshLockResponse,
+  /** @param {!proto.cs3.storage.provider.v1beta1.RefreshLockRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.storage.provider.v1beta1.RefreshLockResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.RefreshLockRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.cs3.storage.provider.v1beta1.RefreshLockResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.storage.provider.v1beta1.RefreshLockResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.storage.provider.v1beta1.ProviderAPIClient.prototype.refreshLock =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.storage.provider.v1beta1.ProviderAPI/RefreshLock',
+      request,
+      metadata || {},
+      methodDescriptor_ProviderAPI_RefreshLock,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.RefreshLockRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.storage.provider.v1beta1.RefreshLockResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.cs3.storage.provider.v1beta1.ProviderAPIPromiseClient.prototype.refreshLock =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.storage.provider.v1beta1.ProviderAPI/RefreshLock',
+      request,
+      metadata || {},
+      methodDescriptor_ProviderAPI_RefreshLock);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.storage.provider.v1beta1.UnlockRequest,
+ *   !proto.cs3.storage.provider.v1beta1.UnlockResponse>}
+ */
+const methodDescriptor_ProviderAPI_Unlock = new grpc.web.MethodDescriptor(
+  '/cs3.storage.provider.v1beta1.ProviderAPI/Unlock',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.storage.provider.v1beta1.UnlockRequest,
+  proto.cs3.storage.provider.v1beta1.UnlockResponse,
+  /** @param {!proto.cs3.storage.provider.v1beta1.UnlockRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.storage.provider.v1beta1.UnlockResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.cs3.storage.provider.v1beta1.UnlockRequest,
+ *   !proto.cs3.storage.provider.v1beta1.UnlockResponse>}
+ */
+const methodInfo_ProviderAPI_Unlock = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.cs3.storage.provider.v1beta1.UnlockResponse,
+  /** @param {!proto.cs3.storage.provider.v1beta1.UnlockRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.storage.provider.v1beta1.UnlockResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.UnlockRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.cs3.storage.provider.v1beta1.UnlockResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.storage.provider.v1beta1.UnlockResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.storage.provider.v1beta1.ProviderAPIClient.prototype.unlock =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.storage.provider.v1beta1.ProviderAPI/Unlock',
+      request,
+      metadata || {},
+      methodDescriptor_ProviderAPI_Unlock,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.UnlockRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.storage.provider.v1beta1.UnlockResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.cs3.storage.provider.v1beta1.ProviderAPIPromiseClient.prototype.unlock =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.storage.provider.v1beta1.ProviderAPI/Unlock',
+      request,
+      metadata || {},
+      methodDescriptor_ProviderAPI_Unlock);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.cs3.storage.provider.v1beta1.CreateHomeRequest,
  *   !proto.cs3.storage.provider.v1beta1.CreateHomeResponse>}
  */
