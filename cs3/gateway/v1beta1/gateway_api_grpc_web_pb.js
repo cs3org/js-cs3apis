@@ -6487,74 +6487,74 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.createOCMCoreShare =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.cs3.tx.v1beta1.CreateTransferRequest,
- *   !proto.cs3.tx.v1beta1.CreateTransferResponse>}
+ *   !proto.cs3.tx.v1beta1.PullTransferRequest,
+ *   !proto.cs3.tx.v1beta1.PullTransferResponse>}
  */
-const methodDescriptor_GatewayAPI_CreateTransfer = new grpc.web.MethodDescriptor(
-  '/cs3.gateway.v1beta1.GatewayAPI/CreateTransfer',
+const methodDescriptor_GatewayAPI_PullTransfer = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/PullTransfer',
   grpc.web.MethodType.UNARY,
-  cs3_tx_v1beta1_tx_api_pb.CreateTransferRequest,
-  cs3_tx_v1beta1_tx_api_pb.CreateTransferResponse,
-  /** @param {!proto.cs3.tx.v1beta1.CreateTransferRequest} request */
+  cs3_tx_v1beta1_tx_api_pb.PullTransferRequest,
+  cs3_tx_v1beta1_tx_api_pb.PullTransferResponse,
+  /** @param {!proto.cs3.tx.v1beta1.PullTransferRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  cs3_tx_v1beta1_tx_api_pb.CreateTransferResponse.deserializeBinary
+  cs3_tx_v1beta1_tx_api_pb.PullTransferResponse.deserializeBinary
 );
 
 
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cs3.tx.v1beta1.CreateTransferRequest,
- *   !proto.cs3.tx.v1beta1.CreateTransferResponse>}
+ *   !proto.cs3.tx.v1beta1.PullTransferRequest,
+ *   !proto.cs3.tx.v1beta1.PullTransferResponse>}
  */
-const methodInfo_GatewayAPI_CreateTransfer = new grpc.web.AbstractClientBase.MethodInfo(
-  cs3_tx_v1beta1_tx_api_pb.CreateTransferResponse,
-  /** @param {!proto.cs3.tx.v1beta1.CreateTransferRequest} request */
+const methodInfo_GatewayAPI_PullTransfer = new grpc.web.AbstractClientBase.MethodInfo(
+  cs3_tx_v1beta1_tx_api_pb.PullTransferResponse,
+  /** @param {!proto.cs3.tx.v1beta1.PullTransferRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  cs3_tx_v1beta1_tx_api_pb.CreateTransferResponse.deserializeBinary
+  cs3_tx_v1beta1_tx_api_pb.PullTransferResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.cs3.tx.v1beta1.CreateTransferRequest} request The
+ * @param {!proto.cs3.tx.v1beta1.PullTransferRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cs3.tx.v1beta1.CreateTransferResponse)}
+ * @param {function(?grpc.web.Error, ?proto.cs3.tx.v1beta1.PullTransferResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.cs3.tx.v1beta1.CreateTransferResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.tx.v1beta1.PullTransferResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.createTransfer =
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.pullTransfer =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/cs3.gateway.v1beta1.GatewayAPI/CreateTransfer',
+      '/cs3.gateway.v1beta1.GatewayAPI/PullTransfer',
       request,
       metadata || {},
-      methodDescriptor_GatewayAPI_CreateTransfer,
+      methodDescriptor_GatewayAPI_PullTransfer,
       callback);
 };
 
 
 /**
- * @param {!proto.cs3.tx.v1beta1.CreateTransferRequest} request The
+ * @param {!proto.cs3.tx.v1beta1.PullTransferRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.cs3.tx.v1beta1.CreateTransferResponse>}
+ * @return {!Promise<!proto.cs3.tx.v1beta1.PullTransferResponse>}
  *     A native promise that resolves to the response
  */
-proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.createTransfer =
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.pullTransfer =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/cs3.gateway.v1beta1.GatewayAPI/CreateTransfer',
+      '/cs3.gateway.v1beta1.GatewayAPI/PullTransfer',
       request,
       metadata || {},
-      methodDescriptor_GatewayAPI_CreateTransfer);
+      methodDescriptor_GatewayAPI_PullTransfer);
 };
 
 
@@ -6703,6 +6703,154 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.cancelTransfer =
       request,
       metadata || {},
       methodDescriptor_GatewayAPI_CancelTransfer);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.tx.v1beta1.ListTransfersRequest,
+ *   !proto.cs3.tx.v1beta1.ListTransfersResponse>}
+ */
+const methodDescriptor_GatewayAPI_ListTransfers = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/ListTransfers',
+  grpc.web.MethodType.UNARY,
+  cs3_tx_v1beta1_tx_api_pb.ListTransfersRequest,
+  cs3_tx_v1beta1_tx_api_pb.ListTransfersResponse,
+  /** @param {!proto.cs3.tx.v1beta1.ListTransfersRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  cs3_tx_v1beta1_tx_api_pb.ListTransfersResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.cs3.tx.v1beta1.ListTransfersRequest,
+ *   !proto.cs3.tx.v1beta1.ListTransfersResponse>}
+ */
+const methodInfo_GatewayAPI_ListTransfers = new grpc.web.AbstractClientBase.MethodInfo(
+  cs3_tx_v1beta1_tx_api_pb.ListTransfersResponse,
+  /** @param {!proto.cs3.tx.v1beta1.ListTransfersRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  cs3_tx_v1beta1_tx_api_pb.ListTransfersResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.tx.v1beta1.ListTransfersRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.cs3.tx.v1beta1.ListTransfersResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.tx.v1beta1.ListTransfersResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.listTransfers =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/ListTransfers',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_ListTransfers,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.tx.v1beta1.ListTransfersRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.tx.v1beta1.ListTransfersResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.listTransfers =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/ListTransfers',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_ListTransfers);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.tx.v1beta1.RetryTransferRequest,
+ *   !proto.cs3.tx.v1beta1.RetryTransferResponse>}
+ */
+const methodDescriptor_GatewayAPI_RetryTransfer = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/RetryTransfer',
+  grpc.web.MethodType.UNARY,
+  cs3_tx_v1beta1_tx_api_pb.RetryTransferRequest,
+  cs3_tx_v1beta1_tx_api_pb.RetryTransferResponse,
+  /** @param {!proto.cs3.tx.v1beta1.RetryTransferRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  cs3_tx_v1beta1_tx_api_pb.RetryTransferResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.cs3.tx.v1beta1.RetryTransferRequest,
+ *   !proto.cs3.tx.v1beta1.RetryTransferResponse>}
+ */
+const methodInfo_GatewayAPI_RetryTransfer = new grpc.web.AbstractClientBase.MethodInfo(
+  cs3_tx_v1beta1_tx_api_pb.RetryTransferResponse,
+  /** @param {!proto.cs3.tx.v1beta1.RetryTransferRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  cs3_tx_v1beta1_tx_api_pb.RetryTransferResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.tx.v1beta1.RetryTransferRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.cs3.tx.v1beta1.RetryTransferResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.tx.v1beta1.RetryTransferResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.retryTransfer =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/RetryTransfer',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_RetryTransfer,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.tx.v1beta1.RetryTransferRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.tx.v1beta1.RetryTransferResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.retryTransfer =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/RetryTransfer',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_RetryTransfer);
 };
 
 
