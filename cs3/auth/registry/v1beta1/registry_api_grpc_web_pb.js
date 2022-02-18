@@ -98,74 +98,74 @@ proto.cs3.auth.registry.v1beta1.RegistryAPIPromiseClient =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.cs3.auth.registry.v1beta1.GetAuthProviderRequest,
- *   !proto.cs3.auth.registry.v1beta1.GetAuthProviderResponse>}
+ *   !proto.cs3.auth.registry.v1beta1.GetAuthProvidersRequest,
+ *   !proto.cs3.auth.registry.v1beta1.GetAuthProvidersResponse>}
  */
-const methodDescriptor_RegistryAPI_GetAuthProvider = new grpc.web.MethodDescriptor(
-  '/cs3.auth.registry.v1beta1.RegistryAPI/GetAuthProvider',
+const methodDescriptor_RegistryAPI_GetAuthProviders = new grpc.web.MethodDescriptor(
+  '/cs3.auth.registry.v1beta1.RegistryAPI/GetAuthProviders',
   grpc.web.MethodType.UNARY,
-  proto.cs3.auth.registry.v1beta1.GetAuthProviderRequest,
-  proto.cs3.auth.registry.v1beta1.GetAuthProviderResponse,
-  /** @param {!proto.cs3.auth.registry.v1beta1.GetAuthProviderRequest} request */
+  proto.cs3.auth.registry.v1beta1.GetAuthProvidersRequest,
+  proto.cs3.auth.registry.v1beta1.GetAuthProvidersResponse,
+  /** @param {!proto.cs3.auth.registry.v1beta1.GetAuthProvidersRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  proto.cs3.auth.registry.v1beta1.GetAuthProviderResponse.deserializeBinary
+  proto.cs3.auth.registry.v1beta1.GetAuthProvidersResponse.deserializeBinary
 );
 
 
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cs3.auth.registry.v1beta1.GetAuthProviderRequest,
- *   !proto.cs3.auth.registry.v1beta1.GetAuthProviderResponse>}
+ *   !proto.cs3.auth.registry.v1beta1.GetAuthProvidersRequest,
+ *   !proto.cs3.auth.registry.v1beta1.GetAuthProvidersResponse>}
  */
-const methodInfo_RegistryAPI_GetAuthProvider = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cs3.auth.registry.v1beta1.GetAuthProviderResponse,
-  /** @param {!proto.cs3.auth.registry.v1beta1.GetAuthProviderRequest} request */
+const methodInfo_RegistryAPI_GetAuthProviders = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.cs3.auth.registry.v1beta1.GetAuthProvidersResponse,
+  /** @param {!proto.cs3.auth.registry.v1beta1.GetAuthProvidersRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  proto.cs3.auth.registry.v1beta1.GetAuthProviderResponse.deserializeBinary
+  proto.cs3.auth.registry.v1beta1.GetAuthProvidersResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.cs3.auth.registry.v1beta1.GetAuthProviderRequest} request The
+ * @param {!proto.cs3.auth.registry.v1beta1.GetAuthProvidersRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cs3.auth.registry.v1beta1.GetAuthProviderResponse)}
+ * @param {function(?grpc.web.Error, ?proto.cs3.auth.registry.v1beta1.GetAuthProvidersResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.cs3.auth.registry.v1beta1.GetAuthProviderResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.auth.registry.v1beta1.GetAuthProvidersResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.cs3.auth.registry.v1beta1.RegistryAPIClient.prototype.getAuthProvider =
+proto.cs3.auth.registry.v1beta1.RegistryAPIClient.prototype.getAuthProviders =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/cs3.auth.registry.v1beta1.RegistryAPI/GetAuthProvider',
+      '/cs3.auth.registry.v1beta1.RegistryAPI/GetAuthProviders',
       request,
       metadata || {},
-      methodDescriptor_RegistryAPI_GetAuthProvider,
+      methodDescriptor_RegistryAPI_GetAuthProviders,
       callback);
 };
 
 
 /**
- * @param {!proto.cs3.auth.registry.v1beta1.GetAuthProviderRequest} request The
+ * @param {!proto.cs3.auth.registry.v1beta1.GetAuthProvidersRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.cs3.auth.registry.v1beta1.GetAuthProviderResponse>}
+ * @return {!Promise<!proto.cs3.auth.registry.v1beta1.GetAuthProvidersResponse>}
  *     A native promise that resolves to the response
  */
-proto.cs3.auth.registry.v1beta1.RegistryAPIPromiseClient.prototype.getAuthProvider =
+proto.cs3.auth.registry.v1beta1.RegistryAPIPromiseClient.prototype.getAuthProviders =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/cs3.auth.registry.v1beta1.RegistryAPI/GetAuthProvider',
+      '/cs3.auth.registry.v1beta1.RegistryAPI/GetAuthProviders',
       request,
       metadata || {},
-      methodDescriptor_RegistryAPI_GetAuthProvider);
+      methodDescriptor_RegistryAPI_GetAuthProviders);
 };
 
 
