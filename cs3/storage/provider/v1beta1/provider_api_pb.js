@@ -2031,7 +2031,8 @@ proto.cs3.storage.provider.v1beta1.AddGrantRequest.toObject = function(includeIn
   var f, obj = {
     opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
     ref: (f = msg.getRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
-    grant: (f = msg.getGrant()) && cs3_storage_provider_v1beta1_resources_pb.Grant.toObject(includeInstance, f)
+    grant: (f = msg.getGrant()) && cs3_storage_provider_v1beta1_resources_pb.Grant.toObject(includeInstance, f),
+    lockId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -2082,6 +2083,10 @@ proto.cs3.storage.provider.v1beta1.AddGrantRequest.deserializeBinaryFromReader =
       var value = new cs3_storage_provider_v1beta1_resources_pb.Grant;
       reader.readMessage(value,cs3_storage_provider_v1beta1_resources_pb.Grant.deserializeBinaryFromReader);
       msg.setGrant(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLockId(value);
       break;
     default:
       reader.skipField();
@@ -2134,6 +2139,13 @@ proto.cs3.storage.provider.v1beta1.AddGrantRequest.serializeBinaryToWriter = fun
       3,
       f,
       cs3_storage_provider_v1beta1_resources_pb.Grant.serializeBinaryToWriter
+    );
+  }
+  f = message.getLockId();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
     );
   }
 };
@@ -2235,6 +2247,21 @@ proto.cs3.storage.provider.v1beta1.AddGrantRequest.prototype.clearGrant = functi
  */
 proto.cs3.storage.provider.v1beta1.AddGrantRequest.prototype.hasGrant = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string lock_id = 4;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.AddGrantRequest.prototype.getLockId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.storage.provider.v1beta1.AddGrantRequest.prototype.setLockId = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -2466,7 +2493,8 @@ proto.cs3.storage.provider.v1beta1.DenyGrantRequest.toObject = function(includeI
   var f, obj = {
     opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
     ref: (f = msg.getRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
-    grantee: (f = msg.getGrantee()) && cs3_storage_provider_v1beta1_resources_pb.Grantee.toObject(includeInstance, f)
+    grantee: (f = msg.getGrantee()) && cs3_storage_provider_v1beta1_resources_pb.Grantee.toObject(includeInstance, f),
+    lockId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -2517,6 +2545,10 @@ proto.cs3.storage.provider.v1beta1.DenyGrantRequest.deserializeBinaryFromReader 
       var value = new cs3_storage_provider_v1beta1_resources_pb.Grantee;
       reader.readMessage(value,cs3_storage_provider_v1beta1_resources_pb.Grantee.deserializeBinaryFromReader);
       msg.setGrantee(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLockId(value);
       break;
     default:
       reader.skipField();
@@ -2569,6 +2601,13 @@ proto.cs3.storage.provider.v1beta1.DenyGrantRequest.serializeBinaryToWriter = fu
       3,
       f,
       cs3_storage_provider_v1beta1_resources_pb.Grantee.serializeBinaryToWriter
+    );
+  }
+  f = message.getLockId();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
     );
   }
 };
@@ -2670,6 +2709,21 @@ proto.cs3.storage.provider.v1beta1.DenyGrantRequest.prototype.clearGrantee = fun
  */
 proto.cs3.storage.provider.v1beta1.DenyGrantRequest.prototype.hasGrantee = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string lock_id = 4;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.DenyGrantRequest.prototype.getLockId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.storage.provider.v1beta1.DenyGrantRequest.prototype.setLockId = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -3676,7 +3730,8 @@ proto.cs3.storage.provider.v1beta1.DeleteRequest.prototype.toObject = function(o
 proto.cs3.storage.provider.v1beta1.DeleteRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
-    ref: (f = msg.getRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f)
+    ref: (f = msg.getRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
+    lockId: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -3723,6 +3778,10 @@ proto.cs3.storage.provider.v1beta1.DeleteRequest.deserializeBinaryFromReader = f
       reader.readMessage(value,cs3_storage_provider_v1beta1_resources_pb.Reference.deserializeBinaryFromReader);
       msg.setRef(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLockId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -3766,6 +3825,13 @@ proto.cs3.storage.provider.v1beta1.DeleteRequest.serializeBinaryToWriter = funct
       2,
       f,
       cs3_storage_provider_v1beta1_resources_pb.Reference.serializeBinaryToWriter
+    );
+  }
+  f = message.getLockId();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
     );
   }
 };
@@ -3834,6 +3900,21 @@ proto.cs3.storage.provider.v1beta1.DeleteRequest.prototype.clearRef = function()
  */
 proto.cs3.storage.provider.v1beta1.DeleteRequest.prototype.hasRef = function() {
   return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional string lock_id = 3;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.DeleteRequest.prototype.getLockId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.storage.provider.v1beta1.DeleteRequest.prototype.setLockId = function(value) {
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -4949,7 +5030,8 @@ proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.toObject = function
     opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
     ref: (f = msg.getRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
     ifNotExist: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
-    ifMatch: jspb.Message.getFieldWithDefault(msg, 4, "")
+    ifMatch: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    lockId: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -5003,6 +5085,10 @@ proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.deserializeBinaryFr
     case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setIfMatch(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLockId(value);
       break;
     default:
       reader.skipField();
@@ -5060,6 +5146,13 @@ proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.serializeBinaryToWr
   if (f != null) {
     writer.writeString(
       4,
+      f
+    );
+  }
+  f = message.getLockId();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
       f
     );
   }
@@ -5193,6 +5286,21 @@ proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.prototype.clearIfMa
  */
 proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.prototype.hasIfMatch = function() {
   return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional string lock_id = 5;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.prototype.getLockId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.prototype.setLockId = function(value) {
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -5479,7 +5587,8 @@ proto.cs3.storage.provider.v1beta1.InitiateFileDownloadRequest.prototype.toObjec
 proto.cs3.storage.provider.v1beta1.InitiateFileDownloadRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
-    ref: (f = msg.getRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f)
+    ref: (f = msg.getRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
+    lockId: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -5526,6 +5635,10 @@ proto.cs3.storage.provider.v1beta1.InitiateFileDownloadRequest.deserializeBinary
       reader.readMessage(value,cs3_storage_provider_v1beta1_resources_pb.Reference.deserializeBinaryFromReader);
       msg.setRef(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLockId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -5569,6 +5682,13 @@ proto.cs3.storage.provider.v1beta1.InitiateFileDownloadRequest.serializeBinaryTo
       2,
       f,
       cs3_storage_provider_v1beta1_resources_pb.Reference.serializeBinaryToWriter
+    );
+  }
+  f = message.getLockId();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
     );
   }
 };
@@ -5637,6 +5757,21 @@ proto.cs3.storage.provider.v1beta1.InitiateFileDownloadRequest.prototype.clearRe
  */
 proto.cs3.storage.provider.v1beta1.InitiateFileDownloadRequest.prototype.hasRef = function() {
   return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional string lock_id = 3;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.InitiateFileDownloadRequest.prototype.getLockId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.storage.provider.v1beta1.InitiateFileDownloadRequest.prototype.setLockId = function(value) {
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -8914,7 +9049,8 @@ proto.cs3.storage.provider.v1beta1.MoveRequest.toObject = function(includeInstan
   var f, obj = {
     opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
     source: (f = msg.getSource()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
-    destination: (f = msg.getDestination()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f)
+    destination: (f = msg.getDestination()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
+    lockId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -8965,6 +9101,10 @@ proto.cs3.storage.provider.v1beta1.MoveRequest.deserializeBinaryFromReader = fun
       var value = new cs3_storage_provider_v1beta1_resources_pb.Reference;
       reader.readMessage(value,cs3_storage_provider_v1beta1_resources_pb.Reference.deserializeBinaryFromReader);
       msg.setDestination(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLockId(value);
       break;
     default:
       reader.skipField();
@@ -9017,6 +9157,13 @@ proto.cs3.storage.provider.v1beta1.MoveRequest.serializeBinaryToWriter = functio
       3,
       f,
       cs3_storage_provider_v1beta1_resources_pb.Reference.serializeBinaryToWriter
+    );
+  }
+  f = message.getLockId();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
     );
   }
 };
@@ -9118,6 +9265,21 @@ proto.cs3.storage.provider.v1beta1.MoveRequest.prototype.clearDestination = func
  */
 proto.cs3.storage.provider.v1beta1.MoveRequest.prototype.hasDestination = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string lock_id = 4;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.MoveRequest.prototype.getLockId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.storage.provider.v1beta1.MoveRequest.prototype.setLockId = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -9764,7 +9926,8 @@ proto.cs3.storage.provider.v1beta1.RestoreFileVersionRequest.toObject = function
   var f, obj = {
     opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
     ref: (f = msg.getRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
-    key: jspb.Message.getFieldWithDefault(msg, 3, "")
+    key: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    lockId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -9815,6 +9978,10 @@ proto.cs3.storage.provider.v1beta1.RestoreFileVersionRequest.deserializeBinaryFr
       var value = /** @type {string} */ (reader.readString());
       msg.setKey(value);
       break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLockId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -9864,6 +10031,13 @@ proto.cs3.storage.provider.v1beta1.RestoreFileVersionRequest.serializeBinaryToWr
   if (f.length > 0) {
     writer.writeString(
       3,
+      f
+    );
+  }
+  f = message.getLockId();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
       f
     );
   }
@@ -9948,6 +10122,21 @@ proto.cs3.storage.provider.v1beta1.RestoreFileVersionRequest.prototype.getKey = 
 /** @param {string} value */
 proto.cs3.storage.provider.v1beta1.RestoreFileVersionRequest.prototype.setKey = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string lock_id = 4;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.RestoreFileVersionRequest.prototype.getLockId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.storage.provider.v1beta1.RestoreFileVersionRequest.prototype.setLockId = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -10180,7 +10369,8 @@ proto.cs3.storage.provider.v1beta1.RestoreRecycleItemRequest.toObject = function
     opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
     ref: (f = msg.getRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
     key: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    restoreRef: (f = msg.getRestoreRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f)
+    restoreRef: (f = msg.getRestoreRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
+    lockId: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -10235,6 +10425,10 @@ proto.cs3.storage.provider.v1beta1.RestoreRecycleItemRequest.deserializeBinaryFr
       var value = new cs3_storage_provider_v1beta1_resources_pb.Reference;
       reader.readMessage(value,cs3_storage_provider_v1beta1_resources_pb.Reference.deserializeBinaryFromReader);
       msg.setRestoreRef(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLockId(value);
       break;
     default:
       reader.skipField();
@@ -10294,6 +10488,13 @@ proto.cs3.storage.provider.v1beta1.RestoreRecycleItemRequest.serializeBinaryToWr
       4,
       f,
       cs3_storage_provider_v1beta1_resources_pb.Reference.serializeBinaryToWriter
+    );
+  }
+  f = message.getLockId();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
     );
   }
 };
@@ -10410,6 +10611,21 @@ proto.cs3.storage.provider.v1beta1.RestoreRecycleItemRequest.prototype.clearRest
  */
 proto.cs3.storage.provider.v1beta1.RestoreRecycleItemRequest.prototype.hasRestoreRef = function() {
   return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional string lock_id = 5;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.RestoreRecycleItemRequest.prototype.getLockId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.storage.provider.v1beta1.RestoreRecycleItemRequest.prototype.setLockId = function(value) {
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -10641,7 +10857,8 @@ proto.cs3.storage.provider.v1beta1.RemoveGrantRequest.toObject = function(includ
   var f, obj = {
     opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
     ref: (f = msg.getRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
-    grant: (f = msg.getGrant()) && cs3_storage_provider_v1beta1_resources_pb.Grant.toObject(includeInstance, f)
+    grant: (f = msg.getGrant()) && cs3_storage_provider_v1beta1_resources_pb.Grant.toObject(includeInstance, f),
+    lockId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -10692,6 +10909,10 @@ proto.cs3.storage.provider.v1beta1.RemoveGrantRequest.deserializeBinaryFromReade
       var value = new cs3_storage_provider_v1beta1_resources_pb.Grant;
       reader.readMessage(value,cs3_storage_provider_v1beta1_resources_pb.Grant.deserializeBinaryFromReader);
       msg.setGrant(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLockId(value);
       break;
     default:
       reader.skipField();
@@ -10744,6 +10965,13 @@ proto.cs3.storage.provider.v1beta1.RemoveGrantRequest.serializeBinaryToWriter = 
       3,
       f,
       cs3_storage_provider_v1beta1_resources_pb.Grant.serializeBinaryToWriter
+    );
+  }
+  f = message.getLockId();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
     );
   }
 };
@@ -10845,6 +11073,21 @@ proto.cs3.storage.provider.v1beta1.RemoveGrantRequest.prototype.clearGrant = fun
  */
 proto.cs3.storage.provider.v1beta1.RemoveGrantRequest.prototype.hasGrant = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string lock_id = 4;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.RemoveGrantRequest.prototype.getLockId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.storage.provider.v1beta1.RemoveGrantRequest.prototype.setLockId = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -11562,7 +11805,8 @@ proto.cs3.storage.provider.v1beta1.UpdateGrantRequest.toObject = function(includ
   var f, obj = {
     opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
     ref: (f = msg.getRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
-    grant: (f = msg.getGrant()) && cs3_storage_provider_v1beta1_resources_pb.Grant.toObject(includeInstance, f)
+    grant: (f = msg.getGrant()) && cs3_storage_provider_v1beta1_resources_pb.Grant.toObject(includeInstance, f),
+    lockId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -11613,6 +11857,10 @@ proto.cs3.storage.provider.v1beta1.UpdateGrantRequest.deserializeBinaryFromReade
       var value = new cs3_storage_provider_v1beta1_resources_pb.Grant;
       reader.readMessage(value,cs3_storage_provider_v1beta1_resources_pb.Grant.deserializeBinaryFromReader);
       msg.setGrant(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLockId(value);
       break;
     default:
       reader.skipField();
@@ -11665,6 +11913,13 @@ proto.cs3.storage.provider.v1beta1.UpdateGrantRequest.serializeBinaryToWriter = 
       3,
       f,
       cs3_storage_provider_v1beta1_resources_pb.Grant.serializeBinaryToWriter
+    );
+  }
+  f = message.getLockId();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
     );
   }
 };
@@ -11766,6 +12021,21 @@ proto.cs3.storage.provider.v1beta1.UpdateGrantRequest.prototype.clearGrant = fun
  */
 proto.cs3.storage.provider.v1beta1.UpdateGrantRequest.prototype.hasGrant = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string lock_id = 4;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.UpdateGrantRequest.prototype.getLockId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.storage.provider.v1beta1.UpdateGrantRequest.prototype.setLockId = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -12827,7 +13097,8 @@ proto.cs3.storage.provider.v1beta1.SetArbitraryMetadataRequest.toObject = functi
   var f, obj = {
     opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
     ref: (f = msg.getRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
-    arbitraryMetadata: (f = msg.getArbitraryMetadata()) && cs3_storage_provider_v1beta1_resources_pb.ArbitraryMetadata.toObject(includeInstance, f)
+    arbitraryMetadata: (f = msg.getArbitraryMetadata()) && cs3_storage_provider_v1beta1_resources_pb.ArbitraryMetadata.toObject(includeInstance, f),
+    lockId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -12878,6 +13149,10 @@ proto.cs3.storage.provider.v1beta1.SetArbitraryMetadataRequest.deserializeBinary
       var value = new cs3_storage_provider_v1beta1_resources_pb.ArbitraryMetadata;
       reader.readMessage(value,cs3_storage_provider_v1beta1_resources_pb.ArbitraryMetadata.deserializeBinaryFromReader);
       msg.setArbitraryMetadata(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLockId(value);
       break;
     default:
       reader.skipField();
@@ -12930,6 +13205,13 @@ proto.cs3.storage.provider.v1beta1.SetArbitraryMetadataRequest.serializeBinaryTo
       3,
       f,
       cs3_storage_provider_v1beta1_resources_pb.ArbitraryMetadata.serializeBinaryToWriter
+    );
+  }
+  f = message.getLockId();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
     );
   }
 };
@@ -13031,6 +13313,21 @@ proto.cs3.storage.provider.v1beta1.SetArbitraryMetadataRequest.prototype.clearAr
  */
 proto.cs3.storage.provider.v1beta1.SetArbitraryMetadataRequest.prototype.hasArbitraryMetadata = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string lock_id = 4;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.SetArbitraryMetadataRequest.prototype.getLockId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.storage.provider.v1beta1.SetArbitraryMetadataRequest.prototype.setLockId = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -13269,7 +13566,8 @@ proto.cs3.storage.provider.v1beta1.UnsetArbitraryMetadataRequest.toObject = func
   var f, obj = {
     opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
     ref: (f = msg.getRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
-    arbitraryMetadataKeysList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f
+    arbitraryMetadataKeysList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f,
+    lockId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -13320,6 +13618,10 @@ proto.cs3.storage.provider.v1beta1.UnsetArbitraryMetadataRequest.deserializeBina
       var value = /** @type {string} */ (reader.readString());
       msg.addArbitraryMetadataKeys(value);
       break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLockId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -13369,6 +13671,13 @@ proto.cs3.storage.provider.v1beta1.UnsetArbitraryMetadataRequest.serializeBinary
   if (f.length > 0) {
     writer.writeRepeatedString(
       3,
+      f
+    );
+  }
+  f = message.getLockId();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
       f
     );
   }
@@ -13470,6 +13779,21 @@ proto.cs3.storage.provider.v1beta1.UnsetArbitraryMetadataRequest.prototype.addAr
  */
 proto.cs3.storage.provider.v1beta1.UnsetArbitraryMetadataRequest.prototype.clearArbitraryMetadataKeysList = function() {
   this.setArbitraryMetadataKeysList([]);
+};
+
+
+/**
+ * optional string lock_id = 4;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.UnsetArbitraryMetadataRequest.prototype.getLockId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.storage.provider.v1beta1.UnsetArbitraryMetadataRequest.prototype.setLockId = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
