@@ -474,7 +474,8 @@ proto.cs3.storage.provider.v1beta1.ResourceInfo.toObject = function(includeInsta
     arbitraryMetadata: (f = msg.getArbitraryMetadata()) && proto.cs3.storage.provider.v1beta1.ArbitraryMetadata.toObject(includeInstance, f),
     lock: (f = msg.getLock()) && proto.cs3.storage.provider.v1beta1.Lock.toObject(includeInstance, f),
     advisoryLocksList: jspb.Message.toObjectList(msg.getAdvisoryLocksList(),
-    proto.cs3.storage.provider.v1beta1.Lock.toObject, includeInstance)
+    proto.cs3.storage.provider.v1beta1.Lock.toObject, includeInstance),
+    parentId: (f = msg.getParentId()) && proto.cs3.storage.provider.v1beta1.ResourceId.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -584,6 +585,11 @@ proto.cs3.storage.provider.v1beta1.ResourceInfo.deserializeBinaryFromReader = fu
       var value = new proto.cs3.storage.provider.v1beta1.Lock;
       reader.readMessage(value,proto.cs3.storage.provider.v1beta1.Lock.deserializeBinaryFromReader);
       msg.addAdvisoryLocks(value);
+      break;
+    case 17:
+      var value = new proto.cs3.storage.provider.v1beta1.ResourceId;
+      reader.readMessage(value,proto.cs3.storage.provider.v1beta1.ResourceId.deserializeBinaryFromReader);
+      msg.setParentId(value);
       break;
     default:
       reader.skipField();
@@ -734,6 +740,14 @@ proto.cs3.storage.provider.v1beta1.ResourceInfo.serializeBinaryToWriter = functi
       16,
       f,
       proto.cs3.storage.provider.v1beta1.Lock.serializeBinaryToWriter
+    );
+  }
+  f = message.getParentId();
+  if (f != null) {
+    writer.writeMessage(
+      17,
+      f,
+      proto.cs3.storage.provider.v1beta1.ResourceId.serializeBinaryToWriter
     );
   }
 };
@@ -1157,6 +1171,39 @@ proto.cs3.storage.provider.v1beta1.ResourceInfo.prototype.addAdvisoryLocks = fun
  */
 proto.cs3.storage.provider.v1beta1.ResourceInfo.prototype.clearAdvisoryLocksList = function() {
   this.setAdvisoryLocksList([]);
+};
+
+
+/**
+ * optional ResourceId parent_id = 17;
+ * @return {?proto.cs3.storage.provider.v1beta1.ResourceId}
+ */
+proto.cs3.storage.provider.v1beta1.ResourceInfo.prototype.getParentId = function() {
+  return /** @type{?proto.cs3.storage.provider.v1beta1.ResourceId} */ (
+    jspb.Message.getWrapperField(this, proto.cs3.storage.provider.v1beta1.ResourceId, 17));
+};
+
+
+/** @param {?proto.cs3.storage.provider.v1beta1.ResourceId|undefined} value */
+proto.cs3.storage.provider.v1beta1.ResourceInfo.prototype.setParentId = function(value) {
+  jspb.Message.setWrapperField(this, 17, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ */
+proto.cs3.storage.provider.v1beta1.ResourceInfo.prototype.clearParentId = function() {
+  this.setParentId(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.storage.provider.v1beta1.ResourceInfo.prototype.hasParentId = function() {
+  return jspb.Message.getField(this, 17) != null;
 };
 
 
