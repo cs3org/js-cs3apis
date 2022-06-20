@@ -19,6 +19,8 @@ var cs3_rpc_v1beta1_status_pb = require('../../../../cs3/rpc/v1beta1/status_pb.j
 var cs3_storage_provider_v1beta1_resources_pb = require('../../../../cs3/storage/provider/v1beta1/resources_pb.js')
 
 var cs3_types_v1beta1_types_pb = require('../../../../cs3/types/v1beta1/types_pb.js')
+
+var google_protobuf_field_mask_pb = require('google-protobuf/google/protobuf/field_mask_pb.js')
 const proto = {};
 proto.cs3 = {};
 proto.cs3.storage = {};
