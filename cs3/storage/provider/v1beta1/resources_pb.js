@@ -2397,7 +2397,8 @@ proto.cs3.storage.provider.v1beta1.ResourceId.prototype.toObject = function(opt_
 proto.cs3.storage.provider.v1beta1.ResourceId.toObject = function(includeInstance, msg) {
   var f, obj = {
     storageId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    opaqueId: jspb.Message.getFieldWithDefault(msg, 2, "")
+    opaqueId: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    spaceId: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -2442,6 +2443,10 @@ proto.cs3.storage.provider.v1beta1.ResourceId.deserializeBinaryFromReader = func
       var value = /** @type {string} */ (reader.readString());
       msg.setOpaqueId(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSpaceId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -2485,6 +2490,13 @@ proto.cs3.storage.provider.v1beta1.ResourceId.serializeBinaryToWriter = function
       f
     );
   }
+  f = message.getSpaceId();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -2515,6 +2527,21 @@ proto.cs3.storage.provider.v1beta1.ResourceId.prototype.getOpaqueId = function()
 /** @param {string} value */
 proto.cs3.storage.provider.v1beta1.ResourceId.prototype.setOpaqueId = function(value) {
   jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string space_id = 3;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.ResourceId.prototype.getSpaceId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.storage.provider.v1beta1.ResourceId.prototype.setSpaceId = function(value) {
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
