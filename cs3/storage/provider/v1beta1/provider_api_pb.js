@@ -4980,7 +4980,7 @@ proto.cs3.storage.provider.v1beta1.GetQuotaResponse.prototype.setUsedBytes = fun
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.oneofGroups_ = [[3,4]];
+proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.oneofGroups_ = [[3,4,6]];
 
 /**
  * @enum {number}
@@ -4988,7 +4988,8 @@ proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.oneofGroups_ = [[3,
 proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.OptionsCase = {
   OPTIONS_NOT_SET: 0,
   IF_NOT_EXIST: 3,
-  IF_MATCH: 4
+  IF_MATCH: 4,
+  IF_UNMODIFIED_SINCE: 6
 };
 
 /**
@@ -5033,6 +5034,7 @@ proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.toObject = function
     ref: (f = msg.getRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
     ifNotExist: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
     ifMatch: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    ifUnmodifiedSince: (f = msg.getIfUnmodifiedSince()) && cs3_types_v1beta1_types_pb.Timestamp.toObject(includeInstance, f),
     lockId: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
@@ -5087,6 +5089,11 @@ proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.deserializeBinaryFr
     case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setIfMatch(value);
+      break;
+    case 6:
+      var value = new cs3_types_v1beta1_types_pb.Timestamp;
+      reader.readMessage(value,cs3_types_v1beta1_types_pb.Timestamp.deserializeBinaryFromReader);
+      msg.setIfUnmodifiedSince(value);
       break;
     case 5:
       var value = /** @type {string} */ (reader.readString());
@@ -5149,6 +5156,14 @@ proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.serializeBinaryToWr
     writer.writeString(
       4,
       f
+    );
+  }
+  f = message.getIfUnmodifiedSince();
+  if (f != null) {
+    writer.writeMessage(
+      6,
+      f,
+      cs3_types_v1beta1_types_pb.Timestamp.serializeBinaryToWriter
     );
   }
   f = message.getLockId();
@@ -5288,6 +5303,39 @@ proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.prototype.clearIfMa
  */
 proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.prototype.hasIfMatch = function() {
   return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional cs3.types.v1beta1.Timestamp if_unmodified_since = 6;
+ * @return {?proto.cs3.types.v1beta1.Timestamp}
+ */
+proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.prototype.getIfUnmodifiedSince = function() {
+  return /** @type{?proto.cs3.types.v1beta1.Timestamp} */ (
+    jspb.Message.getWrapperField(this, cs3_types_v1beta1_types_pb.Timestamp, 6));
+};
+
+
+/** @param {?proto.cs3.types.v1beta1.Timestamp|undefined} value */
+proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.prototype.setIfUnmodifiedSince = function(value) {
+  jspb.Message.setOneofWrapperField(this, 6, proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ */
+proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.prototype.clearIfUnmodifiedSince = function() {
+  this.setIfUnmodifiedSince(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.storage.provider.v1beta1.InitiateFileUploadRequest.prototype.hasIfUnmodifiedSince = function() {
+  return jspb.Message.getField(this, 6) != null;
 };
 
 
