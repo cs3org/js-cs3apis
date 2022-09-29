@@ -15572,7 +15572,8 @@ proto.cs3.storage.provider.v1beta1.RefreshLockRequest.toObject = function(includ
   var f, obj = {
     opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
     ref: (f = msg.getRef()) && cs3_storage_provider_v1beta1_resources_pb.Reference.toObject(includeInstance, f),
-    lock: (f = msg.getLock()) && cs3_storage_provider_v1beta1_resources_pb.Lock.toObject(includeInstance, f)
+    lock: (f = msg.getLock()) && cs3_storage_provider_v1beta1_resources_pb.Lock.toObject(includeInstance, f),
+    existingLockId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -15623,6 +15624,10 @@ proto.cs3.storage.provider.v1beta1.RefreshLockRequest.deserializeBinaryFromReade
       var value = new cs3_storage_provider_v1beta1_resources_pb.Lock;
       reader.readMessage(value,cs3_storage_provider_v1beta1_resources_pb.Lock.deserializeBinaryFromReader);
       msg.setLock(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setExistingLockId(value);
       break;
     default:
       reader.skipField();
@@ -15675,6 +15680,13 @@ proto.cs3.storage.provider.v1beta1.RefreshLockRequest.serializeBinaryToWriter = 
       3,
       f,
       cs3_storage_provider_v1beta1_resources_pb.Lock.serializeBinaryToWriter
+    );
+  }
+  f = message.getExistingLockId();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
     );
   }
 };
@@ -15776,6 +15788,21 @@ proto.cs3.storage.provider.v1beta1.RefreshLockRequest.prototype.clearLock = func
  */
 proto.cs3.storage.provider.v1beta1.RefreshLockRequest.prototype.hasLock = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string existing_lock_id = 4;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.RefreshLockRequest.prototype.getExistingLockId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.storage.provider.v1beta1.RefreshLockRequest.prototype.setExistingLockId = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
