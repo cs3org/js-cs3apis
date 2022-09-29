@@ -218,7 +218,8 @@ proto.cs3.sharing.link.v1beta1.PublicShare.toObject = function(includeInstance, 
     expiration: (f = msg.getExpiration()) && cs3_types_v1beta1_types_pb.Timestamp.toObject(includeInstance, f),
     displayName: jspb.Message.getFieldWithDefault(msg, 11, ""),
     signature: (f = msg.getSignature()) && proto.cs3.sharing.link.v1beta1.ShareSignature.toObject(includeInstance, f),
-    quicklink: jspb.Message.getBooleanFieldWithDefault(msg, 13, false)
+    quicklink: jspb.Message.getBooleanFieldWithDefault(msg, 13, false),
+    description: jspb.Message.getFieldWithDefault(msg, 14, "")
   };
 
   if (includeInstance) {
@@ -315,6 +316,10 @@ proto.cs3.sharing.link.v1beta1.PublicShare.deserializeBinaryFromReader = functio
     case 13:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setQuicklink(value);
+      break;
+    case 14:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDescription(value);
       break;
     default:
       reader.skipField();
@@ -442,6 +447,13 @@ proto.cs3.sharing.link.v1beta1.PublicShare.serializeBinaryToWriter = function(me
   if (f) {
     writer.writeBool(
       13,
+      f
+    );
+  }
+  f = message.getDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      14,
       f
     );
   }
@@ -802,6 +814,21 @@ proto.cs3.sharing.link.v1beta1.PublicShare.prototype.getQuicklink = function() {
 /** @param {boolean} value */
 proto.cs3.sharing.link.v1beta1.PublicShare.prototype.setQuicklink = function(value) {
   jspb.Message.setProto3BooleanField(this, 13, value);
+};
+
+
+/**
+ * optional string description = 14;
+ * @return {string}
+ */
+proto.cs3.sharing.link.v1beta1.PublicShare.prototype.getDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.sharing.link.v1beta1.PublicShare.prototype.setDescription = function(value) {
+  jspb.Message.setProto3StringField(this, 14, value);
 };
 
 

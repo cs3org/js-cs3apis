@@ -991,7 +991,8 @@ proto.cs3.sharing.link.v1beta1.UpdatePublicShareRequest.Update.toObject = functi
   var f, obj = {
     type: jspb.Message.getFieldWithDefault(msg, 3, 0),
     grant: (f = msg.getGrant()) && cs3_sharing_link_v1beta1_resources_pb.Grant.toObject(includeInstance, f),
-    displayName: jspb.Message.getFieldWithDefault(msg, 5, "")
+    displayName: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    description: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -1040,6 +1041,10 @@ proto.cs3.sharing.link.v1beta1.UpdatePublicShareRequest.Update.deserializeBinary
     case 5:
       var value = /** @type {string} */ (reader.readString());
       msg.setDisplayName(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDescription(value);
       break;
     default:
       reader.skipField();
@@ -1092,6 +1097,13 @@ proto.cs3.sharing.link.v1beta1.UpdatePublicShareRequest.Update.serializeBinaryTo
       f
     );
   }
+  f = message.getDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
+      f
+    );
+  }
 };
 
 
@@ -1103,7 +1115,8 @@ proto.cs3.sharing.link.v1beta1.UpdatePublicShareRequest.Update.Type = {
   TYPE_PERMISSIONS: 1,
   TYPE_PASSWORD: 2,
   TYPE_EXPIRATION: 3,
-  TYPE_DISPLAYNAME: 4
+  TYPE_DISPLAYNAME: 4,
+  TYPE_DESCRIPTION: 5
 };
 
 /**
@@ -1166,6 +1179,21 @@ proto.cs3.sharing.link.v1beta1.UpdatePublicShareRequest.Update.prototype.getDisp
 /** @param {string} value */
 proto.cs3.sharing.link.v1beta1.UpdatePublicShareRequest.Update.prototype.setDisplayName = function(value) {
   jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string description = 6;
+ * @return {string}
+ */
+proto.cs3.sharing.link.v1beta1.UpdatePublicShareRequest.Update.prototype.getDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.sharing.link.v1beta1.UpdatePublicShareRequest.Update.prototype.setDescription = function(value) {
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
