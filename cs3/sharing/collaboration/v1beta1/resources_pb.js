@@ -1833,7 +1833,7 @@ proto.cs3.sharing.collaboration.v1beta1.ShareGrant.prototype.hasPermissions = fu
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.cs3.sharing.collaboration.v1beta1.Filter.oneofGroups_ = [[3,4,5,6]];
+proto.cs3.sharing.collaboration.v1beta1.Filter.oneofGroups_ = [[3,4,5,6,7,8]];
 
 /**
  * @enum {number}
@@ -1843,7 +1843,9 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.TermCase = {
   RESOURCE_ID: 3,
   OWNER: 4,
   CREATOR: 5,
-  GRANTEE_TYPE: 6
+  GRANTEE_TYPE: 6,
+  SPACE_ID: 7,
+  STATE: 8
 };
 
 /**
@@ -1888,7 +1890,9 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.toObject = function(includeInstan
     resourceId: (f = msg.getResourceId()) && cs3_storage_provider_v1beta1_resources_pb.ResourceId.toObject(includeInstance, f),
     owner: (f = msg.getOwner()) && cs3_identity_user_v1beta1_resources_pb.UserId.toObject(includeInstance, f),
     creator: (f = msg.getCreator()) && cs3_identity_user_v1beta1_resources_pb.UserId.toObject(includeInstance, f),
-    granteeType: jspb.Message.getFieldWithDefault(msg, 6, 0)
+    granteeType: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    spaceId: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    state: jspb.Message.getFieldWithDefault(msg, 8, 0)
   };
 
   if (includeInstance) {
@@ -1947,6 +1951,14 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.deserializeBinaryFromReader = fun
     case 6:
       var value = /** @type {!proto.cs3.storage.provider.v1beta1.GranteeType} */ (reader.readEnum());
       msg.setGranteeType(value);
+      break;
+    case 7:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSpaceId(value);
+      break;
+    case 8:
+      var value = /** @type {!proto.cs3.sharing.collaboration.v1beta1.ShareState} */ (reader.readEnum());
+      msg.setState(value);
       break;
     default:
       reader.skipField();
@@ -2015,6 +2027,20 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.serializeBinaryToWriter = functio
       f
     );
   }
+  f = /** @type {string} */ (jspb.Message.getField(message, 7));
+  if (f != null) {
+    writer.writeString(
+      7,
+      f
+    );
+  }
+  f = /** @type {!proto.cs3.sharing.collaboration.v1beta1.ShareState} */ (jspb.Message.getField(message, 8));
+  if (f != null) {
+    writer.writeEnum(
+      8,
+      f
+    );
+  }
 };
 
 
@@ -2028,7 +2054,9 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.Type = {
   TYPE_OWNER: 3,
   TYPE_CREATOR: 4,
   TYPE_GRANTEE_TYPE: 5,
-  TYPE_EXCLUDE_DENIALS: 6
+  TYPE_EXCLUDE_DENIALS: 6,
+  TYPE_SPACE_ID: 7,
+  TYPE_STATE: 8
 };
 
 /**
@@ -2174,6 +2202,70 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.clearGranteeType = func
  */
 proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.hasGranteeType = function() {
   return jspb.Message.getField(this, 6) != null;
+};
+
+
+/**
+ * optional string space_id = 7;
+ * @return {string}
+ */
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.getSpaceId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.setSpaceId = function(value) {
+  jspb.Message.setOneofField(this, 7, proto.cs3.sharing.collaboration.v1beta1.Filter.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ */
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.clearSpaceId = function() {
+  jspb.Message.setOneofField(this, 7, proto.cs3.sharing.collaboration.v1beta1.Filter.oneofGroups_[0], undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.hasSpaceId = function() {
+  return jspb.Message.getField(this, 7) != null;
+};
+
+
+/**
+ * optional ShareState state = 8;
+ * @return {!proto.cs3.sharing.collaboration.v1beta1.ShareState}
+ */
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.getState = function() {
+  return /** @type {!proto.cs3.sharing.collaboration.v1beta1.ShareState} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {!proto.cs3.sharing.collaboration.v1beta1.ShareState} value */
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.setState = function(value) {
+  jspb.Message.setOneofField(this, 8, proto.cs3.sharing.collaboration.v1beta1.Filter.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ */
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.clearState = function() {
+  jspb.Message.setOneofField(this, 8, proto.cs3.sharing.collaboration.v1beta1.Filter.oneofGroups_[0], undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.hasState = function() {
+  return jspb.Message.getField(this, 8) != null;
 };
 
 
