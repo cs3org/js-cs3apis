@@ -274,7 +274,8 @@ proto.cs3.ocm.invite.v1beta1.GenerateInviteTokenRequest.prototype.toObject = fun
  */
 proto.cs3.ocm.invite.v1beta1.GenerateInviteTokenRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f)
+    opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
+    description: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -316,6 +317,10 @@ proto.cs3.ocm.invite.v1beta1.GenerateInviteTokenRequest.deserializeBinaryFromRea
       reader.readMessage(value,cs3_types_v1beta1_types_pb.Opaque.deserializeBinaryFromReader);
       msg.setOpaque(value);
       break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDescription(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -353,6 +358,13 @@ proto.cs3.ocm.invite.v1beta1.GenerateInviteTokenRequest.serializeBinaryToWriter 
       cs3_types_v1beta1_types_pb.Opaque.serializeBinaryToWriter
     );
   }
+  f = message.getDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -386,6 +398,21 @@ proto.cs3.ocm.invite.v1beta1.GenerateInviteTokenRequest.prototype.clearOpaque = 
  */
 proto.cs3.ocm.invite.v1beta1.GenerateInviteTokenRequest.prototype.hasOpaque = function() {
   return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional string description = 2;
+ * @return {string}
+ */
+proto.cs3.ocm.invite.v1beta1.GenerateInviteTokenRequest.prototype.getDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.ocm.invite.v1beta1.GenerateInviteTokenRequest.prototype.setDescription = function(value) {
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -904,7 +931,10 @@ proto.cs3.ocm.invite.v1beta1.ForwardInviteResponse.prototype.toObject = function
 proto.cs3.ocm.invite.v1beta1.ForwardInviteResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     status: (f = msg.getStatus()) && cs3_rpc_v1beta1_status_pb.Status.toObject(includeInstance, f),
-    opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f)
+    opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
+    userId: (f = msg.getUserId()) && cs3_identity_user_v1beta1_resources_pb.UserId.toObject(includeInstance, f),
+    email: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    displayName: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -951,6 +981,19 @@ proto.cs3.ocm.invite.v1beta1.ForwardInviteResponse.deserializeBinaryFromReader =
       reader.readMessage(value,cs3_types_v1beta1_types_pb.Opaque.deserializeBinaryFromReader);
       msg.setOpaque(value);
       break;
+    case 3:
+      var value = new cs3_identity_user_v1beta1_resources_pb.UserId;
+      reader.readMessage(value,cs3_identity_user_v1beta1_resources_pb.UserId.deserializeBinaryFromReader);
+      msg.setUserId(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setEmail(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDisplayName(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -994,6 +1037,28 @@ proto.cs3.ocm.invite.v1beta1.ForwardInviteResponse.serializeBinaryToWriter = fun
       2,
       f,
       cs3_types_v1beta1_types_pb.Opaque.serializeBinaryToWriter
+    );
+  }
+  f = message.getUserId();
+  if (f != null) {
+    writer.writeMessage(
+      3,
+      f,
+      cs3_identity_user_v1beta1_resources_pb.UserId.serializeBinaryToWriter
+    );
+  }
+  f = message.getEmail();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+  f = message.getDisplayName();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
     );
   }
 };
@@ -1062,6 +1127,69 @@ proto.cs3.ocm.invite.v1beta1.ForwardInviteResponse.prototype.clearOpaque = funct
  */
 proto.cs3.ocm.invite.v1beta1.ForwardInviteResponse.prototype.hasOpaque = function() {
   return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional cs3.identity.user.v1beta1.UserId user_id = 3;
+ * @return {?proto.cs3.identity.user.v1beta1.UserId}
+ */
+proto.cs3.ocm.invite.v1beta1.ForwardInviteResponse.prototype.getUserId = function() {
+  return /** @type{?proto.cs3.identity.user.v1beta1.UserId} */ (
+    jspb.Message.getWrapperField(this, cs3_identity_user_v1beta1_resources_pb.UserId, 3));
+};
+
+
+/** @param {?proto.cs3.identity.user.v1beta1.UserId|undefined} value */
+proto.cs3.ocm.invite.v1beta1.ForwardInviteResponse.prototype.setUserId = function(value) {
+  jspb.Message.setWrapperField(this, 3, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ */
+proto.cs3.ocm.invite.v1beta1.ForwardInviteResponse.prototype.clearUserId = function() {
+  this.setUserId(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.ocm.invite.v1beta1.ForwardInviteResponse.prototype.hasUserId = function() {
+  return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string email = 4;
+ * @return {string}
+ */
+proto.cs3.ocm.invite.v1beta1.ForwardInviteResponse.prototype.getEmail = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.ocm.invite.v1beta1.ForwardInviteResponse.prototype.setEmail = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional string display_name = 5;
+ * @return {string}
+ */
+proto.cs3.ocm.invite.v1beta1.ForwardInviteResponse.prototype.getDisplayName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.ocm.invite.v1beta1.ForwardInviteResponse.prototype.setDisplayName = function(value) {
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -1339,7 +1467,10 @@ proto.cs3.ocm.invite.v1beta1.AcceptInviteResponse.prototype.toObject = function(
 proto.cs3.ocm.invite.v1beta1.AcceptInviteResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     status: (f = msg.getStatus()) && cs3_rpc_v1beta1_status_pb.Status.toObject(includeInstance, f),
-    opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f)
+    opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
+    userId: (f = msg.getUserId()) && cs3_identity_user_v1beta1_resources_pb.UserId.toObject(includeInstance, f),
+    email: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    displayName: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -1386,6 +1517,19 @@ proto.cs3.ocm.invite.v1beta1.AcceptInviteResponse.deserializeBinaryFromReader = 
       reader.readMessage(value,cs3_types_v1beta1_types_pb.Opaque.deserializeBinaryFromReader);
       msg.setOpaque(value);
       break;
+    case 3:
+      var value = new cs3_identity_user_v1beta1_resources_pb.UserId;
+      reader.readMessage(value,cs3_identity_user_v1beta1_resources_pb.UserId.deserializeBinaryFromReader);
+      msg.setUserId(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setEmail(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDisplayName(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -1429,6 +1573,28 @@ proto.cs3.ocm.invite.v1beta1.AcceptInviteResponse.serializeBinaryToWriter = func
       2,
       f,
       cs3_types_v1beta1_types_pb.Opaque.serializeBinaryToWriter
+    );
+  }
+  f = message.getUserId();
+  if (f != null) {
+    writer.writeMessage(
+      3,
+      f,
+      cs3_identity_user_v1beta1_resources_pb.UserId.serializeBinaryToWriter
+    );
+  }
+  f = message.getEmail();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+  f = message.getDisplayName();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
     );
   }
 };
@@ -1497,6 +1663,69 @@ proto.cs3.ocm.invite.v1beta1.AcceptInviteResponse.prototype.clearOpaque = functi
  */
 proto.cs3.ocm.invite.v1beta1.AcceptInviteResponse.prototype.hasOpaque = function() {
   return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional cs3.identity.user.v1beta1.UserId user_id = 3;
+ * @return {?proto.cs3.identity.user.v1beta1.UserId}
+ */
+proto.cs3.ocm.invite.v1beta1.AcceptInviteResponse.prototype.getUserId = function() {
+  return /** @type{?proto.cs3.identity.user.v1beta1.UserId} */ (
+    jspb.Message.getWrapperField(this, cs3_identity_user_v1beta1_resources_pb.UserId, 3));
+};
+
+
+/** @param {?proto.cs3.identity.user.v1beta1.UserId|undefined} value */
+proto.cs3.ocm.invite.v1beta1.AcceptInviteResponse.prototype.setUserId = function(value) {
+  jspb.Message.setWrapperField(this, 3, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ */
+proto.cs3.ocm.invite.v1beta1.AcceptInviteResponse.prototype.clearUserId = function() {
+  this.setUserId(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.ocm.invite.v1beta1.AcceptInviteResponse.prototype.hasUserId = function() {
+  return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string email = 4;
+ * @return {string}
+ */
+proto.cs3.ocm.invite.v1beta1.AcceptInviteResponse.prototype.getEmail = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.ocm.invite.v1beta1.AcceptInviteResponse.prototype.setEmail = function(value) {
+  jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional string display_name = 5;
+ * @return {string}
+ */
+proto.cs3.ocm.invite.v1beta1.AcceptInviteResponse.prototype.getDisplayName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.ocm.invite.v1beta1.AcceptInviteResponse.prototype.setDisplayName = function(value) {
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 

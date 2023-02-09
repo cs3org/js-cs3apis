@@ -6487,74 +6487,74 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.createOCMCoreShare =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.cs3.tx.v1beta1.PullTransferRequest,
- *   !proto.cs3.tx.v1beta1.PullTransferResponse>}
+ *   !proto.cs3.tx.v1beta1.CreateTransferRequest,
+ *   !proto.cs3.tx.v1beta1.CreateTransferResponse>}
  */
-const methodDescriptor_GatewayAPI_PullTransfer = new grpc.web.MethodDescriptor(
-  '/cs3.gateway.v1beta1.GatewayAPI/PullTransfer',
+const methodDescriptor_GatewayAPI_CreateTransfer = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/CreateTransfer',
   grpc.web.MethodType.UNARY,
-  cs3_tx_v1beta1_tx_api_pb.PullTransferRequest,
-  cs3_tx_v1beta1_tx_api_pb.PullTransferResponse,
-  /** @param {!proto.cs3.tx.v1beta1.PullTransferRequest} request */
+  cs3_tx_v1beta1_tx_api_pb.CreateTransferRequest,
+  cs3_tx_v1beta1_tx_api_pb.CreateTransferResponse,
+  /** @param {!proto.cs3.tx.v1beta1.CreateTransferRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  cs3_tx_v1beta1_tx_api_pb.PullTransferResponse.deserializeBinary
+  cs3_tx_v1beta1_tx_api_pb.CreateTransferResponse.deserializeBinary
 );
 
 
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cs3.tx.v1beta1.PullTransferRequest,
- *   !proto.cs3.tx.v1beta1.PullTransferResponse>}
+ *   !proto.cs3.tx.v1beta1.CreateTransferRequest,
+ *   !proto.cs3.tx.v1beta1.CreateTransferResponse>}
  */
-const methodInfo_GatewayAPI_PullTransfer = new grpc.web.AbstractClientBase.MethodInfo(
-  cs3_tx_v1beta1_tx_api_pb.PullTransferResponse,
-  /** @param {!proto.cs3.tx.v1beta1.PullTransferRequest} request */
+const methodInfo_GatewayAPI_CreateTransfer = new grpc.web.AbstractClientBase.MethodInfo(
+  cs3_tx_v1beta1_tx_api_pb.CreateTransferResponse,
+  /** @param {!proto.cs3.tx.v1beta1.CreateTransferRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  cs3_tx_v1beta1_tx_api_pb.PullTransferResponse.deserializeBinary
+  cs3_tx_v1beta1_tx_api_pb.CreateTransferResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.cs3.tx.v1beta1.PullTransferRequest} request The
+ * @param {!proto.cs3.tx.v1beta1.CreateTransferRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cs3.tx.v1beta1.PullTransferResponse)}
+ * @param {function(?grpc.web.Error, ?proto.cs3.tx.v1beta1.CreateTransferResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.cs3.tx.v1beta1.PullTransferResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.tx.v1beta1.CreateTransferResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.pullTransfer =
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.createTransfer =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/cs3.gateway.v1beta1.GatewayAPI/PullTransfer',
+      '/cs3.gateway.v1beta1.GatewayAPI/CreateTransfer',
       request,
       metadata || {},
-      methodDescriptor_GatewayAPI_PullTransfer,
+      methodDescriptor_GatewayAPI_CreateTransfer,
       callback);
 };
 
 
 /**
- * @param {!proto.cs3.tx.v1beta1.PullTransferRequest} request The
+ * @param {!proto.cs3.tx.v1beta1.CreateTransferRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.cs3.tx.v1beta1.PullTransferResponse>}
+ * @return {!Promise<!proto.cs3.tx.v1beta1.CreateTransferResponse>}
  *     A native promise that resolves to the response
  */
-proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.pullTransfer =
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.createTransfer =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/cs3.gateway.v1beta1.GatewayAPI/PullTransfer',
+      '/cs3.gateway.v1beta1.GatewayAPI/CreateTransfer',
       request,
       metadata || {},
-      methodDescriptor_GatewayAPI_PullTransfer);
+      methodDescriptor_GatewayAPI_CreateTransfer);
 };
 
 

@@ -99,74 +99,74 @@ proto.cs3.tx.v1beta1.TxAPIPromiseClient =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.cs3.tx.v1beta1.PullTransferRequest,
- *   !proto.cs3.tx.v1beta1.PullTransferResponse>}
+ *   !proto.cs3.tx.v1beta1.CreateTransferRequest,
+ *   !proto.cs3.tx.v1beta1.CreateTransferResponse>}
  */
-const methodDescriptor_TxAPI_PullTransfer = new grpc.web.MethodDescriptor(
-  '/cs3.tx.v1beta1.TxAPI/PullTransfer',
+const methodDescriptor_TxAPI_CreateTransfer = new grpc.web.MethodDescriptor(
+  '/cs3.tx.v1beta1.TxAPI/CreateTransfer',
   grpc.web.MethodType.UNARY,
-  proto.cs3.tx.v1beta1.PullTransferRequest,
-  proto.cs3.tx.v1beta1.PullTransferResponse,
-  /** @param {!proto.cs3.tx.v1beta1.PullTransferRequest} request */
+  proto.cs3.tx.v1beta1.CreateTransferRequest,
+  proto.cs3.tx.v1beta1.CreateTransferResponse,
+  /** @param {!proto.cs3.tx.v1beta1.CreateTransferRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  proto.cs3.tx.v1beta1.PullTransferResponse.deserializeBinary
+  proto.cs3.tx.v1beta1.CreateTransferResponse.deserializeBinary
 );
 
 
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cs3.tx.v1beta1.PullTransferRequest,
- *   !proto.cs3.tx.v1beta1.PullTransferResponse>}
+ *   !proto.cs3.tx.v1beta1.CreateTransferRequest,
+ *   !proto.cs3.tx.v1beta1.CreateTransferResponse>}
  */
-const methodInfo_TxAPI_PullTransfer = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cs3.tx.v1beta1.PullTransferResponse,
-  /** @param {!proto.cs3.tx.v1beta1.PullTransferRequest} request */
+const methodInfo_TxAPI_CreateTransfer = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.cs3.tx.v1beta1.CreateTransferResponse,
+  /** @param {!proto.cs3.tx.v1beta1.CreateTransferRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  proto.cs3.tx.v1beta1.PullTransferResponse.deserializeBinary
+  proto.cs3.tx.v1beta1.CreateTransferResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.cs3.tx.v1beta1.PullTransferRequest} request The
+ * @param {!proto.cs3.tx.v1beta1.CreateTransferRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cs3.tx.v1beta1.PullTransferResponse)}
+ * @param {function(?grpc.web.Error, ?proto.cs3.tx.v1beta1.CreateTransferResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.cs3.tx.v1beta1.PullTransferResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.tx.v1beta1.CreateTransferResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.cs3.tx.v1beta1.TxAPIClient.prototype.pullTransfer =
+proto.cs3.tx.v1beta1.TxAPIClient.prototype.createTransfer =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/cs3.tx.v1beta1.TxAPI/PullTransfer',
+      '/cs3.tx.v1beta1.TxAPI/CreateTransfer',
       request,
       metadata || {},
-      methodDescriptor_TxAPI_PullTransfer,
+      methodDescriptor_TxAPI_CreateTransfer,
       callback);
 };
 
 
 /**
- * @param {!proto.cs3.tx.v1beta1.PullTransferRequest} request The
+ * @param {!proto.cs3.tx.v1beta1.CreateTransferRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.cs3.tx.v1beta1.PullTransferResponse>}
+ * @return {!Promise<!proto.cs3.tx.v1beta1.CreateTransferResponse>}
  *     A native promise that resolves to the response
  */
-proto.cs3.tx.v1beta1.TxAPIPromiseClient.prototype.pullTransfer =
+proto.cs3.tx.v1beta1.TxAPIPromiseClient.prototype.createTransfer =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/cs3.tx.v1beta1.TxAPI/PullTransfer',
+      '/cs3.tx.v1beta1.TxAPI/CreateTransfer',
       request,
       metadata || {},
-      methodDescriptor_TxAPI_PullTransfer);
+      methodDescriptor_TxAPI_CreateTransfer);
 };
 
 
