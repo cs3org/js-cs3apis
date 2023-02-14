@@ -14,10 +14,12 @@ var global = Function('return this')();
 
 var cs3_identity_user_v1beta1_resources_pb = require('../../../../cs3/identity/user/v1beta1/resources_pb.js');
 goog.object.extend(proto, cs3_identity_user_v1beta1_resources_pb);
-var cs3_ocm_core_v1beta1_resources_pb = require('../../../../cs3/ocm/core/v1beta1/resources_pb.js');
-goog.object.extend(proto, cs3_ocm_core_v1beta1_resources_pb);
 var cs3_rpc_v1beta1_status_pb = require('../../../../cs3/rpc/v1beta1/status_pb.js');
 goog.object.extend(proto, cs3_rpc_v1beta1_status_pb);
+var cs3_sharing_ocm_v1beta1_resources_pb = require('../../../../cs3/sharing/ocm/v1beta1/resources_pb.js');
+goog.object.extend(proto, cs3_sharing_ocm_v1beta1_resources_pb);
+var cs3_storage_provider_v1beta1_resources_pb = require('../../../../cs3/storage/provider/v1beta1/resources_pb.js');
+goog.object.extend(proto, cs3_storage_provider_v1beta1_resources_pb);
 var cs3_types_v1beta1_types_pb = require('../../../../cs3/types/v1beta1/types_pb.js');
 goog.object.extend(proto, cs3_types_v1beta1_types_pb);
 goog.exportSymbol('proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest', null, global);
@@ -33,7 +35,7 @@ goog.exportSymbol('proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareResponse', null,
  * @constructor
  */
 proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.repeatedFields_, null);
 };
 goog.inherits(proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -64,6 +66,13 @@ if (goog.DEBUG && !COMPILED) {
    */
   proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareResponse.displayName = 'proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareResponse';
 }
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.repeatedFields_ = [11];
 
 
 
@@ -99,10 +108,15 @@ proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.toObject = function(include
     opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
     description: jspb.Message.getFieldWithDefault(msg, 2, ""),
     name: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    providerId: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    resourceId: jspb.Message.getFieldWithDefault(msg, 4, ""),
     owner: (f = msg.getOwner()) && cs3_identity_user_v1beta1_resources_pb.UserId.toObject(includeInstance, f),
+    sender: (f = msg.getSender()) && cs3_identity_user_v1beta1_resources_pb.UserId.toObject(includeInstance, f),
     shareWith: (f = msg.getShareWith()) && cs3_identity_user_v1beta1_resources_pb.UserId.toObject(includeInstance, f),
-    protocol: (f = msg.getProtocol()) && cs3_ocm_core_v1beta1_resources_pb.Protocol.toObject(includeInstance, f)
+    resourceType: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    shareType: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    expiration: (f = msg.getExpiration()) && cs3_types_v1beta1_types_pb.Timestamp.toObject(includeInstance, f),
+    protocolsList: jspb.Message.toObjectList(msg.getProtocolsList(),
+    cs3_sharing_ocm_v1beta1_resources_pb.Protocol.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -154,7 +168,7 @@ proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.deserializeBinaryFromReader
       break;
     case 4:
       var value = /** @type {string} */ (reader.readString());
-      msg.setProviderId(value);
+      msg.setResourceId(value);
       break;
     case 5:
       var value = new cs3_identity_user_v1beta1_resources_pb.UserId;
@@ -164,12 +178,30 @@ proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.deserializeBinaryFromReader
     case 6:
       var value = new cs3_identity_user_v1beta1_resources_pb.UserId;
       reader.readMessage(value,cs3_identity_user_v1beta1_resources_pb.UserId.deserializeBinaryFromReader);
-      msg.setShareWith(value);
+      msg.setSender(value);
       break;
     case 7:
-      var value = new cs3_ocm_core_v1beta1_resources_pb.Protocol;
-      reader.readMessage(value,cs3_ocm_core_v1beta1_resources_pb.Protocol.deserializeBinaryFromReader);
-      msg.setProtocol(value);
+      var value = new cs3_identity_user_v1beta1_resources_pb.UserId;
+      reader.readMessage(value,cs3_identity_user_v1beta1_resources_pb.UserId.deserializeBinaryFromReader);
+      msg.setShareWith(value);
+      break;
+    case 8:
+      var value = /** @type {!proto.cs3.storage.provider.v1beta1.ResourceType} */ (reader.readEnum());
+      msg.setResourceType(value);
+      break;
+    case 9:
+      var value = /** @type {!proto.cs3.sharing.ocm.v1beta1.ShareType} */ (reader.readEnum());
+      msg.setShareType(value);
+      break;
+    case 10:
+      var value = new cs3_types_v1beta1_types_pb.Timestamp;
+      reader.readMessage(value,cs3_types_v1beta1_types_pb.Timestamp.deserializeBinaryFromReader);
+      msg.setExpiration(value);
+      break;
+    case 11:
+      var value = new cs3_sharing_ocm_v1beta1_resources_pb.Protocol;
+      reader.readMessage(value,cs3_sharing_ocm_v1beta1_resources_pb.Protocol.deserializeBinaryFromReader);
+      msg.addProtocols(value);
       break;
     default:
       reader.skipField();
@@ -222,7 +254,7 @@ proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.serializeBinaryToWriter = f
       f
     );
   }
-  f = message.getProviderId();
+  f = message.getResourceId();
   if (f.length > 0) {
     writer.writeString(
       4,
@@ -237,7 +269,7 @@ proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.serializeBinaryToWriter = f
       cs3_identity_user_v1beta1_resources_pb.UserId.serializeBinaryToWriter
     );
   }
-  f = message.getShareWith();
+  f = message.getSender();
   if (f != null) {
     writer.writeMessage(
       6,
@@ -245,12 +277,42 @@ proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.serializeBinaryToWriter = f
       cs3_identity_user_v1beta1_resources_pb.UserId.serializeBinaryToWriter
     );
   }
-  f = message.getProtocol();
+  f = message.getShareWith();
   if (f != null) {
     writer.writeMessage(
       7,
       f,
-      cs3_ocm_core_v1beta1_resources_pb.Protocol.serializeBinaryToWriter
+      cs3_identity_user_v1beta1_resources_pb.UserId.serializeBinaryToWriter
+    );
+  }
+  f = message.getResourceType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      8,
+      f
+    );
+  }
+  f = message.getShareType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      9,
+      f
+    );
+  }
+  f = message.getExpiration();
+  if (f != null) {
+    writer.writeMessage(
+      10,
+      f,
+      cs3_types_v1beta1_types_pb.Timestamp.serializeBinaryToWriter
+    );
+  }
+  f = message.getProtocolsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      11,
+      f,
+      cs3_sharing_ocm_v1beta1_resources_pb.Protocol.serializeBinaryToWriter
     );
   }
 };
@@ -320,16 +382,16 @@ proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.setName = functio
 
 
 /**
- * optional string provider_id = 4;
+ * optional string resource_id = 4;
  * @return {string}
  */
-proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.getProviderId = function() {
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.getResourceId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /** @param {string} value */
-proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.setProviderId = function(value) {
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.setResourceId = function(value) {
   jspb.Message.setProto3StringField(this, 4, value);
 };
 
@@ -368,18 +430,51 @@ proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.hasOwner = functi
 
 
 /**
- * optional cs3.identity.user.v1beta1.UserId share_with = 6;
+ * optional cs3.identity.user.v1beta1.UserId sender = 6;
  * @return {?proto.cs3.identity.user.v1beta1.UserId}
  */
-proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.getShareWith = function() {
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.getSender = function() {
   return /** @type{?proto.cs3.identity.user.v1beta1.UserId} */ (
     jspb.Message.getWrapperField(this, cs3_identity_user_v1beta1_resources_pb.UserId, 6));
 };
 
 
 /** @param {?proto.cs3.identity.user.v1beta1.UserId|undefined} value */
-proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.setShareWith = function(value) {
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.setSender = function(value) {
   jspb.Message.setWrapperField(this, 6, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.clearSender = function() {
+  this.setSender(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.hasSender = function() {
+  return jspb.Message.getField(this, 6) != null;
+};
+
+
+/**
+ * optional cs3.identity.user.v1beta1.UserId share_with = 7;
+ * @return {?proto.cs3.identity.user.v1beta1.UserId}
+ */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.getShareWith = function() {
+  return /** @type{?proto.cs3.identity.user.v1beta1.UserId} */ (
+    jspb.Message.getWrapperField(this, cs3_identity_user_v1beta1_resources_pb.UserId, 7));
+};
+
+
+/** @param {?proto.cs3.identity.user.v1beta1.UserId|undefined} value */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.setShareWith = function(value) {
+  jspb.Message.setWrapperField(this, 7, value);
 };
 
 
@@ -396,31 +491,61 @@ proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.clearShareWith = 
  * @return {boolean}
  */
 proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.hasShareWith = function() {
-  return jspb.Message.getField(this, 6) != null;
+  return jspb.Message.getField(this, 7) != null;
 };
 
 
 /**
- * optional Protocol protocol = 7;
- * @return {?proto.cs3.ocm.core.v1beta1.Protocol}
+ * optional cs3.storage.provider.v1beta1.ResourceType resource_type = 8;
+ * @return {!proto.cs3.storage.provider.v1beta1.ResourceType}
  */
-proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.getProtocol = function() {
-  return /** @type{?proto.cs3.ocm.core.v1beta1.Protocol} */ (
-    jspb.Message.getWrapperField(this, cs3_ocm_core_v1beta1_resources_pb.Protocol, 7));
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.getResourceType = function() {
+  return /** @type {!proto.cs3.storage.provider.v1beta1.ResourceType} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
-/** @param {?proto.cs3.ocm.core.v1beta1.Protocol|undefined} value */
-proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.setProtocol = function(value) {
-  jspb.Message.setWrapperField(this, 7, value);
+/** @param {!proto.cs3.storage.provider.v1beta1.ResourceType} value */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.setResourceType = function(value) {
+  jspb.Message.setProto3EnumField(this, 8, value);
+};
+
+
+/**
+ * optional cs3.sharing.ocm.v1beta1.ShareType share_type = 9;
+ * @return {!proto.cs3.sharing.ocm.v1beta1.ShareType}
+ */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.getShareType = function() {
+  return /** @type {!proto.cs3.sharing.ocm.v1beta1.ShareType} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {!proto.cs3.sharing.ocm.v1beta1.ShareType} value */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.setShareType = function(value) {
+  jspb.Message.setProto3EnumField(this, 9, value);
+};
+
+
+/**
+ * optional cs3.types.v1beta1.Timestamp expiration = 10;
+ * @return {?proto.cs3.types.v1beta1.Timestamp}
+ */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.getExpiration = function() {
+  return /** @type{?proto.cs3.types.v1beta1.Timestamp} */ (
+    jspb.Message.getWrapperField(this, cs3_types_v1beta1_types_pb.Timestamp, 10));
+};
+
+
+/** @param {?proto.cs3.types.v1beta1.Timestamp|undefined} value */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.setExpiration = function(value) {
+  jspb.Message.setWrapperField(this, 10, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
  */
-proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.clearProtocol = function() {
-  this.setProtocol(undefined);
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.clearExpiration = function() {
+  this.setExpiration(undefined);
 };
 
 
@@ -428,8 +553,42 @@ proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.clearProtocol = f
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.hasProtocol = function() {
-  return jspb.Message.getField(this, 7) != null;
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.hasExpiration = function() {
+  return jspb.Message.getField(this, 10) != null;
+};
+
+
+/**
+ * repeated cs3.sharing.ocm.v1beta1.Protocol protocols = 11;
+ * @return {!Array<!proto.cs3.sharing.ocm.v1beta1.Protocol>}
+ */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.getProtocolsList = function() {
+  return /** @type{!Array<!proto.cs3.sharing.ocm.v1beta1.Protocol>} */ (
+    jspb.Message.getRepeatedWrapperField(this, cs3_sharing_ocm_v1beta1_resources_pb.Protocol, 11));
+};
+
+
+/** @param {!Array<!proto.cs3.sharing.ocm.v1beta1.Protocol>} value */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.setProtocolsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 11, value);
+};
+
+
+/**
+ * @param {!proto.cs3.sharing.ocm.v1beta1.Protocol=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.cs3.sharing.ocm.v1beta1.Protocol}
+ */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.addProtocols = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 11, opt_value, proto.cs3.sharing.ocm.v1beta1.Protocol, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.clearProtocolsList = function() {
+  this.setProtocolsList([]);
 };
 
 
