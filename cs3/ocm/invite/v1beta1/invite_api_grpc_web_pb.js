@@ -176,6 +176,80 @@ proto.cs3.ocm.invite.v1beta1.InviteAPIPromiseClient.prototype.generateInviteToke
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.ocm.invite.v1beta1.ListInviteTokensRequest,
+ *   !proto.cs3.ocm.invite.v1beta1.ListInviteTokensResponse>}
+ */
+const methodDescriptor_InviteAPI_ListInviteTokens = new grpc.web.MethodDescriptor(
+  '/cs3.ocm.invite.v1beta1.InviteAPI/ListInviteTokens',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.ocm.invite.v1beta1.ListInviteTokensRequest,
+  proto.cs3.ocm.invite.v1beta1.ListInviteTokensResponse,
+  /** @param {!proto.cs3.ocm.invite.v1beta1.ListInviteTokensRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.ocm.invite.v1beta1.ListInviteTokensResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.cs3.ocm.invite.v1beta1.ListInviteTokensRequest,
+ *   !proto.cs3.ocm.invite.v1beta1.ListInviteTokensResponse>}
+ */
+const methodInfo_InviteAPI_ListInviteTokens = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.cs3.ocm.invite.v1beta1.ListInviteTokensResponse,
+  /** @param {!proto.cs3.ocm.invite.v1beta1.ListInviteTokensRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.ocm.invite.v1beta1.ListInviteTokensResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.ocm.invite.v1beta1.ListInviteTokensRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.cs3.ocm.invite.v1beta1.ListInviteTokensResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.ocm.invite.v1beta1.ListInviteTokensResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.ocm.invite.v1beta1.InviteAPIClient.prototype.listInviteTokens =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.ocm.invite.v1beta1.InviteAPI/ListInviteTokens',
+      request,
+      metadata || {},
+      methodDescriptor_InviteAPI_ListInviteTokens,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.ocm.invite.v1beta1.ListInviteTokensRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.ocm.invite.v1beta1.ListInviteTokensResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.cs3.ocm.invite.v1beta1.InviteAPIPromiseClient.prototype.listInviteTokens =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.ocm.invite.v1beta1.InviteAPI/ListInviteTokens',
+      request,
+      metadata || {},
+      methodDescriptor_InviteAPI_ListInviteTokens);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.cs3.ocm.invite.v1beta1.ForwardInviteRequest,
  *   !proto.cs3.ocm.invite.v1beta1.ForwardInviteResponse>}
  */
