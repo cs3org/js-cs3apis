@@ -1241,7 +1241,8 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.toObject = function(includeInstance,
     protocolsList: jspb.Message.toObjectList(msg.getProtocolsList(),
     proto.cs3.sharing.ocm.v1beta1.Protocol.toObject, includeInstance),
     state: jspb.Message.getFieldWithDefault(msg, 12, 0),
-    opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f)
+    opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
+    resourceType: jspb.Message.getFieldWithDefault(msg, 14, 0)
   };
 
   if (includeInstance) {
@@ -1339,6 +1340,10 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.deserializeBinaryFromReader = functi
       var value = new cs3_types_v1beta1_types_pb.Opaque;
       reader.readMessage(value,cs3_types_v1beta1_types_pb.Opaque.deserializeBinaryFromReader);
       msg.setOpaque(value);
+      break;
+    case 14:
+      var value = /** @type {!proto.cs3.storage.provider.v1beta1.ResourceType} */ (reader.readEnum());
+      msg.setResourceType(value);
       break;
     default:
       reader.skipField();
@@ -1468,6 +1473,13 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.serializeBinaryToWriter = function(m
       13,
       f,
       cs3_types_v1beta1_types_pb.Opaque.serializeBinaryToWriter
+    );
+  }
+  f = message.getResourceType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      14,
+      f
     );
   }
 };
@@ -1846,6 +1858,21 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.clearOpaque = function() {
  */
 proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.hasOpaque = function() {
   return jspb.Message.getField(this, 13) != null;
+};
+
+
+/**
+ * optional cs3.storage.provider.v1beta1.ResourceType resource_type = 14;
+ * @return {!proto.cs3.storage.provider.v1beta1.ResourceType}
+ */
+proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.getResourceType = function() {
+  return /** @type {!proto.cs3.storage.provider.v1beta1.ResourceType} */ (jspb.Message.getFieldWithDefault(this, 14, 0));
+};
+
+
+/** @param {!proto.cs3.storage.provider.v1beta1.ResourceType} value */
+proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.setResourceType = function(value) {
+  jspb.Message.setProto3EnumField(this, 14, value);
 };
 
 
