@@ -328,6 +328,80 @@ proto.cs3.sharing.ocm.v1beta1.OcmAPIPromiseClient.prototype.getOCMShare =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenRequest,
+ *   !proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenResponse>}
+ */
+const methodDescriptor_OcmAPI_GetOCMShareByToken = new grpc.web.MethodDescriptor(
+  '/cs3.sharing.ocm.v1beta1.OcmAPI/GetOCMShareByToken',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenRequest,
+  proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenResponse,
+  /** @param {!proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenRequest,
+ *   !proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenResponse>}
+ */
+const methodInfo_OcmAPI_GetOCMShareByToken = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenResponse,
+  /** @param {!proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.sharing.ocm.v1beta1.OcmAPIClient.prototype.getOCMShareByToken =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.sharing.ocm.v1beta1.OcmAPI/GetOCMShareByToken',
+      request,
+      metadata || {},
+      methodDescriptor_OcmAPI_GetOCMShareByToken,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.sharing.ocm.v1beta1.GetOCMShareByTokenResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.cs3.sharing.ocm.v1beta1.OcmAPIPromiseClient.prototype.getOCMShareByToken =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.sharing.ocm.v1beta1.OcmAPI/GetOCMShareByToken',
+      request,
+      metadata || {},
+      methodDescriptor_OcmAPI_GetOCMShareByToken);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.cs3.sharing.ocm.v1beta1.ListOCMSharesRequest,
  *   !proto.cs3.sharing.ocm.v1beta1.ListOCMSharesResponse>}
  */
