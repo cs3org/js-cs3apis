@@ -16467,7 +16467,8 @@ proto.cs3.storage.provider.v1beta1.CreateHomeRequest.prototype.toObject = functi
  */
 proto.cs3.storage.provider.v1beta1.CreateHomeRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f)
+    opaque: (f = msg.getOpaque()) && cs3_types_v1beta1_types_pb.Opaque.toObject(includeInstance, f),
+    quota: (f = msg.getQuota()) && cs3_storage_provider_v1beta1_resources_pb.Quota.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -16509,6 +16510,11 @@ proto.cs3.storage.provider.v1beta1.CreateHomeRequest.deserializeBinaryFromReader
       reader.readMessage(value,cs3_types_v1beta1_types_pb.Opaque.deserializeBinaryFromReader);
       msg.setOpaque(value);
       break;
+    case 2:
+      var value = new cs3_storage_provider_v1beta1_resources_pb.Quota;
+      reader.readMessage(value,cs3_storage_provider_v1beta1_resources_pb.Quota.deserializeBinaryFromReader);
+      msg.setQuota(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -16546,6 +16552,14 @@ proto.cs3.storage.provider.v1beta1.CreateHomeRequest.serializeBinaryToWriter = f
       cs3_types_v1beta1_types_pb.Opaque.serializeBinaryToWriter
     );
   }
+  f = message.getQuota();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      cs3_storage_provider_v1beta1_resources_pb.Quota.serializeBinaryToWriter
+    );
+  }
 };
 
 
@@ -16579,6 +16593,39 @@ proto.cs3.storage.provider.v1beta1.CreateHomeRequest.prototype.clearOpaque = fun
  */
 proto.cs3.storage.provider.v1beta1.CreateHomeRequest.prototype.hasOpaque = function() {
   return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional Quota quota = 2;
+ * @return {?proto.cs3.storage.provider.v1beta1.Quota}
+ */
+proto.cs3.storage.provider.v1beta1.CreateHomeRequest.prototype.getQuota = function() {
+  return /** @type{?proto.cs3.storage.provider.v1beta1.Quota} */ (
+    jspb.Message.getWrapperField(this, cs3_storage_provider_v1beta1_resources_pb.Quota, 2));
+};
+
+
+/** @param {?proto.cs3.storage.provider.v1beta1.Quota|undefined} value */
+proto.cs3.storage.provider.v1beta1.CreateHomeRequest.prototype.setQuota = function(value) {
+  jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ */
+proto.cs3.storage.provider.v1beta1.CreateHomeRequest.prototype.clearQuota = function() {
+  this.setQuota(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.storage.provider.v1beta1.CreateHomeRequest.prototype.hasQuota = function() {
+  return jspb.Message.getField(this, 2) != null;
 };
 
 
