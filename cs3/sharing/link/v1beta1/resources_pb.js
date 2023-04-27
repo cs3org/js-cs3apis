@@ -219,7 +219,9 @@ proto.cs3.sharing.link.v1beta1.PublicShare.toObject = function(includeInstance, 
     displayName: jspb.Message.getFieldWithDefault(msg, 11, ""),
     signature: (f = msg.getSignature()) && proto.cs3.sharing.link.v1beta1.ShareSignature.toObject(includeInstance, f),
     quicklink: jspb.Message.getBooleanFieldWithDefault(msg, 13, false),
-    description: jspb.Message.getFieldWithDefault(msg, 14, "")
+    description: jspb.Message.getFieldWithDefault(msg, 14, ""),
+    notifyUploads: jspb.Message.getBooleanFieldWithDefault(msg, 15, false),
+    notifyUploadsExtraRecipients: jspb.Message.getFieldWithDefault(msg, 16, "")
   };
 
   if (includeInstance) {
@@ -320,6 +322,14 @@ proto.cs3.sharing.link.v1beta1.PublicShare.deserializeBinaryFromReader = functio
     case 14:
       var value = /** @type {string} */ (reader.readString());
       msg.setDescription(value);
+      break;
+    case 15:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setNotifyUploads(value);
+      break;
+    case 16:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setNotifyUploadsExtraRecipients(value);
       break;
     default:
       reader.skipField();
@@ -454,6 +464,20 @@ proto.cs3.sharing.link.v1beta1.PublicShare.serializeBinaryToWriter = function(me
   if (f.length > 0) {
     writer.writeString(
       14,
+      f
+    );
+  }
+  f = message.getNotifyUploads();
+  if (f) {
+    writer.writeBool(
+      15,
+      f
+    );
+  }
+  f = message.getNotifyUploadsExtraRecipients();
+  if (f.length > 0) {
+    writer.writeString(
+      16,
       f
     );
   }
@@ -829,6 +853,36 @@ proto.cs3.sharing.link.v1beta1.PublicShare.prototype.getDescription = function()
 /** @param {string} value */
 proto.cs3.sharing.link.v1beta1.PublicShare.prototype.setDescription = function(value) {
   jspb.Message.setProto3StringField(this, 14, value);
+};
+
+
+/**
+ * optional bool notify_uploads = 15;
+ * @return {boolean}
+ */
+proto.cs3.sharing.link.v1beta1.PublicShare.prototype.getNotifyUploads = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 15, false));
+};
+
+
+/** @param {boolean} value */
+proto.cs3.sharing.link.v1beta1.PublicShare.prototype.setNotifyUploads = function(value) {
+  jspb.Message.setProto3BooleanField(this, 15, value);
+};
+
+
+/**
+ * optional string notify_uploads_extra_recipients = 16;
+ * @return {string}
+ */
+proto.cs3.sharing.link.v1beta1.PublicShare.prototype.getNotifyUploadsExtraRecipients = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 16, ""));
+};
+
+
+/** @param {string} value */
+proto.cs3.sharing.link.v1beta1.PublicShare.prototype.setNotifyUploadsExtraRecipients = function(value) {
+  jspb.Message.setProto3StringField(this, 16, value);
 };
 
 
