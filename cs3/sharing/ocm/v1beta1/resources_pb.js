@@ -1230,7 +1230,7 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.toObject = function(includeInstance,
   var f, obj = {
     id: (f = msg.getId()) && proto.cs3.sharing.ocm.v1beta1.ShareId.toObject(includeInstance, f),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    resourceId: (f = msg.getResourceId()) && cs3_storage_provider_v1beta1_resources_pb.ResourceId.toObject(includeInstance, f),
+    remoteShareId: jspb.Message.getFieldWithDefault(msg, 3, ""),
     grantee: (f = msg.getGrantee()) && cs3_storage_provider_v1beta1_resources_pb.Grantee.toObject(includeInstance, f),
     owner: (f = msg.getOwner()) && cs3_identity_user_v1beta1_resources_pb.UserId.toObject(includeInstance, f),
     creator: (f = msg.getCreator()) && cs3_identity_user_v1beta1_resources_pb.UserId.toObject(includeInstance, f),
@@ -1289,9 +1289,8 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.deserializeBinaryFromReader = functi
       msg.setName(value);
       break;
     case 3:
-      var value = new cs3_storage_provider_v1beta1_resources_pb.ResourceId;
-      reader.readMessage(value,cs3_storage_provider_v1beta1_resources_pb.ResourceId.deserializeBinaryFromReader);
-      msg.setResourceId(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setRemoteShareId(value);
       break;
     case 4:
       var value = new cs3_storage_provider_v1beta1_resources_pb.Grantee;
@@ -1389,12 +1388,11 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.serializeBinaryToWriter = function(m
       f
     );
   }
-  f = message.getResourceId();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getRemoteShareId();
+  if (f.length > 0) {
+    writer.writeString(
       3,
-      f,
-      cs3_storage_provider_v1beta1_resources_pb.ResourceId.serializeBinaryToWriter
+      f
     );
   }
   f = message.getGrantee();
@@ -1534,35 +1532,17 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.setName = function(value) 
 
 
 /**
- * optional cs3.storage.provider.v1beta1.ResourceId resource_id = 3;
- * @return {?proto.cs3.storage.provider.v1beta1.ResourceId}
+ * optional string remote_share_id = 3;
+ * @return {string}
  */
-proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.getResourceId = function() {
-  return /** @type{?proto.cs3.storage.provider.v1beta1.ResourceId} */ (
-    jspb.Message.getWrapperField(this, cs3_storage_provider_v1beta1_resources_pb.ResourceId, 3));
+proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.getRemoteShareId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {?proto.cs3.storage.provider.v1beta1.ResourceId|undefined} value */
-proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.setResourceId = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- */
-proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.clearResourceId = function() {
-  this.setResourceId(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.hasResourceId = function() {
-  return jspb.Message.getField(this, 3) != null;
+/** @param {string} value */
+proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.setRemoteShareId = function(value) {
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
