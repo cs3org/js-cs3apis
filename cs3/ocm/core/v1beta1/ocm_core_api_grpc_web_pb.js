@@ -173,5 +173,153 @@ proto.cs3.ocm.core.v1beta1.OcmCoreAPIPromiseClient.prototype.createOCMCoreShare 
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareRequest,
+ *   !proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareResponse>}
+ */
+const methodDescriptor_OcmCoreAPI_UpdateOCMCoreShare = new grpc.web.MethodDescriptor(
+  '/cs3.ocm.core.v1beta1.OcmCoreAPI/UpdateOCMCoreShare',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareRequest,
+  proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareResponse,
+  /** @param {!proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareRequest,
+ *   !proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareResponse>}
+ */
+const methodInfo_OcmCoreAPI_UpdateOCMCoreShare = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareResponse,
+  /** @param {!proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.ocm.core.v1beta1.OcmCoreAPIClient.prototype.updateOCMCoreShare =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.ocm.core.v1beta1.OcmCoreAPI/UpdateOCMCoreShare',
+      request,
+      metadata || {},
+      methodDescriptor_OcmCoreAPI_UpdateOCMCoreShare,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.cs3.ocm.core.v1beta1.OcmCoreAPIPromiseClient.prototype.updateOCMCoreShare =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.ocm.core.v1beta1.OcmCoreAPI/UpdateOCMCoreShare',
+      request,
+      metadata || {},
+      methodDescriptor_OcmCoreAPI_UpdateOCMCoreShare);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareRequest,
+ *   !proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareResponse>}
+ */
+const methodDescriptor_OcmCoreAPI_DeleteOCMCoreShare = new grpc.web.MethodDescriptor(
+  '/cs3.ocm.core.v1beta1.OcmCoreAPI/DeleteOCMCoreShare',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareRequest,
+  proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareResponse,
+  /** @param {!proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareRequest,
+ *   !proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareResponse>}
+ */
+const methodInfo_OcmCoreAPI_DeleteOCMCoreShare = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareResponse,
+  /** @param {!proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.ocm.core.v1beta1.OcmCoreAPIClient.prototype.deleteOCMCoreShare =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.ocm.core.v1beta1.OcmCoreAPI/DeleteOCMCoreShare',
+      request,
+      metadata || {},
+      methodDescriptor_OcmCoreAPI_DeleteOCMCoreShare,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.cs3.ocm.core.v1beta1.OcmCoreAPIPromiseClient.prototype.deleteOCMCoreShare =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.ocm.core.v1beta1.OcmCoreAPI/DeleteOCMCoreShare',
+      request,
+      metadata || {},
+      methodDescriptor_OcmCoreAPI_DeleteOCMCoreShare);
+};
+
+
 module.exports = proto.cs3.ocm.core.v1beta1;
 

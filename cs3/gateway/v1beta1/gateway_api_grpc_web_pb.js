@@ -6339,6 +6339,80 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.findAcceptedUsers =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.ocm.invite.v1beta1.DeleteAcceptedUserRequest,
+ *   !proto.cs3.ocm.invite.v1beta1.DeleteAcceptedUserResponse>}
+ */
+const methodDescriptor_GatewayAPI_DeleteAcceptedUser = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/DeleteAcceptedUser',
+  grpc.web.MethodType.UNARY,
+  cs3_ocm_invite_v1beta1_invite_api_pb.DeleteAcceptedUserRequest,
+  cs3_ocm_invite_v1beta1_invite_api_pb.DeleteAcceptedUserResponse,
+  /** @param {!proto.cs3.ocm.invite.v1beta1.DeleteAcceptedUserRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  cs3_ocm_invite_v1beta1_invite_api_pb.DeleteAcceptedUserResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.cs3.ocm.invite.v1beta1.DeleteAcceptedUserRequest,
+ *   !proto.cs3.ocm.invite.v1beta1.DeleteAcceptedUserResponse>}
+ */
+const methodInfo_GatewayAPI_DeleteAcceptedUser = new grpc.web.AbstractClientBase.MethodInfo(
+  cs3_ocm_invite_v1beta1_invite_api_pb.DeleteAcceptedUserResponse,
+  /** @param {!proto.cs3.ocm.invite.v1beta1.DeleteAcceptedUserRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  cs3_ocm_invite_v1beta1_invite_api_pb.DeleteAcceptedUserResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.ocm.invite.v1beta1.DeleteAcceptedUserRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.cs3.ocm.invite.v1beta1.DeleteAcceptedUserResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.ocm.invite.v1beta1.DeleteAcceptedUserResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.deleteAcceptedUser =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/DeleteAcceptedUser',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_DeleteAcceptedUser,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.ocm.invite.v1beta1.DeleteAcceptedUserRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.ocm.invite.v1beta1.DeleteAcceptedUserResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.deleteAcceptedUser =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/DeleteAcceptedUser',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_DeleteAcceptedUser);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.cs3.ocm.provider.v1beta1.IsProviderAllowedRequest,
  *   !proto.cs3.ocm.provider.v1beta1.IsProviderAllowedResponse>}
  */
@@ -6629,6 +6703,154 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.createOCMCoreShare =
       request,
       metadata || {},
       methodDescriptor_GatewayAPI_CreateOCMCoreShare);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareRequest,
+ *   !proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareResponse>}
+ */
+const methodDescriptor_GatewayAPI_UpdateOCMCoreShare = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/UpdateOCMCoreShare',
+  grpc.web.MethodType.UNARY,
+  cs3_ocm_core_v1beta1_ocm_core_api_pb.UpdateOCMCoreShareRequest,
+  cs3_ocm_core_v1beta1_ocm_core_api_pb.UpdateOCMCoreShareResponse,
+  /** @param {!proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  cs3_ocm_core_v1beta1_ocm_core_api_pb.UpdateOCMCoreShareResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareRequest,
+ *   !proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareResponse>}
+ */
+const methodInfo_GatewayAPI_UpdateOCMCoreShare = new grpc.web.AbstractClientBase.MethodInfo(
+  cs3_ocm_core_v1beta1_ocm_core_api_pb.UpdateOCMCoreShareResponse,
+  /** @param {!proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  cs3_ocm_core_v1beta1_ocm_core_api_pb.UpdateOCMCoreShareResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.updateOCMCoreShare =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/UpdateOCMCoreShare',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_UpdateOCMCoreShare,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.updateOCMCoreShare =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/UpdateOCMCoreShare',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_UpdateOCMCoreShare);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareRequest,
+ *   !proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareResponse>}
+ */
+const methodDescriptor_GatewayAPI_DeleteOCMCoreShare = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/DeleteOCMCoreShare',
+  grpc.web.MethodType.UNARY,
+  cs3_ocm_core_v1beta1_ocm_core_api_pb.DeleteOCMCoreShareRequest,
+  cs3_ocm_core_v1beta1_ocm_core_api_pb.DeleteOCMCoreShareResponse,
+  /** @param {!proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  cs3_ocm_core_v1beta1_ocm_core_api_pb.DeleteOCMCoreShareResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareRequest,
+ *   !proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareResponse>}
+ */
+const methodInfo_GatewayAPI_DeleteOCMCoreShare = new grpc.web.AbstractClientBase.MethodInfo(
+  cs3_ocm_core_v1beta1_ocm_core_api_pb.DeleteOCMCoreShareResponse,
+  /** @param {!proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  cs3_ocm_core_v1beta1_ocm_core_api_pb.DeleteOCMCoreShareResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.deleteOCMCoreShare =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/DeleteOCMCoreShare',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_DeleteOCMCoreShare,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.deleteOCMCoreShare =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/DeleteOCMCoreShare',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_DeleteOCMCoreShare);
 };
 
 
