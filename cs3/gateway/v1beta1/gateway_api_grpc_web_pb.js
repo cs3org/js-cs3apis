@@ -50,6 +50,8 @@ var cs3_storage_provider_v1beta1_provider_api_pb = require('../../../cs3/storage
 
 var cs3_storage_provider_v1beta1_resources_pb = require('../../../cs3/storage/provider/v1beta1/resources_pb.js')
 
+var cs3_storage_provider_v1beta1_spaces_api_pb = require('../../../cs3/storage/provider/v1beta1/spaces_api_pb.js')
+
 var cs3_tx_v1beta1_tx_api_pb = require('../../../cs3/tx/v1beta1/tx_api_pb.js')
 
 var cs3_types_v1beta1_types_pb = require('../../../cs3/types/v1beta1/types_pb.js')
@@ -2423,13 +2425,13 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.createHome =
 const methodDescriptor_GatewayAPI_CreateStorageSpace = new grpc.web.MethodDescriptor(
   '/cs3.gateway.v1beta1.GatewayAPI/CreateStorageSpace',
   grpc.web.MethodType.UNARY,
-  cs3_storage_provider_v1beta1_provider_api_pb.CreateStorageSpaceRequest,
-  cs3_storage_provider_v1beta1_provider_api_pb.CreateStorageSpaceResponse,
+  cs3_storage_provider_v1beta1_spaces_api_pb.CreateStorageSpaceRequest,
+  cs3_storage_provider_v1beta1_spaces_api_pb.CreateStorageSpaceResponse,
   /** @param {!proto.cs3.storage.provider.v1beta1.CreateStorageSpaceRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  cs3_storage_provider_v1beta1_provider_api_pb.CreateStorageSpaceResponse.deserializeBinary
+  cs3_storage_provider_v1beta1_spaces_api_pb.CreateStorageSpaceResponse.deserializeBinary
 );
 
 
@@ -2440,12 +2442,12 @@ const methodDescriptor_GatewayAPI_CreateStorageSpace = new grpc.web.MethodDescri
  *   !proto.cs3.storage.provider.v1beta1.CreateStorageSpaceResponse>}
  */
 const methodInfo_GatewayAPI_CreateStorageSpace = new grpc.web.AbstractClientBase.MethodInfo(
-  cs3_storage_provider_v1beta1_provider_api_pb.CreateStorageSpaceResponse,
+  cs3_storage_provider_v1beta1_spaces_api_pb.CreateStorageSpaceResponse,
   /** @param {!proto.cs3.storage.provider.v1beta1.CreateStorageSpaceRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  cs3_storage_provider_v1beta1_provider_api_pb.CreateStorageSpaceResponse.deserializeBinary
+  cs3_storage_provider_v1beta1_spaces_api_pb.CreateStorageSpaceResponse.deserializeBinary
 );
 
 
@@ -2497,13 +2499,13 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.createStorageSpace =
 const methodDescriptor_GatewayAPI_ListStorageSpaces = new grpc.web.MethodDescriptor(
   '/cs3.gateway.v1beta1.GatewayAPI/ListStorageSpaces',
   grpc.web.MethodType.UNARY,
-  cs3_storage_provider_v1beta1_provider_api_pb.ListStorageSpacesRequest,
-  cs3_storage_provider_v1beta1_provider_api_pb.ListStorageSpacesResponse,
+  cs3_storage_provider_v1beta1_spaces_api_pb.ListStorageSpacesRequest,
+  cs3_storage_provider_v1beta1_spaces_api_pb.ListStorageSpacesResponse,
   /** @param {!proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  cs3_storage_provider_v1beta1_provider_api_pb.ListStorageSpacesResponse.deserializeBinary
+  cs3_storage_provider_v1beta1_spaces_api_pb.ListStorageSpacesResponse.deserializeBinary
 );
 
 
@@ -2514,12 +2516,12 @@ const methodDescriptor_GatewayAPI_ListStorageSpaces = new grpc.web.MethodDescrip
  *   !proto.cs3.storage.provider.v1beta1.ListStorageSpacesResponse>}
  */
 const methodInfo_GatewayAPI_ListStorageSpaces = new grpc.web.AbstractClientBase.MethodInfo(
-  cs3_storage_provider_v1beta1_provider_api_pb.ListStorageSpacesResponse,
+  cs3_storage_provider_v1beta1_spaces_api_pb.ListStorageSpacesResponse,
   /** @param {!proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  cs3_storage_provider_v1beta1_provider_api_pb.ListStorageSpacesResponse.deserializeBinary
+  cs3_storage_provider_v1beta1_spaces_api_pb.ListStorageSpacesResponse.deserializeBinary
 );
 
 
@@ -2571,13 +2573,13 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.listStorageSpaces =
 const methodDescriptor_GatewayAPI_UpdateStorageSpace = new grpc.web.MethodDescriptor(
   '/cs3.gateway.v1beta1.GatewayAPI/UpdateStorageSpace',
   grpc.web.MethodType.UNARY,
-  cs3_storage_provider_v1beta1_provider_api_pb.UpdateStorageSpaceRequest,
-  cs3_storage_provider_v1beta1_provider_api_pb.UpdateStorageSpaceResponse,
+  cs3_storage_provider_v1beta1_spaces_api_pb.UpdateStorageSpaceRequest,
+  cs3_storage_provider_v1beta1_spaces_api_pb.UpdateStorageSpaceResponse,
   /** @param {!proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  cs3_storage_provider_v1beta1_provider_api_pb.UpdateStorageSpaceResponse.deserializeBinary
+  cs3_storage_provider_v1beta1_spaces_api_pb.UpdateStorageSpaceResponse.deserializeBinary
 );
 
 
@@ -2588,12 +2590,12 @@ const methodDescriptor_GatewayAPI_UpdateStorageSpace = new grpc.web.MethodDescri
  *   !proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceResponse>}
  */
 const methodInfo_GatewayAPI_UpdateStorageSpace = new grpc.web.AbstractClientBase.MethodInfo(
-  cs3_storage_provider_v1beta1_provider_api_pb.UpdateStorageSpaceResponse,
+  cs3_storage_provider_v1beta1_spaces_api_pb.UpdateStorageSpaceResponse,
   /** @param {!proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  cs3_storage_provider_v1beta1_provider_api_pb.UpdateStorageSpaceResponse.deserializeBinary
+  cs3_storage_provider_v1beta1_spaces_api_pb.UpdateStorageSpaceResponse.deserializeBinary
 );
 
 
@@ -2645,13 +2647,13 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.updateStorageSpace =
 const methodDescriptor_GatewayAPI_DeleteStorageSpace = new grpc.web.MethodDescriptor(
   '/cs3.gateway.v1beta1.GatewayAPI/DeleteStorageSpace',
   grpc.web.MethodType.UNARY,
-  cs3_storage_provider_v1beta1_provider_api_pb.DeleteStorageSpaceRequest,
-  cs3_storage_provider_v1beta1_provider_api_pb.DeleteStorageSpaceResponse,
+  cs3_storage_provider_v1beta1_spaces_api_pb.DeleteStorageSpaceRequest,
+  cs3_storage_provider_v1beta1_spaces_api_pb.DeleteStorageSpaceResponse,
   /** @param {!proto.cs3.storage.provider.v1beta1.DeleteStorageSpaceRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  cs3_storage_provider_v1beta1_provider_api_pb.DeleteStorageSpaceResponse.deserializeBinary
+  cs3_storage_provider_v1beta1_spaces_api_pb.DeleteStorageSpaceResponse.deserializeBinary
 );
 
 
@@ -2662,12 +2664,12 @@ const methodDescriptor_GatewayAPI_DeleteStorageSpace = new grpc.web.MethodDescri
  *   !proto.cs3.storage.provider.v1beta1.DeleteStorageSpaceResponse>}
  */
 const methodInfo_GatewayAPI_DeleteStorageSpace = new grpc.web.AbstractClientBase.MethodInfo(
-  cs3_storage_provider_v1beta1_provider_api_pb.DeleteStorageSpaceResponse,
+  cs3_storage_provider_v1beta1_spaces_api_pb.DeleteStorageSpaceResponse,
   /** @param {!proto.cs3.storage.provider.v1beta1.DeleteStorageSpaceRequest} request */
   function(request) {
     return request.serializeBinary();
   },
-  cs3_storage_provider_v1beta1_provider_api_pb.DeleteStorageSpaceResponse.deserializeBinary
+  cs3_storage_provider_v1beta1_spaces_api_pb.DeleteStorageSpaceResponse.deserializeBinary
 );
 
 
