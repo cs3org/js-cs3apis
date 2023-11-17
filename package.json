@@ -1,5 +1,5 @@
 {
-  "name": "@cs3org/cs3apis",
+  "name": "cs3org/cs3apis",
   "version": "0.0.62",
   "description": "JavaScript bindings for the CS3APIs to connect Storage and Application Providers ",
   "scripts": {
