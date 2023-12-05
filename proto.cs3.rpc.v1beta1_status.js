@@ -16,6 +16,7 @@ goog.provide('proto.cs3.rpc.v1beta1.Status');
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
+goog.require('proto.cs3.types.v1beta1.OpaqueEntry');
 
 goog.forwardDeclare('proto.cs3.rpc.v1beta1.Code');
 /**
@@ -74,7 +75,8 @@ proto.cs3.rpc.v1beta1.Status.toObject = function(includeInstance, msg) {
     code: jspb.Message.getFieldWithDefault(msg, 1, 0),
     message: jspb.Message.getFieldWithDefault(msg, 2, ""),
     trace: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    targetUri: jspb.Message.getFieldWithDefault(msg, 4, "")
+    targetUri: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    innererror: (f = msg.getInnererror()) && proto.cs3.types.v1beta1.OpaqueEntry.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -126,6 +128,11 @@ proto.cs3.rpc.v1beta1.Status.deserializeBinaryFromReader = function(msg, reader)
     case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setTargetUri(value);
+      break;
+    case 5:
+      var value = new proto.cs3.types.v1beta1.OpaqueEntry;
+      reader.readMessage(value,proto.cs3.types.v1beta1.OpaqueEntry.deserializeBinaryFromReader);
+      msg.setInnererror(value);
       break;
     default:
       reader.skipField();
@@ -182,6 +189,14 @@ proto.cs3.rpc.v1beta1.Status.serializeBinaryToWriter = function(message, writer)
     writer.writeString(
       4,
       f
+    );
+  }
+  f = message.getInnererror();
+  if (f != null) {
+    writer.writeMessage(
+      5,
+      f,
+      proto.cs3.types.v1beta1.OpaqueEntry.serializeBinaryToWriter
     );
   }
 };
@@ -256,6 +271,43 @@ proto.cs3.rpc.v1beta1.Status.prototype.getTargetUri = function() {
  */
 proto.cs3.rpc.v1beta1.Status.prototype.setTargetUri = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional cs3.types.v1beta1.OpaqueEntry InnerError = 5;
+ * @return {?proto.cs3.types.v1beta1.OpaqueEntry}
+ */
+proto.cs3.rpc.v1beta1.Status.prototype.getInnererror = function() {
+  return /** @type{?proto.cs3.types.v1beta1.OpaqueEntry} */ (
+    jspb.Message.getWrapperField(this, proto.cs3.types.v1beta1.OpaqueEntry, 5));
+};
+
+
+/**
+ * @param {?proto.cs3.types.v1beta1.OpaqueEntry|undefined} value
+ * @return {!proto.cs3.rpc.v1beta1.Status} returns this
+*/
+proto.cs3.rpc.v1beta1.Status.prototype.setInnererror = function(value) {
+  return jspb.Message.setWrapperField(this, 5, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.cs3.rpc.v1beta1.Status} returns this
+ */
+proto.cs3.rpc.v1beta1.Status.prototype.clearInnererror = function() {
+  return this.setInnererror(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.rpc.v1beta1.Status.prototype.hasInnererror = function() {
+  return jspb.Message.getField(this, 5) != null;
 };
 
 
