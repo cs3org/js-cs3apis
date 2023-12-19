@@ -1,4 +1,4 @@
-// source: cs3/storage/provider/v1beta1/provider_api.proto
+// source: cs3/storage/provider/v1beta1/spaces_api.proto
 /**
  * @fileoverview
  * @enhanceable
