@@ -1,4 +1,4 @@
-// source: cs3/sharing/ocm/v1beta1/resources.proto
+// source: cs3/sharing/collaboration/v1beta1/resources.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -11,7 +11,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-goog.provide('proto.cs3.sharing.ocm.v1beta1.ShareId');
+goog.provide('proto.cs3.sharing.collaboration.v1beta1.ShareId');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -27,16 +27,16 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.cs3.sharing.ocm.v1beta1.ShareId = function(opt_data) {
+proto.cs3.sharing.collaboration.v1beta1.ShareId = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.cs3.sharing.ocm.v1beta1.ShareId, jspb.Message);
+goog.inherits(proto.cs3.sharing.collaboration.v1beta1.ShareId, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.cs3.sharing.ocm.v1beta1.ShareId.displayName = 'proto.cs3.sharing.ocm.v1beta1.ShareId';
+  proto.cs3.sharing.collaboration.v1beta1.ShareId.displayName = 'proto.cs3.sharing.collaboration.v1beta1.ShareId';
 }
 
 
@@ -54,8 +54,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.cs3.sharing.ocm.v1beta1.ShareId.prototype.toObject = function(opt_includeInstance) {
-  return proto.cs3.sharing.ocm.v1beta1.ShareId.toObject(opt_includeInstance, this);
+proto.cs3.sharing.collaboration.v1beta1.ShareId.prototype.toObject = function(opt_includeInstance) {
+  return proto.cs3.sharing.collaboration.v1beta1.ShareId.toObject(opt_includeInstance, this);
 };
 
 
@@ -64,13 +64,13 @@ proto.cs3.sharing.ocm.v1beta1.ShareId.prototype.toObject = function(opt_includeI
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.cs3.sharing.ocm.v1beta1.ShareId} msg The msg instance to transform.
+ * @param {!proto.cs3.sharing.collaboration.v1beta1.ShareId} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.cs3.sharing.ocm.v1beta1.ShareId.toObject = function(includeInstance, msg) {
+proto.cs3.sharing.collaboration.v1beta1.ShareId.toObject = function(includeInstance, msg) {
   var f, obj = {
-    opaqueId: jspb.Message.getFieldWithDefault(msg, 1, "")
+    opaqueId: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -84,30 +84,30 @@ proto.cs3.sharing.ocm.v1beta1.ShareId.toObject = function(includeInstance, msg) 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.cs3.sharing.ocm.v1beta1.ShareId}
+ * @return {!proto.cs3.sharing.collaboration.v1beta1.ShareId}
  */
-proto.cs3.sharing.ocm.v1beta1.ShareId.deserializeBinary = function(bytes) {
+proto.cs3.sharing.collaboration.v1beta1.ShareId.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.cs3.sharing.ocm.v1beta1.ShareId;
-  return proto.cs3.sharing.ocm.v1beta1.ShareId.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.cs3.sharing.collaboration.v1beta1.ShareId;
+  return proto.cs3.sharing.collaboration.v1beta1.ShareId.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.cs3.sharing.ocm.v1beta1.ShareId} msg The message object to deserialize into.
+ * @param {!proto.cs3.sharing.collaboration.v1beta1.ShareId} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.cs3.sharing.ocm.v1beta1.ShareId}
+ * @return {!proto.cs3.sharing.collaboration.v1beta1.ShareId}
  */
-proto.cs3.sharing.ocm.v1beta1.ShareId.deserializeBinaryFromReader = function(msg, reader) {
+proto.cs3.sharing.collaboration.v1beta1.ShareId.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
+    case 2:
       var value = /** @type {string} */ (reader.readString());
       msg.setOpaqueId(value);
       break;
@@ -124,9 +124,9 @@ proto.cs3.sharing.ocm.v1beta1.ShareId.deserializeBinaryFromReader = function(msg
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.cs3.sharing.ocm.v1beta1.ShareId.prototype.serializeBinary = function() {
+proto.cs3.sharing.collaboration.v1beta1.ShareId.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.cs3.sharing.ocm.v1beta1.ShareId.serializeBinaryToWriter(this, writer);
+  proto.cs3.sharing.collaboration.v1beta1.ShareId.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -134,16 +134,16 @@ proto.cs3.sharing.ocm.v1beta1.ShareId.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.cs3.sharing.ocm.v1beta1.ShareId} message
+ * @param {!proto.cs3.sharing.collaboration.v1beta1.ShareId} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.cs3.sharing.ocm.v1beta1.ShareId.serializeBinaryToWriter = function(message, writer) {
+proto.cs3.sharing.collaboration.v1beta1.ShareId.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getOpaqueId();
   if (f.length > 0) {
     writer.writeString(
-      1,
+      2,
       f
     );
   }
@@ -151,20 +151,20 @@ proto.cs3.sharing.ocm.v1beta1.ShareId.serializeBinaryToWriter = function(message
 
 
 /**
- * optional string opaque_id = 1;
+ * optional string opaque_id = 2;
  * @return {string}
  */
-proto.cs3.sharing.ocm.v1beta1.ShareId.prototype.getOpaqueId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.cs3.sharing.collaboration.v1beta1.ShareId.prototype.getOpaqueId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /**
  * @param {string} value
- * @return {!proto.cs3.sharing.ocm.v1beta1.ShareId} returns this
+ * @return {!proto.cs3.sharing.collaboration.v1beta1.ShareId} returns this
  */
-proto.cs3.sharing.ocm.v1beta1.ShareId.prototype.setOpaqueId = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
+proto.cs3.sharing.collaboration.v1beta1.ShareId.prototype.setOpaqueId = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

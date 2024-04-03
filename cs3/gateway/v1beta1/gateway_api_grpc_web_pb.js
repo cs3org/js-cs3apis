@@ -52,6 +52,7 @@ goog.require('proto.cs3.gateway.v1beta1.GetQuotaRequest');
 goog.require('proto.cs3.gateway.v1beta1.InitiateFileDownloadResponse');
 goog.require('proto.cs3.gateway.v1beta1.InitiateFileUploadResponse');
 goog.require('proto.cs3.gateway.v1beta1.ListAuthProvidersResponse');
+goog.require('proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse');
 goog.require('proto.cs3.gateway.v1beta1.OpenInAppRequest');
 goog.require('proto.cs3.gateway.v1beta1.WhoAmIRequest');
 goog.require('proto.cs3.gateway.v1beta1.WhoAmIResponse');
@@ -2826,6 +2827,67 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.listReceivedShares =
       request,
       metadata || {},
       methodDescriptor_GatewayAPI_ListReceivedShares);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.sharing.collaboration.v1beta1.ListReceivedSharesRequest,
+ *   !proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse>}
+ */
+const methodDescriptor_GatewayAPI_ListExistingReceivedShares = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/ListExistingReceivedShares',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.sharing.collaboration.v1beta1.ListReceivedSharesRequest,
+  proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse,
+  /**
+   * @param {!proto.cs3.sharing.collaboration.v1beta1.ListReceivedSharesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.sharing.collaboration.v1beta1.ListReceivedSharesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.listExistingReceivedShares =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/ListExistingReceivedShares',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_ListExistingReceivedShares,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.sharing.collaboration.v1beta1.ListReceivedSharesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.listExistingReceivedShares =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/ListExistingReceivedShares',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_ListExistingReceivedShares);
 };
 
 

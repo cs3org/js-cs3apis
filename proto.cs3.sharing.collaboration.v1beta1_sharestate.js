@@ -1,4 +1,4 @@
-// source: cs3/sharing/ocm/v1beta1/resources.proto
+// source: cs3/sharing/collaboration/v1beta1/resources.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -11,12 +11,12 @@
 /* eslint-disable */
 // @ts-nocheck
 
-goog.provide('proto.cs3.sharing.ocm.v1beta1.ShareState');
+goog.provide('proto.cs3.sharing.collaboration.v1beta1.ShareState');
 
 /**
  * @enum {number}
  */
-proto.cs3.sharing.ocm.v1beta1.ShareState = {
+proto.cs3.sharing.collaboration.v1beta1.ShareState = {
   SHARE_STATE_INVALID: 0,
   SHARE_STATE_PENDING: 1,
   SHARE_STATE_ACCEPTED: 2,
