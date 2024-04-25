@@ -73,7 +73,9 @@ proto.cs3.storage.provider.v1beta1.Quota.toObject = function(includeInstance, ms
   var f, obj = {
     opaque: (f = msg.getOpaque()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f),
     quotaMaxBytes: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    quotaMaxFiles: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    quotaMaxFiles: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    remainingBytes: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    remainingFiles: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -123,6 +125,14 @@ proto.cs3.storage.provider.v1beta1.Quota.deserializeBinaryFromReader = function(
       var value = /** @type {number} */ (reader.readUint64());
       msg.setQuotaMaxFiles(value);
       break;
+    case 4:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setRemainingBytes(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setRemainingFiles(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -171,6 +181,20 @@ proto.cs3.storage.provider.v1beta1.Quota.serializeBinaryToWriter = function(mess
   if (f !== 0) {
     writer.writeUint64(
       3,
+      f
+    );
+  }
+  f = message.getRemainingBytes();
+  if (f !== 0) {
+    writer.writeUint64(
+      4,
+      f
+    );
+  }
+  f = message.getRemainingFiles();
+  if (f !== 0) {
+    writer.writeUint64(
+      5,
       f
     );
   }
@@ -247,6 +271,42 @@ proto.cs3.storage.provider.v1beta1.Quota.prototype.getQuotaMaxFiles = function()
  */
 proto.cs3.storage.provider.v1beta1.Quota.prototype.setQuotaMaxFiles = function(value) {
   return jspb.Message.setProto3IntField(this, 3, value);
+};
+
+
+/**
+ * optional uint64 remaining_bytes = 4;
+ * @return {number}
+ */
+proto.cs3.storage.provider.v1beta1.Quota.prototype.getRemainingBytes = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.cs3.storage.provider.v1beta1.Quota} returns this
+ */
+proto.cs3.storage.provider.v1beta1.Quota.prototype.setRemainingBytes = function(value) {
+  return jspb.Message.setProto3IntField(this, 4, value);
+};
+
+
+/**
+ * optional uint64 remaining_files = 5;
+ * @return {number}
+ */
+proto.cs3.storage.provider.v1beta1.Quota.prototype.getRemainingFiles = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.cs3.storage.provider.v1beta1.Quota} returns this
+ */
+proto.cs3.storage.provider.v1beta1.Quota.prototype.setRemainingFiles = function(value) {
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
