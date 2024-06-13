@@ -4,8 +4,13 @@
 
 API definitions can be found at https://github.com/cs3org/cs3apis
 
+See [grpc-web](https://github.com/grpc/grpc-web) for more info and examples of how to use grpc from within the web browser.
+If you're using Node and/or TypeScript then this repo is not for you; you should check out the
+[node-cs3apis](https://github.com/cs3org/js-cs3apis) repo instead.
+
 ## Install with npm
 
 ```bash
 npm i @cs3org/cs3apis
 ```
+
