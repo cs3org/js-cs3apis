@@ -11,12 +11,12 @@
 /* eslint-disable */
 // @ts-nocheck
 
-goog.provide('proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse');
+goog.provide('proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
-goog.require('proto.cs3.gateway.v1beta1.ReceivedShareResourceInfo');
+goog.require('proto.cs3.gateway.v1beta1.PublicShareResourceInfo');
 goog.require('proto.cs3.rpc.v1beta1.Status');
 goog.require('proto.cs3.types.v1beta1.Opaque');
 
@@ -30,16 +30,16 @@ goog.require('proto.cs3.types.v1beta1.Opaque');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.repeatedFields_, null);
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.repeatedFields_, null);
 };
-goog.inherits(proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse, jspb.Message);
+goog.inherits(proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.displayName = 'proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse';
+  proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.displayName = 'proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse';
 }
 
 /**
@@ -47,7 +47,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.repeatedFields_ = [3];
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.repeatedFields_ = [3];
 
 
 
@@ -64,8 +64,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.toObject(opt_includeInstance, this);
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.toObject(opt_includeInstance, this);
 };
 
 
@@ -74,16 +74,16 @@ proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.toObject 
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse} msg The msg instance to transform.
+ * @param {!proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.toObject = function(includeInstance, msg) {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     status: (f = msg.getStatus()) && proto.cs3.rpc.v1beta1.Status.toObject(includeInstance, f),
     opaque: (f = msg.getOpaque()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f),
     shareInfosList: jspb.Message.toObjectList(msg.getShareInfosList(),
-    proto.cs3.gateway.v1beta1.ReceivedShareResourceInfo.toObject, includeInstance),
+    proto.cs3.gateway.v1beta1.PublicShareResourceInfo.toObject, includeInstance),
     nextPageToken: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
@@ -98,23 +98,23 @@ proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.toObject = function
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse}
+ * @return {!proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse}
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.deserializeBinary = function(bytes) {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse;
-  return proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse;
+  return proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse} msg The message object to deserialize into.
+ * @param {!proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse}
+ * @return {!proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse}
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -132,8 +132,8 @@ proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.deserializeBinaryFr
       msg.setOpaque(value);
       break;
     case 3:
-      var value = new proto.cs3.gateway.v1beta1.ReceivedShareResourceInfo;
-      reader.readMessage(value,proto.cs3.gateway.v1beta1.ReceivedShareResourceInfo.deserializeBinaryFromReader);
+      var value = new proto.cs3.gateway.v1beta1.PublicShareResourceInfo;
+      reader.readMessage(value,proto.cs3.gateway.v1beta1.PublicShareResourceInfo.deserializeBinaryFromReader);
       msg.addShareInfos(value);
       break;
     case 4:
@@ -153,9 +153,9 @@ proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.deserializeBinaryFr
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.serializeBinary = function() {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.serializeBinaryToWriter(this, writer);
+  proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -163,11 +163,11 @@ proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.serialize
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse} message
+ * @param {!proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.serializeBinaryToWriter = function(message, writer) {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getStatus();
   if (f != null) {
@@ -190,7 +190,7 @@ proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.serializeBinaryToWr
     writer.writeRepeatedMessage(
       3,
       f,
-      proto.cs3.gateway.v1beta1.ReceivedShareResourceInfo.serializeBinaryToWriter
+      proto.cs3.gateway.v1beta1.PublicShareResourceInfo.serializeBinaryToWriter
     );
   }
   f = message.getNextPageToken();
@@ -207,7 +207,7 @@ proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.serializeBinaryToWr
  * optional cs3.rpc.v1beta1.Status status = 1;
  * @return {?proto.cs3.rpc.v1beta1.Status}
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.getStatus = function() {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.getStatus = function() {
   return /** @type{?proto.cs3.rpc.v1beta1.Status} */ (
     jspb.Message.getWrapperField(this, proto.cs3.rpc.v1beta1.Status, 1));
 };
@@ -215,18 +215,18 @@ proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.getStatus
 
 /**
  * @param {?proto.cs3.rpc.v1beta1.Status|undefined} value
- * @return {!proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse} returns this
+ * @return {!proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse} returns this
 */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.setStatus = function(value) {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.setStatus = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse} returns this
+ * @return {!proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse} returns this
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.clearStatus = function() {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.clearStatus = function() {
   return this.setStatus(undefined);
 };
 
@@ -235,7 +235,7 @@ proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.clearStat
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.hasStatus = function() {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.hasStatus = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
@@ -244,7 +244,7 @@ proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.hasStatus
  * optional cs3.types.v1beta1.Opaque opaque = 2;
  * @return {?proto.cs3.types.v1beta1.Opaque}
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.getOpaque = function() {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.getOpaque = function() {
   return /** @type{?proto.cs3.types.v1beta1.Opaque} */ (
     jspb.Message.getWrapperField(this, proto.cs3.types.v1beta1.Opaque, 2));
 };
@@ -252,18 +252,18 @@ proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.getOpaque
 
 /**
  * @param {?proto.cs3.types.v1beta1.Opaque|undefined} value
- * @return {!proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse} returns this
+ * @return {!proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse} returns this
 */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.setOpaque = function(value) {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.setOpaque = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse} returns this
+ * @return {!proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse} returns this
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.clearOpaque = function() {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.clearOpaque = function() {
   return this.setOpaque(undefined);
 };
 
@@ -272,45 +272,45 @@ proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.clearOpaq
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.hasOpaque = function() {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.hasOpaque = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
 
 /**
- * repeated ReceivedShareResourceInfo share_infos = 3;
- * @return {!Array<!proto.cs3.gateway.v1beta1.ReceivedShareResourceInfo>}
+ * repeated PublicShareResourceInfo share_infos = 3;
+ * @return {!Array<!proto.cs3.gateway.v1beta1.PublicShareResourceInfo>}
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.getShareInfosList = function() {
-  return /** @type{!Array<!proto.cs3.gateway.v1beta1.ReceivedShareResourceInfo>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.cs3.gateway.v1beta1.ReceivedShareResourceInfo, 3));
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.getShareInfosList = function() {
+  return /** @type{!Array<!proto.cs3.gateway.v1beta1.PublicShareResourceInfo>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.cs3.gateway.v1beta1.PublicShareResourceInfo, 3));
 };
 
 
 /**
- * @param {!Array<!proto.cs3.gateway.v1beta1.ReceivedShareResourceInfo>} value
- * @return {!proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse} returns this
+ * @param {!Array<!proto.cs3.gateway.v1beta1.PublicShareResourceInfo>} value
+ * @return {!proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse} returns this
 */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.setShareInfosList = function(value) {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.setShareInfosList = function(value) {
   return jspb.Message.setRepeatedWrapperField(this, 3, value);
 };
 
 
 /**
- * @param {!proto.cs3.gateway.v1beta1.ReceivedShareResourceInfo=} opt_value
+ * @param {!proto.cs3.gateway.v1beta1.PublicShareResourceInfo=} opt_value
  * @param {number=} opt_index
- * @return {!proto.cs3.gateway.v1beta1.ReceivedShareResourceInfo}
+ * @return {!proto.cs3.gateway.v1beta1.PublicShareResourceInfo}
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.addShareInfos = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.cs3.gateway.v1beta1.ReceivedShareResourceInfo, opt_index);
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.addShareInfos = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.cs3.gateway.v1beta1.PublicShareResourceInfo, opt_index);
 };
 
 
 /**
  * Clears the list making it empty but non-null.
- * @return {!proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse} returns this
+ * @return {!proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse} returns this
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.clearShareInfosList = function() {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.clearShareInfosList = function() {
   return this.setShareInfosList([]);
 };
 
@@ -319,16 +319,16 @@ proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.clearShar
  * optional string next_page_token = 4;
  * @return {string}
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.getNextPageToken = function() {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.getNextPageToken = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /**
  * @param {string} value
- * @return {!proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse} returns this
+ * @return {!proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse} returns this
  */
-proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse.prototype.setNextPageToken = function(value) {
+proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.prototype.setNextPageToken = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
 };
 

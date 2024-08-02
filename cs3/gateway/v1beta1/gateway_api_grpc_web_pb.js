@@ -52,7 +52,9 @@ goog.require('proto.cs3.gateway.v1beta1.GetQuotaRequest');
 goog.require('proto.cs3.gateway.v1beta1.InitiateFileDownloadResponse');
 goog.require('proto.cs3.gateway.v1beta1.InitiateFileUploadResponse');
 goog.require('proto.cs3.gateway.v1beta1.ListAuthProvidersResponse');
+goog.require('proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse');
 goog.require('proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse');
+goog.require('proto.cs3.gateway.v1beta1.ListExistingSharesResponse');
 goog.require('proto.cs3.gateway.v1beta1.OpenInAppRequest');
 goog.require('proto.cs3.gateway.v1beta1.WhoAmIRequest');
 goog.require('proto.cs3.gateway.v1beta1.WhoAmIResponse');
@@ -2711,6 +2713,67 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.listShares =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.sharing.collaboration.v1beta1.ListSharesRequest,
+ *   !proto.cs3.gateway.v1beta1.ListExistingSharesResponse>}
+ */
+const methodDescriptor_GatewayAPI_ListExistingShares = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/ListExistingShares',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.sharing.collaboration.v1beta1.ListSharesRequest,
+  proto.cs3.gateway.v1beta1.ListExistingSharesResponse,
+  /**
+   * @param {!proto.cs3.sharing.collaboration.v1beta1.ListSharesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.gateway.v1beta1.ListExistingSharesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.sharing.collaboration.v1beta1.ListSharesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cs3.gateway.v1beta1.ListExistingSharesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.gateway.v1beta1.ListExistingSharesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.listExistingShares =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/ListExistingShares',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_ListExistingShares,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.sharing.collaboration.v1beta1.ListSharesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.gateway.v1beta1.ListExistingSharesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.listExistingShares =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/ListExistingShares',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_ListExistingShares);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest,
  *   !proto.cs3.sharing.collaboration.v1beta1.UpdateShareResponse>}
  */
@@ -3437,6 +3500,67 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.listPublicShares =
       request,
       metadata || {},
       methodDescriptor_GatewayAPI_ListPublicShares);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.sharing.link.v1beta1.ListPublicSharesRequest,
+ *   !proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse>}
+ */
+const methodDescriptor_GatewayAPI_ListExistingPublicShares = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/ListExistingPublicShares',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.sharing.link.v1beta1.ListPublicSharesRequest,
+  proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse,
+  /**
+   * @param {!proto.cs3.sharing.link.v1beta1.ListPublicSharesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.sharing.link.v1beta1.ListPublicSharesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.listExistingPublicShares =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/ListExistingPublicShares',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_ListExistingPublicShares,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.sharing.link.v1beta1.ListPublicSharesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.listExistingPublicShares =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/ListExistingPublicShares',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_ListExistingPublicShares);
 };
 
 
