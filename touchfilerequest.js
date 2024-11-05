@@ -73,7 +73,8 @@ proto.cs3.storage.provider.v1beta1.TouchFileRequest.prototype.toObject = functio
 proto.cs3.storage.provider.v1beta1.TouchFileRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     opaque: (f = msg.getOpaque()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f),
-    ref: (f = msg.getRef()) && proto.cs3.storage.provider.v1beta1.Reference.toObject(includeInstance, f)
+    ref: (f = msg.getRef()) && proto.cs3.storage.provider.v1beta1.Reference.toObject(includeInstance, f),
+    lockId: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -120,6 +121,10 @@ proto.cs3.storage.provider.v1beta1.TouchFileRequest.deserializeBinaryFromReader 
       reader.readMessage(value,proto.cs3.storage.provider.v1beta1.Reference.deserializeBinaryFromReader);
       msg.setRef(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLockId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -163,6 +168,13 @@ proto.cs3.storage.provider.v1beta1.TouchFileRequest.serializeBinaryToWriter = fu
       2,
       f,
       proto.cs3.storage.provider.v1beta1.Reference.serializeBinaryToWriter
+    );
+  }
+  f = message.getLockId();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
     );
   }
 };
@@ -239,6 +251,24 @@ proto.cs3.storage.provider.v1beta1.TouchFileRequest.prototype.clearRef = functio
  */
 proto.cs3.storage.provider.v1beta1.TouchFileRequest.prototype.hasRef = function() {
   return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional string lock_id = 3;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.TouchFileRequest.prototype.getLockId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.cs3.storage.provider.v1beta1.TouchFileRequest} returns this
+ */
+proto.cs3.storage.provider.v1beta1.TouchFileRequest.prototype.setLockId = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
