@@ -84,7 +84,8 @@ proto.cs3.sharing.collaboration.v1beta1.Share.toObject = function(includeInstanc
     creator: (f = msg.getCreator()) && proto.cs3.identity.user.v1beta1.UserId.toObject(includeInstance, f),
     ctime: (f = msg.getCtime()) && proto.cs3.types.v1beta1.Timestamp.toObject(includeInstance, f),
     mtime: (f = msg.getMtime()) && proto.cs3.types.v1beta1.Timestamp.toObject(includeInstance, f),
-    expiration: (f = msg.getExpiration()) && proto.cs3.types.v1beta1.Timestamp.toObject(includeInstance, f)
+    expiration: (f = msg.getExpiration()) && proto.cs3.types.v1beta1.Timestamp.toObject(includeInstance, f),
+    description: jspb.Message.getFieldWithDefault(msg, 10, "")
   };
 
   if (includeInstance) {
@@ -165,6 +166,10 @@ proto.cs3.sharing.collaboration.v1beta1.Share.deserializeBinaryFromReader = func
       var value = new proto.cs3.types.v1beta1.Timestamp;
       reader.readMessage(value,proto.cs3.types.v1beta1.Timestamp.deserializeBinaryFromReader);
       msg.setExpiration(value);
+      break;
+    case 10:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDescription(value);
       break;
     default:
       reader.skipField();
@@ -265,6 +270,13 @@ proto.cs3.sharing.collaboration.v1beta1.Share.serializeBinaryToWriter = function
       9,
       f,
       proto.cs3.types.v1beta1.Timestamp.serializeBinaryToWriter
+    );
+  }
+  f = message.getDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      10,
+      f
     );
   }
 };
@@ -600,6 +612,24 @@ proto.cs3.sharing.collaboration.v1beta1.Share.prototype.clearExpiration = functi
  */
 proto.cs3.sharing.collaboration.v1beta1.Share.prototype.hasExpiration = function() {
   return jspb.Message.getField(this, 9) != null;
+};
+
+
+/**
+ * optional string description = 10;
+ * @return {string}
+ */
+proto.cs3.sharing.collaboration.v1beta1.Share.prototype.getDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.cs3.sharing.collaboration.v1beta1.Share} returns this
+ */
+proto.cs3.sharing.collaboration.v1beta1.Share.prototype.setDescription = function(value) {
+  return jspb.Message.setProto3StringField(this, 10, value);
 };
 
 

@@ -76,7 +76,8 @@ proto.cs3.sharing.collaboration.v1beta1.ReceivedShare.toObject = function(includ
     share: (f = msg.getShare()) && proto.cs3.sharing.collaboration.v1beta1.Share.toObject(includeInstance, f),
     state: jspb.Message.getFieldWithDefault(msg, 2, 0),
     mountPoint: (f = msg.getMountPoint()) && proto.cs3.storage.provider.v1beta1.Reference.toObject(includeInstance, f),
-    hidden: jspb.Message.getBooleanFieldWithDefault(msg, 4, false)
+    hidden: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
+    alias: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -130,6 +131,10 @@ proto.cs3.sharing.collaboration.v1beta1.ReceivedShare.deserializeBinaryFromReade
     case 4:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setHidden(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAlias(value);
       break;
     default:
       reader.skipField();
@@ -187,6 +192,13 @@ proto.cs3.sharing.collaboration.v1beta1.ReceivedShare.serializeBinaryToWriter = 
   if (f) {
     writer.writeBool(
       4,
+      f
+    );
+  }
+  f = message.getAlias();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
       f
     );
   }
@@ -300,6 +312,24 @@ proto.cs3.sharing.collaboration.v1beta1.ReceivedShare.prototype.getHidden = func
  */
 proto.cs3.sharing.collaboration.v1beta1.ReceivedShare.prototype.setHidden = function(value) {
   return jspb.Message.setProto3BooleanField(this, 4, value);
+};
+
+
+/**
+ * optional string alias = 5;
+ * @return {string}
+ */
+proto.cs3.sharing.collaboration.v1beta1.ReceivedShare.prototype.getAlias = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.cs3.sharing.collaboration.v1beta1.ReceivedShare} returns this
+ */
+proto.cs3.sharing.collaboration.v1beta1.ReceivedShare.prototype.setAlias = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
