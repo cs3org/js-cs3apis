@@ -29,7 +29,7 @@ goog.require('proto.cs3.storage.provider.v1beta1.ResourcePermissions');
  * @constructor
  */
 proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod.repeatedFields_, null);
 };
 goog.inherits(proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -39,6 +39,13 @@ if (goog.DEBUG && !COMPILED) {
    */
   proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod.displayName = 'proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod';
 }
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod.repeatedFields_ = [2];
 
 
 
@@ -71,7 +78,8 @@ proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod.prototype.toObject = function(o
  */
 proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod.toObject = function(includeInstance, msg) {
   var f, obj = {
-    permissions: (f = msg.getPermissions()) && proto.cs3.storage.provider.v1beta1.ResourcePermissions.toObject(includeInstance, f)
+    permissions: (f = msg.getPermissions()) && proto.cs3.storage.provider.v1beta1.ResourcePermissions.toObject(includeInstance, f),
+    requirementsList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -113,6 +121,10 @@ proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod.deserializeBinaryFromReader = f
       reader.readMessage(value,proto.cs3.storage.provider.v1beta1.ResourcePermissions.deserializeBinaryFromReader);
       msg.setPermissions(value);
       break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addRequirements(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -148,6 +160,13 @@ proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod.serializeBinaryToWriter = funct
       1,
       f,
       proto.cs3.storage.provider.v1beta1.ResourcePermissions.serializeBinaryToWriter
+    );
+  }
+  f = message.getRequirementsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      2,
+      f
     );
   }
 };
@@ -187,6 +206,43 @@ proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod.prototype.clearPermissions = fu
  */
 proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod.prototype.hasPermissions = function() {
   return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * repeated string requirements = 2;
+ * @return {!Array<string>}
+ */
+proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod.prototype.getRequirementsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod} returns this
+ */
+proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod.prototype.setRequirementsList = function(value) {
+  return jspb.Message.setField(this, 2, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod} returns this
+ */
+proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod.prototype.addRequirements = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod} returns this
+ */
+proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod.prototype.clearRequirementsList = function() {
+  return this.setRequirementsList([]);
 };
 
 

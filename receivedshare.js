@@ -100,7 +100,8 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.toObject = function(includeInstance,
     proto.cs3.sharing.ocm.v1beta1.Protocol.toObject, includeInstance),
     state: jspb.Message.getFieldWithDefault(msg, 12, 0),
     opaque: (f = msg.getOpaque()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f),
-    resourceType: jspb.Message.getFieldWithDefault(msg, 14, 0)
+    resourceType: jspb.Message.getFieldWithDefault(msg, 14, 0),
+    code: jspb.Message.getFieldWithDefault(msg, 15, "")
   };
 
   if (includeInstance) {
@@ -201,6 +202,10 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.deserializeBinaryFromReader = functi
     case 14:
       var value = /** @type {!proto.cs3.storage.provider.v1beta1.ResourceType} */ (reader.readEnum());
       msg.setResourceType(value);
+      break;
+    case 15:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCode(value);
       break;
     default:
       reader.skipField();
@@ -335,6 +340,13 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.serializeBinaryToWriter = function(m
   if (f !== 0.0) {
     writer.writeEnum(
       14,
+      f
+    );
+  }
+  f = message.getCode();
+  if (f.length > 0) {
+    writer.writeString(
+      15,
       f
     );
   }
@@ -762,6 +774,24 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.getResourceType = function
  */
 proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.setResourceType = function(value) {
   return jspb.Message.setProto3EnumField(this, 14, value);
+};
+
+
+/**
+ * optional string code = 15;
+ * @return {string}
+ */
+proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.getCode = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.cs3.sharing.ocm.v1beta1.ReceivedShare} returns this
+ */
+proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.setCode = function(value) {
+  return jspb.Message.setProto3StringField(this, 15, value);
 };
 
 

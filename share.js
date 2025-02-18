@@ -98,6 +98,7 @@ proto.cs3.sharing.ocm.v1beta1.Share.toObject = function(includeInstance, msg) {
     shareType: jspb.Message.getFieldWithDefault(msg, 11, 0),
     accessMethodsList: jspb.Message.toObjectList(msg.getAccessMethodsList(),
     proto.cs3.sharing.ocm.v1beta1.AccessMethod.toObject, includeInstance),
+    code: jspb.Message.getFieldWithDefault(msg, 13, ""),
     opaque: (f = msg.getOpaque()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f)
   };
 
@@ -193,6 +194,10 @@ proto.cs3.sharing.ocm.v1beta1.Share.deserializeBinaryFromReader = function(msg, 
       msg.addAccessMethods(value);
       break;
     case 13:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCode(value);
+      break;
+    case 14:
       var value = new proto.cs3.types.v1beta1.Opaque;
       reader.readMessage(value,proto.cs3.types.v1beta1.Opaque.deserializeBinaryFromReader);
       msg.setOpaque(value);
@@ -319,10 +324,17 @@ proto.cs3.sharing.ocm.v1beta1.Share.serializeBinaryToWriter = function(message, 
       proto.cs3.sharing.ocm.v1beta1.AccessMethod.serializeBinaryToWriter
     );
   }
+  f = message.getCode();
+  if (f.length > 0) {
+    writer.writeString(
+      13,
+      f
+    );
+  }
   f = message.getOpaque();
   if (f != null) {
     writer.writeMessage(
-      13,
+      14,
       f,
       proto.cs3.types.v1beta1.Opaque.serializeBinaryToWriter
     );
@@ -719,12 +731,30 @@ proto.cs3.sharing.ocm.v1beta1.Share.prototype.clearAccessMethodsList = function(
 
 
 /**
- * optional cs3.types.v1beta1.Opaque opaque = 13;
+ * optional string code = 13;
+ * @return {string}
+ */
+proto.cs3.sharing.ocm.v1beta1.Share.prototype.getCode = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 13, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.cs3.sharing.ocm.v1beta1.Share} returns this
+ */
+proto.cs3.sharing.ocm.v1beta1.Share.prototype.setCode = function(value) {
+  return jspb.Message.setProto3StringField(this, 13, value);
+};
+
+
+/**
+ * optional cs3.types.v1beta1.Opaque opaque = 14;
  * @return {?proto.cs3.types.v1beta1.Opaque}
  */
 proto.cs3.sharing.ocm.v1beta1.Share.prototype.getOpaque = function() {
   return /** @type{?proto.cs3.types.v1beta1.Opaque} */ (
-    jspb.Message.getWrapperField(this, proto.cs3.types.v1beta1.Opaque, 13));
+    jspb.Message.getWrapperField(this, proto.cs3.types.v1beta1.Opaque, 14));
 };
 
 
@@ -733,7 +763,7 @@ proto.cs3.sharing.ocm.v1beta1.Share.prototype.getOpaque = function() {
  * @return {!proto.cs3.sharing.ocm.v1beta1.Share} returns this
 */
 proto.cs3.sharing.ocm.v1beta1.Share.prototype.setOpaque = function(value) {
-  return jspb.Message.setWrapperField(this, 13, value);
+  return jspb.Message.setWrapperField(this, 14, value);
 };
 
 
@@ -751,7 +781,7 @@ proto.cs3.sharing.ocm.v1beta1.Share.prototype.clearOpaque = function() {
  * @return {boolean}
  */
 proto.cs3.sharing.ocm.v1beta1.Share.prototype.hasOpaque = function() {
-  return jspb.Message.getField(this, 13) != null;
+  return jspb.Message.getField(this, 14) != null;
 };
 
 

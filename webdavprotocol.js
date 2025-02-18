@@ -29,7 +29,7 @@ goog.require('proto.cs3.sharing.ocm.v1beta1.SharePermissions');
  * @constructor
  */
 proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.repeatedFields_, null);
 };
 goog.inherits(proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -39,6 +39,13 @@ if (goog.DEBUG && !COMPILED) {
    */
   proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.displayName = 'proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol';
 }
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.repeatedFields_ = [4];
 
 
 
@@ -73,7 +80,8 @@ proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.toObject = function(includeInstance
   var f, obj = {
     sharedSecret: jspb.Message.getFieldWithDefault(msg, 1, ""),
     permissions: (f = msg.getPermissions()) && proto.cs3.sharing.ocm.v1beta1.SharePermissions.toObject(includeInstance, f),
-    uri: jspb.Message.getFieldWithDefault(msg, 3, "")
+    uri: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    requirementsList: (f = jspb.Message.getRepeatedField(msg, 4)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -123,6 +131,10 @@ proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.deserializeBinaryFromReader = funct
       var value = /** @type {string} */ (reader.readString());
       msg.setUri(value);
       break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addRequirements(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -171,6 +183,13 @@ proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.serializeBinaryToWriter = function(
   if (f.length > 0) {
     writer.writeString(
       3,
+      f
+    );
+  }
+  f = message.getRequirementsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      4,
       f
     );
   }
@@ -247,6 +266,43 @@ proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.prototype.getUri = function() {
  */
 proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.prototype.setUri = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * repeated string requirements = 4;
+ * @return {!Array<string>}
+ */
+proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.prototype.getRequirementsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 4));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol} returns this
+ */
+proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.prototype.setRequirementsList = function(value) {
+  return jspb.Message.setField(this, 4, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol} returns this
+ */
+proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.prototype.addRequirements = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol} returns this
+ */
+proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.prototype.clearRequirementsList = function() {
+  return this.setRequirementsList([]);
 };
 
 

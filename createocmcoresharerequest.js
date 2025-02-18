@@ -94,7 +94,8 @@ proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.toObject = function(include
     shareType: jspb.Message.getFieldWithDefault(msg, 9, 0),
     expiration: (f = msg.getExpiration()) && proto.cs3.types.v1beta1.Timestamp.toObject(includeInstance, f),
     protocolsList: jspb.Message.toObjectList(msg.getProtocolsList(),
-    proto.cs3.sharing.ocm.v1beta1.Protocol.toObject, includeInstance)
+    proto.cs3.sharing.ocm.v1beta1.Protocol.toObject, includeInstance),
+    code: jspb.Message.getFieldWithDefault(msg, 12, "")
   };
 
   if (includeInstance) {
@@ -180,6 +181,10 @@ proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.deserializeBinaryFromReader
       var value = new proto.cs3.sharing.ocm.v1beta1.Protocol;
       reader.readMessage(value,proto.cs3.sharing.ocm.v1beta1.Protocol.deserializeBinaryFromReader);
       msg.addProtocols(value);
+      break;
+    case 12:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCode(value);
       break;
     default:
       reader.skipField();
@@ -291,6 +296,13 @@ proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.serializeBinaryToWriter = f
       11,
       f,
       proto.cs3.sharing.ocm.v1beta1.Protocol.serializeBinaryToWriter
+    );
+  }
+  f = message.getCode();
+  if (f.length > 0) {
+    writer.writeString(
+      12,
+      f
     );
   }
 };
@@ -606,6 +618,24 @@ proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.addProtocols = fu
  */
 proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.clearProtocolsList = function() {
   return this.setProtocolsList([]);
+};
+
+
+/**
+ * optional string code = 12;
+ * @return {string}
+ */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.getCode = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest} returns this
+ */
+proto.cs3.ocm.core.v1beta1.CreateOCMCoreShareRequest.prototype.setCode = function(value) {
+  return jspb.Message.setProto3StringField(this, 12, value);
 };
 
 

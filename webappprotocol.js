@@ -71,8 +71,9 @@ proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.toObject = function(opt_i
  */
 proto.cs3.sharing.ocm.v1beta1.WebappProtocol.toObject = function(includeInstance, msg) {
   var f, obj = {
-    uriTemplate: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    viewMode: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    uri: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    viewMode: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    sharedSecret: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -111,11 +112,15 @@ proto.cs3.sharing.ocm.v1beta1.WebappProtocol.deserializeBinaryFromReader = funct
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setUriTemplate(value);
+      msg.setUri(value);
       break;
     case 2:
       var value = /** @type {!proto.cs3.app.provider.v1beta1.ViewMode} */ (reader.readEnum());
       msg.setViewMode(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSharedSecret(value);
       break;
     default:
       reader.skipField();
@@ -146,7 +151,7 @@ proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.serializeBinary = functio
  */
 proto.cs3.sharing.ocm.v1beta1.WebappProtocol.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getUriTemplate();
+  f = message.getUri();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -160,14 +165,21 @@ proto.cs3.sharing.ocm.v1beta1.WebappProtocol.serializeBinaryToWriter = function(
       f
     );
   }
+  f = message.getSharedSecret();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
 };
 
 
 /**
- * optional string uri_template = 1;
+ * optional string uri = 1;
  * @return {string}
  */
-proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.getUriTemplate = function() {
+proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.getUri = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -176,7 +188,7 @@ proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.getUriTemplate = function
  * @param {string} value
  * @return {!proto.cs3.sharing.ocm.v1beta1.WebappProtocol} returns this
  */
-proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.setUriTemplate = function(value) {
+proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.setUri = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -196,6 +208,24 @@ proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.getViewMode = function() 
  */
 proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.setViewMode = function(value) {
   return jspb.Message.setProto3EnumField(this, 2, value);
+};
+
+
+/**
+ * optional string shared_secret = 3;
+ * @return {string}
+ */
+proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.getSharedSecret = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.cs3.sharing.ocm.v1beta1.WebappProtocol} returns this
+ */
+proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.setSharedSecret = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
