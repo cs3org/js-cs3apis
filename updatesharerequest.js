@@ -22,6 +22,7 @@ goog.require('proto.cs3.sharing.collaboration.v1beta1.Share');
 goog.require('proto.cs3.sharing.collaboration.v1beta1.SharePermissions');
 goog.require('proto.cs3.sharing.collaboration.v1beta1.ShareReference');
 goog.require('proto.cs3.types.v1beta1.Opaque');
+goog.require('proto.cs3.types.v1beta1.Timestamp');
 goog.require('proto.google.protobuf.FieldMask');
 
 /**
@@ -245,7 +246,7 @@ proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.serializeBinaryToWrit
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField.oneofGroups_ = [[2,3]];
+proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField.oneofGroups_ = [[2,3,4]];
 
 /**
  * @enum {number}
@@ -253,7 +254,8 @@ proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField.oneofGrou
 proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField.FieldCase = {
   FIELD_NOT_SET: 0,
   PERMISSIONS: 2,
-  DISPLAY_NAME: 3
+  DISPLAY_NAME: 3,
+  EXPIRATION: 4
 };
 
 /**
@@ -295,7 +297,8 @@ proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField.prototype
 proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField.toObject = function(includeInstance, msg) {
   var f, obj = {
     permissions: (f = msg.getPermissions()) && proto.cs3.sharing.collaboration.v1beta1.SharePermissions.toObject(includeInstance, f),
-    displayName: jspb.Message.getFieldWithDefault(msg, 3, "")
+    displayName: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    expiration: (f = msg.getExpiration()) && proto.cs3.types.v1beta1.Timestamp.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -341,6 +344,11 @@ proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField.deseriali
       var value = /** @type {string} */ (reader.readString());
       msg.setDisplayName(value);
       break;
+    case 4:
+      var value = new proto.cs3.types.v1beta1.Timestamp;
+      reader.readMessage(value,proto.cs3.types.v1beta1.Timestamp.deserializeBinaryFromReader);
+      msg.setExpiration(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -383,6 +391,14 @@ proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField.serialize
     writer.writeString(
       3,
       f
+    );
+  }
+  f = message.getExpiration();
+  if (f != null) {
+    writer.writeMessage(
+      4,
+      f,
+      proto.cs3.types.v1beta1.Timestamp.serializeBinaryToWriter
     );
   }
 };
@@ -458,6 +474,43 @@ proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField.prototype
  */
 proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField.prototype.hasDisplayName = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional cs3.types.v1beta1.Timestamp expiration = 4;
+ * @return {?proto.cs3.types.v1beta1.Timestamp}
+ */
+proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField.prototype.getExpiration = function() {
+  return /** @type{?proto.cs3.types.v1beta1.Timestamp} */ (
+    jspb.Message.getWrapperField(this, proto.cs3.types.v1beta1.Timestamp, 4));
+};
+
+
+/**
+ * @param {?proto.cs3.types.v1beta1.Timestamp|undefined} value
+ * @return {!proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField} returns this
+*/
+proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField.prototype.setExpiration = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 4, proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField} returns this
+ */
+proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField.prototype.clearExpiration = function() {
+  return this.setExpiration(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.sharing.collaboration.v1beta1.UpdateShareRequest.UpdateField.prototype.hasExpiration = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
