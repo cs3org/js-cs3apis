@@ -1044,7 +1044,8 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.toObject = function(includeInsta
     quota: (f = msg.getQuota()) && proto.cs3.storage.provider.v1beta1.Quota.toObject(includeInstance, f),
     spaceType: jspb.Message.getFieldWithDefault(msg, 7, ""),
     mtime: (f = msg.getMtime()) && proto.cs3.types.v1beta1.Timestamp.toObject(includeInstance, f),
-    rootInfo: (f = msg.getRootInfo()) && proto.cs3.storage.provider.v1beta1.ResourceInfo.toObject(includeInstance, f)
+    rootInfo: (f = msg.getRootInfo()) && proto.cs3.storage.provider.v1beta1.ResourceInfo.toObject(includeInstance, f),
+    hasTrashedItems: jspb.Message.getBooleanFieldWithDefault(msg, 10, false)
   };
 
   if (includeInstance) {
@@ -1123,6 +1124,10 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.deserializeBinaryFromReader = fu
       var value = new proto.cs3.storage.provider.v1beta1.ResourceInfo;
       reader.readMessage(value,proto.cs3.storage.provider.v1beta1.ResourceInfo.deserializeBinaryFromReader);
       msg.setRootInfo(value);
+      break;
+    case 10:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setHasTrashedItems(value);
       break;
     default:
       reader.skipField();
@@ -1221,6 +1226,13 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.serializeBinaryToWriter = functi
       9,
       f,
       proto.cs3.storage.provider.v1beta1.ResourceInfo.serializeBinaryToWriter
+    );
+  }
+  f = message.getHasTrashedItems();
+  if (f) {
+    writer.writeBool(
+      10,
+      f
     );
   }
 };
@@ -1518,6 +1530,24 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.clearRootInfo = functi
  */
 proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.hasRootInfo = function() {
   return jspb.Message.getField(this, 9) != null;
+};
+
+
+/**
+ * optional bool has_trashed_items = 10;
+ * @return {boolean}
+ */
+proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.getHasTrashedItems = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 10, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.cs3.storage.provider.v1beta1.StorageSpace} returns this
+ */
+proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.setHasTrashedItems = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 10, value);
 };
 
 
