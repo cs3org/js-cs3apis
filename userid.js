@@ -73,7 +73,8 @@ proto.cs3.identity.user.v1beta1.UserId.toObject = function(includeInstance, msg)
   var f, obj = {
     idp: jspb.Message.getFieldWithDefault(msg, 1, ""),
     opaqueId: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    type: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    type: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    tenantId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -122,6 +123,10 @@ proto.cs3.identity.user.v1beta1.UserId.deserializeBinaryFromReader = function(ms
       var value = /** @type {!proto.cs3.identity.user.v1beta1.UserType} */ (reader.readEnum());
       msg.setType(value);
       break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTenantId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -169,6 +174,13 @@ proto.cs3.identity.user.v1beta1.UserId.serializeBinaryToWriter = function(messag
   if (f !== 0.0) {
     writer.writeEnum(
       3,
+      f
+    );
+  }
+  f = message.getTenantId();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
       f
     );
   }
@@ -226,6 +238,24 @@ proto.cs3.identity.user.v1beta1.UserId.prototype.getType = function() {
  */
 proto.cs3.identity.user.v1beta1.UserId.prototype.setType = function(value) {
   return jspb.Message.setProto3EnumField(this, 3, value);
+};
+
+
+/**
+ * optional string tenant_id = 4;
+ * @return {string}
+ */
+proto.cs3.identity.user.v1beta1.UserId.prototype.getTenantId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.cs3.identity.user.v1beta1.UserId} returns this
+ */
+proto.cs3.identity.user.v1beta1.UserId.prototype.setTenantId = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
