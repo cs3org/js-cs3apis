@@ -26,7 +26,6 @@ goog.require('proto.cs3.storage.provider.v1beta1.Quota');
 goog.require('proto.cs3.storage.provider.v1beta1.ResourceChecksum');
 goog.require('proto.cs3.storage.provider.v1beta1.ResourceId');
 goog.require('proto.cs3.storage.provider.v1beta1.ResourcePermissions');
-goog.require('proto.cs3.storage.provider.v1beta1.SpaceMetadata');
 goog.require('proto.cs3.storage.provider.v1beta1.StorageSpaceId');
 goog.require('proto.cs3.types.v1beta1.Opaque');
 goog.require('proto.cs3.types.v1beta1.Timestamp');
@@ -1048,7 +1047,8 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.toObject = function(includeInsta
     rootInfo: (f = msg.getRootInfo()) && proto.cs3.storage.provider.v1beta1.ResourceInfo.toObject(includeInstance, f),
     hasTrashedItems: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
     description: jspb.Message.getFieldWithDefault(msg, 11, ""),
-    metadata: (f = msg.getMetadata()) && proto.cs3.storage.provider.v1beta1.SpaceMetadata.toObject(includeInstance, f)
+    thumbnailId: jspb.Message.getFieldWithDefault(msg, 13, ""),
+    readmeId: jspb.Message.getFieldWithDefault(msg, 14, "")
   };
 
   if (includeInstance) {
@@ -1136,10 +1136,13 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.deserializeBinaryFromReader = fu
       var value = /** @type {string} */ (reader.readString());
       msg.setDescription(value);
       break;
-    case 12:
-      var value = new proto.cs3.storage.provider.v1beta1.SpaceMetadata;
-      reader.readMessage(value,proto.cs3.storage.provider.v1beta1.SpaceMetadata.deserializeBinaryFromReader);
-      msg.setMetadata(value);
+    case 13:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setThumbnailId(value);
+      break;
+    case 14:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setReadmeId(value);
       break;
     default:
       reader.skipField();
@@ -1254,12 +1257,18 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.serializeBinaryToWriter = functi
       f
     );
   }
-  f = message.getMetadata();
-  if (f != null) {
-    writer.writeMessage(
-      12,
-      f,
-      proto.cs3.storage.provider.v1beta1.SpaceMetadata.serializeBinaryToWriter
+  f = message.getThumbnailId();
+  if (f.length > 0) {
+    writer.writeString(
+      13,
+      f
+    );
+  }
+  f = message.getReadmeId();
+  if (f.length > 0) {
+    writer.writeString(
+      14,
+      f
     );
   }
 };
@@ -1597,39 +1606,38 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.setDescription = funct
 
 
 /**
- * optional SpaceMetadata metadata = 12;
- * @return {?proto.cs3.storage.provider.v1beta1.SpaceMetadata}
+ * optional string thumbnail_id = 13;
+ * @return {string}
  */
-proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.getMetadata = function() {
-  return /** @type{?proto.cs3.storage.provider.v1beta1.SpaceMetadata} */ (
-    jspb.Message.getWrapperField(this, proto.cs3.storage.provider.v1beta1.SpaceMetadata, 12));
+proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.getThumbnailId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 13, ""));
 };
 
 
 /**
- * @param {?proto.cs3.storage.provider.v1beta1.SpaceMetadata|undefined} value
- * @return {!proto.cs3.storage.provider.v1beta1.StorageSpace} returns this
-*/
-proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.setMetadata = function(value) {
-  return jspb.Message.setWrapperField(this, 12, value);
-};
-
-
-/**
- * Clears the message field making it undefined.
+ * @param {string} value
  * @return {!proto.cs3.storage.provider.v1beta1.StorageSpace} returns this
  */
-proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.clearMetadata = function() {
-  return this.setMetadata(undefined);
+proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.setThumbnailId = function(value) {
+  return jspb.Message.setProto3StringField(this, 13, value);
 };
 
 
 /**
- * Returns whether this field is set.
- * @return {boolean}
+ * optional string readme_id = 14;
+ * @return {string}
  */
-proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.hasMetadata = function() {
-  return jspb.Message.getField(this, 12) != null;
+proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.getReadmeId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.cs3.storage.provider.v1beta1.StorageSpace} returns this
+ */
+proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.setReadmeId = function(value) {
+  return jspb.Message.setProto3StringField(this, 14, value);
 };
 
 

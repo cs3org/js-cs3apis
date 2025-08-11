@@ -18,6 +18,7 @@ goog.provide('proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.Updat
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
+goog.require('proto.cs3.storage.provider.v1beta1.Quota');
 goog.require('proto.cs3.storage.provider.v1beta1.SpaceMetadata');
 goog.require('proto.cs3.storage.provider.v1beta1.StorageSpace');
 goog.require('proto.cs3.types.v1beta1.Opaque');
@@ -215,7 +216,7 @@ proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.serializeBinaryToWr
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.oneofGroups_ = [[1,2,3]];
+proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.oneofGroups_ = [[1,2,3,4,5]];
 
 /**
  * @enum {number}
@@ -224,7 +225,9 @@ proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.FieldCa
   FIELD_NOT_SET: 0,
   DESCRIPTION: 1,
   ALIAS: 2,
-  METADATA: 3
+  METADATA: 3,
+  QUOTA: 4,
+  NAME: 5
 };
 
 /**
@@ -267,7 +270,9 @@ proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.toObjec
   var f, obj = {
     description: jspb.Message.getFieldWithDefault(msg, 1, ""),
     alias: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    metadata: (f = msg.getMetadata()) && proto.cs3.storage.provider.v1beta1.SpaceMetadata.toObject(includeInstance, f)
+    metadata: (f = msg.getMetadata()) && proto.cs3.storage.provider.v1beta1.SpaceMetadata.toObject(includeInstance, f),
+    quota: (f = msg.getQuota()) && proto.cs3.storage.provider.v1beta1.Quota.toObject(includeInstance, f),
+    name: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -316,6 +321,15 @@ proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.deseria
       var value = new proto.cs3.storage.provider.v1beta1.SpaceMetadata;
       reader.readMessage(value,proto.cs3.storage.provider.v1beta1.SpaceMetadata.deserializeBinaryFromReader);
       msg.setMetadata(value);
+      break;
+    case 4:
+      var value = new proto.cs3.storage.provider.v1beta1.Quota;
+      reader.readMessage(value,proto.cs3.storage.provider.v1beta1.Quota.deserializeBinaryFromReader);
+      msg.setQuota(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
       break;
     default:
       reader.skipField();
@@ -366,6 +380,21 @@ proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.seriali
       3,
       f,
       proto.cs3.storage.provider.v1beta1.SpaceMetadata.serializeBinaryToWriter
+    );
+  }
+  f = message.getQuota();
+  if (f != null) {
+    writer.writeMessage(
+      4,
+      f,
+      proto.cs3.storage.provider.v1beta1.Quota.serializeBinaryToWriter
+    );
+  }
+  f = /** @type {string} */ (jspb.Message.getField(message, 5));
+  if (f != null) {
+    writer.writeString(
+      5,
+      f
     );
   }
 };
@@ -477,6 +506,79 @@ proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.prototy
  */
 proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.prototype.hasMetadata = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional Quota quota = 4;
+ * @return {?proto.cs3.storage.provider.v1beta1.Quota}
+ */
+proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.prototype.getQuota = function() {
+  return /** @type{?proto.cs3.storage.provider.v1beta1.Quota} */ (
+    jspb.Message.getWrapperField(this, proto.cs3.storage.provider.v1beta1.Quota, 4));
+};
+
+
+/**
+ * @param {?proto.cs3.storage.provider.v1beta1.Quota|undefined} value
+ * @return {!proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField} returns this
+*/
+proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.prototype.setQuota = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 4, proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField} returns this
+ */
+proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.prototype.clearQuota = function() {
+  return this.setQuota(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.prototype.hasQuota = function() {
+  return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional string name = 5;
+ * @return {string}
+ */
+proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField} returns this
+ */
+proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.prototype.setName = function(value) {
+  return jspb.Message.setOneofField(this, 5, proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField} returns this
+ */
+proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.prototype.clearName = function() {
+  return jspb.Message.setOneofField(this, 5, proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.oneofGroups_[0], undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest.UpdateField.prototype.hasName = function() {
+  return jspb.Message.getField(this, 5) != null;
 };
 
 
