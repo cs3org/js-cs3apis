@@ -16,6 +16,7 @@ goog.provide('proto.cs3.identity.user.v1beta1.FindUsersRequest');
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
+goog.require('proto.cs3.identity.user.v1beta1.Filter');
 goog.require('proto.cs3.types.v1beta1.Opaque');
 
 /**
@@ -29,7 +30,7 @@ goog.require('proto.cs3.types.v1beta1.Opaque');
  * @constructor
  */
 proto.cs3.identity.user.v1beta1.FindUsersRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.cs3.identity.user.v1beta1.FindUsersRequest.repeatedFields_, null);
 };
 goog.inherits(proto.cs3.identity.user.v1beta1.FindUsersRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -39,6 +40,13 @@ if (goog.DEBUG && !COMPILED) {
    */
   proto.cs3.identity.user.v1beta1.FindUsersRequest.displayName = 'proto.cs3.identity.user.v1beta1.FindUsersRequest';
 }
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.cs3.identity.user.v1beta1.FindUsersRequest.repeatedFields_ = [5];
 
 
 
@@ -72,7 +80,9 @@ proto.cs3.identity.user.v1beta1.FindUsersRequest.prototype.toObject = function(o
 proto.cs3.identity.user.v1beta1.FindUsersRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     opaque: (f = msg.getOpaque()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f),
-    filter: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    query: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    filterList: jspb.Message.toObjectList(msg.getFilterList(),
+    proto.cs3.identity.user.v1beta1.Filter.toObject, includeInstance),
     skipFetchingUserGroups: jspb.Message.getBooleanFieldWithDefault(msg, 3, false)
   };
 
@@ -115,9 +125,14 @@ proto.cs3.identity.user.v1beta1.FindUsersRequest.deserializeBinaryFromReader = f
       reader.readMessage(value,proto.cs3.types.v1beta1.Opaque.deserializeBinaryFromReader);
       msg.setOpaque(value);
       break;
-    case 2:
+    case 4:
       var value = /** @type {string} */ (reader.readString());
-      msg.setFilter(value);
+      msg.setQuery(value);
+      break;
+    case 5:
+      var value = new proto.cs3.identity.user.v1beta1.Filter;
+      reader.readMessage(value,proto.cs3.identity.user.v1beta1.Filter.deserializeBinaryFromReader);
+      msg.addFilter(value);
       break;
     case 3:
       var value = /** @type {boolean} */ (reader.readBool());
@@ -160,11 +175,19 @@ proto.cs3.identity.user.v1beta1.FindUsersRequest.serializeBinaryToWriter = funct
       proto.cs3.types.v1beta1.Opaque.serializeBinaryToWriter
     );
   }
-  f = message.getFilter();
+  f = message.getQuery();
   if (f.length > 0) {
     writer.writeString(
-      2,
+      4,
       f
+    );
+  }
+  f = message.getFilterList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      5,
+      f,
+      proto.cs3.identity.user.v1beta1.Filter.serializeBinaryToWriter
     );
   }
   f = message.getSkipFetchingUserGroups();
@@ -215,11 +238,11 @@ proto.cs3.identity.user.v1beta1.FindUsersRequest.prototype.hasOpaque = function(
 
 
 /**
- * optional string filter = 2;
+ * optional string query = 4;
  * @return {string}
  */
-proto.cs3.identity.user.v1beta1.FindUsersRequest.prototype.getFilter = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.cs3.identity.user.v1beta1.FindUsersRequest.prototype.getQuery = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
@@ -227,8 +250,46 @@ proto.cs3.identity.user.v1beta1.FindUsersRequest.prototype.getFilter = function(
  * @param {string} value
  * @return {!proto.cs3.identity.user.v1beta1.FindUsersRequest} returns this
  */
-proto.cs3.identity.user.v1beta1.FindUsersRequest.prototype.setFilter = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
+proto.cs3.identity.user.v1beta1.FindUsersRequest.prototype.setQuery = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * repeated Filter filter = 5;
+ * @return {!Array<!proto.cs3.identity.user.v1beta1.Filter>}
+ */
+proto.cs3.identity.user.v1beta1.FindUsersRequest.prototype.getFilterList = function() {
+  return /** @type{!Array<!proto.cs3.identity.user.v1beta1.Filter>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.cs3.identity.user.v1beta1.Filter, 5));
+};
+
+
+/**
+ * @param {!Array<!proto.cs3.identity.user.v1beta1.Filter>} value
+ * @return {!proto.cs3.identity.user.v1beta1.FindUsersRequest} returns this
+*/
+proto.cs3.identity.user.v1beta1.FindUsersRequest.prototype.setFilterList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 5, value);
+};
+
+
+/**
+ * @param {!proto.cs3.identity.user.v1beta1.Filter=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.cs3.identity.user.v1beta1.Filter}
+ */
+proto.cs3.identity.user.v1beta1.FindUsersRequest.prototype.addFilter = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.cs3.identity.user.v1beta1.Filter, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.cs3.identity.user.v1beta1.FindUsersRequest} returns this
+ */
+proto.cs3.identity.user.v1beta1.FindUsersRequest.prototype.clearFilterList = function() {
+  return this.setFilterList([]);
 };
 
 
