@@ -1048,7 +1048,8 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.toObject = function(includeInsta
     hasTrashedItems: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
     description: jspb.Message.getFieldWithDefault(msg, 11, ""),
     thumbnailId: jspb.Message.getFieldWithDefault(msg, 13, ""),
-    readmeId: jspb.Message.getFieldWithDefault(msg, 14, "")
+    readmeId: jspb.Message.getFieldWithDefault(msg, 14, ""),
+    permissionSet: (f = msg.getPermissionSet()) && proto.cs3.storage.provider.v1beta1.ResourcePermissions.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1143,6 +1144,11 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.deserializeBinaryFromReader = fu
     case 14:
       var value = /** @type {string} */ (reader.readString());
       msg.setReadmeId(value);
+      break;
+    case 15:
+      var value = new proto.cs3.storage.provider.v1beta1.ResourcePermissions;
+      reader.readMessage(value,proto.cs3.storage.provider.v1beta1.ResourcePermissions.deserializeBinaryFromReader);
+      msg.setPermissionSet(value);
       break;
     default:
       reader.skipField();
@@ -1269,6 +1275,14 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.serializeBinaryToWriter = functi
     writer.writeString(
       14,
       f
+    );
+  }
+  f = message.getPermissionSet();
+  if (f != null) {
+    writer.writeMessage(
+      15,
+      f,
+      proto.cs3.storage.provider.v1beta1.ResourcePermissions.serializeBinaryToWriter
     );
   }
 };
@@ -1638,6 +1652,43 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.getReadmeId = function
  */
 proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.setReadmeId = function(value) {
   return jspb.Message.setProto3StringField(this, 14, value);
+};
+
+
+/**
+ * optional ResourcePermissions permission_set = 15;
+ * @return {?proto.cs3.storage.provider.v1beta1.ResourcePermissions}
+ */
+proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.getPermissionSet = function() {
+  return /** @type{?proto.cs3.storage.provider.v1beta1.ResourcePermissions} */ (
+    jspb.Message.getWrapperField(this, proto.cs3.storage.provider.v1beta1.ResourcePermissions, 15));
+};
+
+
+/**
+ * @param {?proto.cs3.storage.provider.v1beta1.ResourcePermissions|undefined} value
+ * @return {!proto.cs3.storage.provider.v1beta1.StorageSpace} returns this
+*/
+proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.setPermissionSet = function(value) {
+  return jspb.Message.setWrapperField(this, 15, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.cs3.storage.provider.v1beta1.StorageSpace} returns this
+ */
+proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.clearPermissionSet = function() {
+  return this.setPermissionSet(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.hasPermissionSet = function() {
+  return jspb.Message.getField(this, 15) != null;
 };
 
 
