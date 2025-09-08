@@ -249,7 +249,7 @@ proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.serializeBinaryToWri
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter.oneofGroups_ = [[2,3,4,5,6,7]];
+proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter.oneofGroups_ = [[2,3,4,5,6]];
 
 /**
  * @enum {number}
@@ -260,8 +260,7 @@ proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter.TermCase = {
   OWNER: 3,
   SPACE_TYPE: 4,
   PATH: 5,
-  USER: 6,
-  SPACE_ID: 7
+  USER: 6
 };
 
 /**
@@ -307,8 +306,7 @@ proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter.toObject = fu
     owner: (f = msg.getOwner()) && proto.cs3.identity.user.v1beta1.UserId.toObject(includeInstance, f),
     spaceType: jspb.Message.getFieldWithDefault(msg, 4, ""),
     path: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    user: (f = msg.getUser()) && proto.cs3.identity.user.v1beta1.UserId.toObject(includeInstance, f),
-    spaceId: jspb.Message.getFieldWithDefault(msg, 7, "")
+    user: (f = msg.getUser()) && proto.cs3.identity.user.v1beta1.UserId.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -371,10 +369,6 @@ proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter.deserializeBi
       var value = new proto.cs3.identity.user.v1beta1.UserId;
       reader.readMessage(value,proto.cs3.identity.user.v1beta1.UserId.deserializeBinaryFromReader);
       msg.setUser(value);
-      break;
-    case 7:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setSpaceId(value);
       break;
     default:
       reader.skipField();
@@ -450,13 +444,6 @@ proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter.serializeBina
       proto.cs3.identity.user.v1beta1.UserId.serializeBinaryToWriter
     );
   }
-  f = /** @type {string} */ (jspb.Message.getField(message, 7));
-  if (f != null) {
-    writer.writeString(
-      7,
-      f
-    );
-  }
 };
 
 
@@ -470,8 +457,7 @@ proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter.Type = {
   TYPE_OWNER: 3,
   TYPE_SPACE_TYPE: 4,
   TYPE_PATH: 5,
-  TYPE_USER: 6,
-  TYPE_SPACE_ID: 7
+  TYPE_USER: 6
 };
 
 /**
@@ -672,42 +658,6 @@ proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter.prototype.cle
  */
 proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter.prototype.hasUser = function() {
   return jspb.Message.getField(this, 6) != null;
-};
-
-
-/**
- * optional string space_id = 7;
- * @return {string}
- */
-proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter.prototype.getSpaceId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter} returns this
- */
-proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter.prototype.setSpaceId = function(value) {
-  return jspb.Message.setOneofField(this, 7, proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the field making it undefined.
- * @return {!proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter} returns this
- */
-proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter.prototype.clearSpaceId = function() {
-  return jspb.Message.setOneofField(this, 7, proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter.oneofGroups_[0], undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.cs3.storage.provider.v1beta1.ListStorageSpacesRequest.Filter.prototype.hasSpaceId = function() {
-  return jspb.Message.getField(this, 7) != null;
 };
 
 
