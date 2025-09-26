@@ -16,6 +16,7 @@ goog.provide('proto.cs3.identity.group.v1beta1.FindGroupsRequest');
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
+goog.require('proto.cs3.identity.group.v1beta1.Filter');
 goog.require('proto.cs3.types.v1beta1.Opaque');
 
 /**
@@ -29,7 +30,7 @@ goog.require('proto.cs3.types.v1beta1.Opaque');
  * @constructor
  */
 proto.cs3.identity.group.v1beta1.FindGroupsRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.cs3.identity.group.v1beta1.FindGroupsRequest.repeatedFields_, null);
 };
 goog.inherits(proto.cs3.identity.group.v1beta1.FindGroupsRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -39,6 +40,13 @@ if (goog.DEBUG && !COMPILED) {
    */
   proto.cs3.identity.group.v1beta1.FindGroupsRequest.displayName = 'proto.cs3.identity.group.v1beta1.FindGroupsRequest';
 }
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.cs3.identity.group.v1beta1.FindGroupsRequest.repeatedFields_ = [2];
 
 
 
@@ -72,7 +80,8 @@ proto.cs3.identity.group.v1beta1.FindGroupsRequest.prototype.toObject = function
 proto.cs3.identity.group.v1beta1.FindGroupsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     opaque: (f = msg.getOpaque()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f),
-    filter: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    filtersList: jspb.Message.toObjectList(msg.getFiltersList(),
+    proto.cs3.identity.group.v1beta1.Filter.toObject, includeInstance),
     skipFetchingMembers: jspb.Message.getBooleanFieldWithDefault(msg, 3, false)
   };
 
@@ -116,8 +125,9 @@ proto.cs3.identity.group.v1beta1.FindGroupsRequest.deserializeBinaryFromReader =
       msg.setOpaque(value);
       break;
     case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setFilter(value);
+      var value = new proto.cs3.identity.group.v1beta1.Filter;
+      reader.readMessage(value,proto.cs3.identity.group.v1beta1.Filter.deserializeBinaryFromReader);
+      msg.addFilters(value);
       break;
     case 3:
       var value = /** @type {boolean} */ (reader.readBool());
@@ -160,11 +170,12 @@ proto.cs3.identity.group.v1beta1.FindGroupsRequest.serializeBinaryToWriter = fun
       proto.cs3.types.v1beta1.Opaque.serializeBinaryToWriter
     );
   }
-  f = message.getFilter();
+  f = message.getFiltersList();
   if (f.length > 0) {
-    writer.writeString(
+    writer.writeRepeatedMessage(
       2,
-      f
+      f,
+      proto.cs3.identity.group.v1beta1.Filter.serializeBinaryToWriter
     );
   }
   f = message.getSkipFetchingMembers();
@@ -215,20 +226,40 @@ proto.cs3.identity.group.v1beta1.FindGroupsRequest.prototype.hasOpaque = functio
 
 
 /**
- * optional string filter = 2;
- * @return {string}
+ * repeated Filter filters = 2;
+ * @return {!Array<!proto.cs3.identity.group.v1beta1.Filter>}
  */
-proto.cs3.identity.group.v1beta1.FindGroupsRequest.prototype.getFilter = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.cs3.identity.group.v1beta1.FindGroupsRequest.prototype.getFiltersList = function() {
+  return /** @type{!Array<!proto.cs3.identity.group.v1beta1.Filter>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.cs3.identity.group.v1beta1.Filter, 2));
 };
 
 
 /**
- * @param {string} value
+ * @param {!Array<!proto.cs3.identity.group.v1beta1.Filter>} value
+ * @return {!proto.cs3.identity.group.v1beta1.FindGroupsRequest} returns this
+*/
+proto.cs3.identity.group.v1beta1.FindGroupsRequest.prototype.setFiltersList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.cs3.identity.group.v1beta1.Filter=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.cs3.identity.group.v1beta1.Filter}
+ */
+proto.cs3.identity.group.v1beta1.FindGroupsRequest.prototype.addFilters = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.cs3.identity.group.v1beta1.Filter, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
  * @return {!proto.cs3.identity.group.v1beta1.FindGroupsRequest} returns this
  */
-proto.cs3.identity.group.v1beta1.FindGroupsRequest.prototype.setFilter = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
+proto.cs3.identity.group.v1beta1.FindGroupsRequest.prototype.clearFiltersList = function() {
+  return this.setFiltersList([]);
 };
 
 

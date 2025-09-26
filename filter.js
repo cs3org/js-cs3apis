@@ -50,14 +50,15 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.cs3.identity.user.v1beta1.Filter.oneofGroups_ = [[2]];
+proto.cs3.identity.user.v1beta1.Filter.oneofGroups_ = [[2,3]];
 
 /**
  * @enum {number}
  */
 proto.cs3.identity.user.v1beta1.Filter.TermCase = {
   TERM_NOT_SET: 0,
-  USERTYPE: 2
+  USERTYPE: 2,
+  QUERY: 3
 };
 
 /**
@@ -99,7 +100,8 @@ proto.cs3.identity.user.v1beta1.Filter.prototype.toObject = function(opt_include
 proto.cs3.identity.user.v1beta1.Filter.toObject = function(includeInstance, msg) {
   var f, obj = {
     type: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    usertype: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    usertype: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    query: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -144,6 +146,10 @@ proto.cs3.identity.user.v1beta1.Filter.deserializeBinaryFromReader = function(ms
       var value = /** @type {!proto.cs3.identity.user.v1beta1.UserType} */ (reader.readEnum());
       msg.setUsertype(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setQuery(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -187,6 +193,13 @@ proto.cs3.identity.user.v1beta1.Filter.serializeBinaryToWriter = function(messag
       f
     );
   }
+  f = /** @type {string} */ (jspb.Message.getField(message, 3));
+  if (f != null) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -195,7 +208,8 @@ proto.cs3.identity.user.v1beta1.Filter.serializeBinaryToWriter = function(messag
  */
 proto.cs3.identity.user.v1beta1.Filter.Type = {
   TYPE_INVALID: 0,
-  TYPE_USERTYPE: 1
+  TYPE_USERTYPE: 1,
+  TYPE_QUERY: 2
 };
 
 /**
@@ -249,6 +263,42 @@ proto.cs3.identity.user.v1beta1.Filter.prototype.clearUsertype = function() {
  */
 proto.cs3.identity.user.v1beta1.Filter.prototype.hasUsertype = function() {
   return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional string query = 3;
+ * @return {string}
+ */
+proto.cs3.identity.user.v1beta1.Filter.prototype.getQuery = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.cs3.identity.user.v1beta1.Filter} returns this
+ */
+proto.cs3.identity.user.v1beta1.Filter.prototype.setQuery = function(value) {
+  return jspb.Message.setOneofField(this, 3, proto.cs3.identity.user.v1beta1.Filter.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.cs3.identity.user.v1beta1.Filter} returns this
+ */
+proto.cs3.identity.user.v1beta1.Filter.prototype.clearQuery = function() {
+  return jspb.Message.setOneofField(this, 3, proto.cs3.identity.user.v1beta1.Filter.oneofGroups_[0], undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.identity.user.v1beta1.Filter.prototype.hasQuery = function() {
+  return jspb.Message.getField(this, 3) != null;
 };
 
 
