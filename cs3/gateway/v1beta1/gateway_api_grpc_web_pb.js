@@ -52,6 +52,7 @@ goog.require('proto.cs3.gateway.v1beta1.GetQuotaRequest');
 goog.require('proto.cs3.gateway.v1beta1.InitiateFileDownloadResponse');
 goog.require('proto.cs3.gateway.v1beta1.InitiateFileUploadResponse');
 goog.require('proto.cs3.gateway.v1beta1.ListAuthProvidersResponse');
+goog.require('proto.cs3.gateway.v1beta1.ListExistingOCMSharesResponse');
 goog.require('proto.cs3.gateway.v1beta1.ListExistingPublicSharesResponse');
 goog.require('proto.cs3.gateway.v1beta1.ListExistingReceivedSharesResponse');
 goog.require('proto.cs3.gateway.v1beta1.ListExistingSharesResponse');
@@ -3927,6 +3928,67 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.listOCMShares =
       request,
       metadata || {},
       methodDescriptor_GatewayAPI_ListOCMShares);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.sharing.ocm.v1beta1.ListOCMSharesRequest,
+ *   !proto.cs3.gateway.v1beta1.ListExistingOCMSharesResponse>}
+ */
+const methodDescriptor_GatewayAPI_ListExistingOCMShares = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/ListExistingOCMShares',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.sharing.ocm.v1beta1.ListOCMSharesRequest,
+  proto.cs3.gateway.v1beta1.ListExistingOCMSharesResponse,
+  /**
+   * @param {!proto.cs3.sharing.ocm.v1beta1.ListOCMSharesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.gateway.v1beta1.ListExistingOCMSharesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.sharing.ocm.v1beta1.ListOCMSharesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cs3.gateway.v1beta1.ListExistingOCMSharesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.gateway.v1beta1.ListExistingOCMSharesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.listExistingOCMShares =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/ListExistingOCMShares',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_ListExistingOCMShares,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.sharing.ocm.v1beta1.ListOCMSharesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.gateway.v1beta1.ListExistingOCMSharesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.listExistingOCMShares =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/ListExistingOCMShares',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_ListExistingOCMShares);
 };
 
 
