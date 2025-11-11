@@ -83,6 +83,12 @@ goog.require('proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareRequest');
 goog.require('proto.cs3.ocm.core.v1beta1.DeleteOCMCoreShareResponse');
 goog.require('proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareRequest');
 goog.require('proto.cs3.ocm.core.v1beta1.UpdateOCMCoreShareResponse');
+goog.require('proto.cs3.ocm.incoming.v1beta1.CreateOCMIncomingShareRequest');
+goog.require('proto.cs3.ocm.incoming.v1beta1.CreateOCMIncomingShareResponse');
+goog.require('proto.cs3.ocm.incoming.v1beta1.DeleteOCMIncomingShareRequest');
+goog.require('proto.cs3.ocm.incoming.v1beta1.DeleteOCMIncomingShareResponse');
+goog.require('proto.cs3.ocm.incoming.v1beta1.UpdateOCMIncomingShareRequest');
+goog.require('proto.cs3.ocm.incoming.v1beta1.UpdateOCMIncomingShareResponse');
 goog.require('proto.cs3.ocm.invite.v1beta1.AcceptInviteRequest');
 goog.require('proto.cs3.ocm.invite.v1beta1.AcceptInviteResponse');
 goog.require('proto.cs3.ocm.invite.v1beta1.DeleteAcceptedUserRequest');
@@ -5880,6 +5886,189 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.listAllProviders =
       request,
       metadata || {},
       methodDescriptor_GatewayAPI_ListAllProviders);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.ocm.incoming.v1beta1.CreateOCMIncomingShareRequest,
+ *   !proto.cs3.ocm.incoming.v1beta1.CreateOCMIncomingShareResponse>}
+ */
+const methodDescriptor_GatewayAPI_CreateOCMIncomingShare = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/CreateOCMIncomingShare',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.ocm.incoming.v1beta1.CreateOCMIncomingShareRequest,
+  proto.cs3.ocm.incoming.v1beta1.CreateOCMIncomingShareResponse,
+  /**
+   * @param {!proto.cs3.ocm.incoming.v1beta1.CreateOCMIncomingShareRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.ocm.incoming.v1beta1.CreateOCMIncomingShareResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.ocm.incoming.v1beta1.CreateOCMIncomingShareRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cs3.ocm.incoming.v1beta1.CreateOCMIncomingShareResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.ocm.incoming.v1beta1.CreateOCMIncomingShareResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.createOCMIncomingShare =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/CreateOCMIncomingShare',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_CreateOCMIncomingShare,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.ocm.incoming.v1beta1.CreateOCMIncomingShareRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.ocm.incoming.v1beta1.CreateOCMIncomingShareResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.createOCMIncomingShare =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/CreateOCMIncomingShare',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_CreateOCMIncomingShare);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.ocm.incoming.v1beta1.UpdateOCMIncomingShareRequest,
+ *   !proto.cs3.ocm.incoming.v1beta1.UpdateOCMIncomingShareResponse>}
+ */
+const methodDescriptor_GatewayAPI_UpdateOCMIncomingShare = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/UpdateOCMIncomingShare',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.ocm.incoming.v1beta1.UpdateOCMIncomingShareRequest,
+  proto.cs3.ocm.incoming.v1beta1.UpdateOCMIncomingShareResponse,
+  /**
+   * @param {!proto.cs3.ocm.incoming.v1beta1.UpdateOCMIncomingShareRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.ocm.incoming.v1beta1.UpdateOCMIncomingShareResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.ocm.incoming.v1beta1.UpdateOCMIncomingShareRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cs3.ocm.incoming.v1beta1.UpdateOCMIncomingShareResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.ocm.incoming.v1beta1.UpdateOCMIncomingShareResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.updateOCMIncomingShare =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/UpdateOCMIncomingShare',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_UpdateOCMIncomingShare,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.ocm.incoming.v1beta1.UpdateOCMIncomingShareRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.ocm.incoming.v1beta1.UpdateOCMIncomingShareResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.updateOCMIncomingShare =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/UpdateOCMIncomingShare',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_UpdateOCMIncomingShare);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.ocm.incoming.v1beta1.DeleteOCMIncomingShareRequest,
+ *   !proto.cs3.ocm.incoming.v1beta1.DeleteOCMIncomingShareResponse>}
+ */
+const methodDescriptor_GatewayAPI_DeleteOCMIncomingShare = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/DeleteOCMIncomingShare',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.ocm.incoming.v1beta1.DeleteOCMIncomingShareRequest,
+  proto.cs3.ocm.incoming.v1beta1.DeleteOCMIncomingShareResponse,
+  /**
+   * @param {!proto.cs3.ocm.incoming.v1beta1.DeleteOCMIncomingShareRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.ocm.incoming.v1beta1.DeleteOCMIncomingShareResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.ocm.incoming.v1beta1.DeleteOCMIncomingShareRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cs3.ocm.incoming.v1beta1.DeleteOCMIncomingShareResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.ocm.incoming.v1beta1.DeleteOCMIncomingShareResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.deleteOCMIncomingShare =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/DeleteOCMIncomingShare',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_DeleteOCMIncomingShare,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.ocm.incoming.v1beta1.DeleteOCMIncomingShareRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.ocm.incoming.v1beta1.DeleteOCMIncomingShareResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.deleteOCMIncomingShare =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/DeleteOCMIncomingShare',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_DeleteOCMIncomingShare);
 };
 
 
