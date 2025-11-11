@@ -17,6 +17,7 @@ goog.provide('proto.cs3.sharing.ocm.v1beta1.Protocol.TermCase');
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
+goog.require('proto.cs3.sharing.ocm.v1beta1.EmbeddedProtocol');
 goog.require('proto.cs3.sharing.ocm.v1beta1.TransferProtocol');
 goog.require('proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol');
 goog.require('proto.cs3.sharing.ocm.v1beta1.WebappProtocol');
@@ -52,7 +53,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.cs3.sharing.ocm.v1beta1.Protocol.oneofGroups_ = [[1,2,3,4]];
+proto.cs3.sharing.ocm.v1beta1.Protocol.oneofGroups_ = [[1,2,3,4,5]];
 
 /**
  * @enum {number}
@@ -62,7 +63,8 @@ proto.cs3.sharing.ocm.v1beta1.Protocol.TermCase = {
   WEBDAV_OPTIONS: 1,
   WEBAPP_OPTIONS: 2,
   TRANSFER_OPTIONS: 3,
-  GENERIC_OPTIONS: 4
+  GENERIC_OPTIONS: 4,
+  EMBEDDED_OPTIONS: 5
 };
 
 /**
@@ -106,7 +108,8 @@ proto.cs3.sharing.ocm.v1beta1.Protocol.toObject = function(includeInstance, msg)
     webdavOptions: (f = msg.getWebdavOptions()) && proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.toObject(includeInstance, f),
     webappOptions: (f = msg.getWebappOptions()) && proto.cs3.sharing.ocm.v1beta1.WebappProtocol.toObject(includeInstance, f),
     transferOptions: (f = msg.getTransferOptions()) && proto.cs3.sharing.ocm.v1beta1.TransferProtocol.toObject(includeInstance, f),
-    genericOptions: (f = msg.getGenericOptions()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f)
+    genericOptions: (f = msg.getGenericOptions()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f),
+    embeddedOptions: (f = msg.getEmbeddedOptions()) && proto.cs3.sharing.ocm.v1beta1.EmbeddedProtocol.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -162,6 +165,11 @@ proto.cs3.sharing.ocm.v1beta1.Protocol.deserializeBinaryFromReader = function(ms
       var value = new proto.cs3.types.v1beta1.Opaque;
       reader.readMessage(value,proto.cs3.types.v1beta1.Opaque.deserializeBinaryFromReader);
       msg.setGenericOptions(value);
+      break;
+    case 5:
+      var value = new proto.cs3.sharing.ocm.v1beta1.EmbeddedProtocol;
+      reader.readMessage(value,proto.cs3.sharing.ocm.v1beta1.EmbeddedProtocol.deserializeBinaryFromReader);
+      msg.setEmbeddedOptions(value);
       break;
     default:
       reader.skipField();
@@ -222,6 +230,14 @@ proto.cs3.sharing.ocm.v1beta1.Protocol.serializeBinaryToWriter = function(messag
       4,
       f,
       proto.cs3.types.v1beta1.Opaque.serializeBinaryToWriter
+    );
+  }
+  f = message.getEmbeddedOptions();
+  if (f != null) {
+    writer.writeMessage(
+      5,
+      f,
+      proto.cs3.sharing.ocm.v1beta1.EmbeddedProtocol.serializeBinaryToWriter
     );
   }
 };
@@ -372,6 +388,43 @@ proto.cs3.sharing.ocm.v1beta1.Protocol.prototype.clearGenericOptions = function(
  */
 proto.cs3.sharing.ocm.v1beta1.Protocol.prototype.hasGenericOptions = function() {
   return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional EmbeddedProtocol embedded_options = 5;
+ * @return {?proto.cs3.sharing.ocm.v1beta1.EmbeddedProtocol}
+ */
+proto.cs3.sharing.ocm.v1beta1.Protocol.prototype.getEmbeddedOptions = function() {
+  return /** @type{?proto.cs3.sharing.ocm.v1beta1.EmbeddedProtocol} */ (
+    jspb.Message.getWrapperField(this, proto.cs3.sharing.ocm.v1beta1.EmbeddedProtocol, 5));
+};
+
+
+/**
+ * @param {?proto.cs3.sharing.ocm.v1beta1.EmbeddedProtocol|undefined} value
+ * @return {!proto.cs3.sharing.ocm.v1beta1.Protocol} returns this
+*/
+proto.cs3.sharing.ocm.v1beta1.Protocol.prototype.setEmbeddedOptions = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 5, proto.cs3.sharing.ocm.v1beta1.Protocol.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.cs3.sharing.ocm.v1beta1.Protocol} returns this
+ */
+proto.cs3.sharing.ocm.v1beta1.Protocol.prototype.clearEmbeddedOptions = function() {
+  return this.setEmbeddedOptions(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.sharing.ocm.v1beta1.Protocol.prototype.hasEmbeddedOptions = function() {
+  return jspb.Message.getField(this, 5) != null;
 };
 
 
