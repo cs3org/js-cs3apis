@@ -21,6 +21,7 @@ proto.cs3.app.provider.v1beta1.ViewMode = {
   VIEW_MODE_VIEW_ONLY: 1,
   VIEW_MODE_READ_ONLY: 2,
   VIEW_MODE_READ_WRITE: 3,
-  VIEW_MODE_PREVIEW: 4
+  VIEW_MODE_PREVIEW: 4,
+  VIEW_MODE_EMBEDDED: 5
 };
 
