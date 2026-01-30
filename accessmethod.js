@@ -17,7 +17,6 @@ goog.provide('proto.cs3.sharing.ocm.v1beta1.AccessMethod.TermCase');
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
-goog.require('proto.cs3.sharing.ocm.v1beta1.TransferAccessMethod');
 goog.require('proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod');
 goog.require('proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod');
 goog.require('proto.cs3.types.v1beta1.Opaque');
@@ -52,7 +51,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.cs3.sharing.ocm.v1beta1.AccessMethod.oneofGroups_ = [[1,2,3,4]];
+proto.cs3.sharing.ocm.v1beta1.AccessMethod.oneofGroups_ = [[1,2,4]];
 
 /**
  * @enum {number}
@@ -61,7 +60,6 @@ proto.cs3.sharing.ocm.v1beta1.AccessMethod.TermCase = {
   TERM_NOT_SET: 0,
   WEBDAV_OPTIONS: 1,
   WEBAPP_OPTIONS: 2,
-  TRANSFER_OPTIONS: 3,
   GENERIC_OPTIONS: 4
 };
 
@@ -105,7 +103,6 @@ proto.cs3.sharing.ocm.v1beta1.AccessMethod.toObject = function(includeInstance, 
   var f, obj = {
     webdavOptions: (f = msg.getWebdavOptions()) && proto.cs3.sharing.ocm.v1beta1.WebDAVAccessMethod.toObject(includeInstance, f),
     webappOptions: (f = msg.getWebappOptions()) && proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod.toObject(includeInstance, f),
-    transferOptions: (f = msg.getTransferOptions()) && proto.cs3.sharing.ocm.v1beta1.TransferAccessMethod.toObject(includeInstance, f),
     genericOptions: (f = msg.getGenericOptions()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f)
   };
 
@@ -152,11 +149,6 @@ proto.cs3.sharing.ocm.v1beta1.AccessMethod.deserializeBinaryFromReader = functio
       var value = new proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod;
       reader.readMessage(value,proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod.deserializeBinaryFromReader);
       msg.setWebappOptions(value);
-      break;
-    case 3:
-      var value = new proto.cs3.sharing.ocm.v1beta1.TransferAccessMethod;
-      reader.readMessage(value,proto.cs3.sharing.ocm.v1beta1.TransferAccessMethod.deserializeBinaryFromReader);
-      msg.setTransferOptions(value);
       break;
     case 4:
       var value = new proto.cs3.types.v1beta1.Opaque;
@@ -206,14 +198,6 @@ proto.cs3.sharing.ocm.v1beta1.AccessMethod.serializeBinaryToWriter = function(me
       2,
       f,
       proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod.serializeBinaryToWriter
-    );
-  }
-  f = message.getTransferOptions();
-  if (f != null) {
-    writer.writeMessage(
-      3,
-      f,
-      proto.cs3.sharing.ocm.v1beta1.TransferAccessMethod.serializeBinaryToWriter
     );
   }
   f = message.getGenericOptions();
@@ -298,43 +282,6 @@ proto.cs3.sharing.ocm.v1beta1.AccessMethod.prototype.clearWebappOptions = functi
  */
 proto.cs3.sharing.ocm.v1beta1.AccessMethod.prototype.hasWebappOptions = function() {
   return jspb.Message.getField(this, 2) != null;
-};
-
-
-/**
- * optional TransferAccessMethod transfer_options = 3;
- * @return {?proto.cs3.sharing.ocm.v1beta1.TransferAccessMethod}
- */
-proto.cs3.sharing.ocm.v1beta1.AccessMethod.prototype.getTransferOptions = function() {
-  return /** @type{?proto.cs3.sharing.ocm.v1beta1.TransferAccessMethod} */ (
-    jspb.Message.getWrapperField(this, proto.cs3.sharing.ocm.v1beta1.TransferAccessMethod, 3));
-};
-
-
-/**
- * @param {?proto.cs3.sharing.ocm.v1beta1.TransferAccessMethod|undefined} value
- * @return {!proto.cs3.sharing.ocm.v1beta1.AccessMethod} returns this
-*/
-proto.cs3.sharing.ocm.v1beta1.AccessMethod.prototype.setTransferOptions = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 3, proto.cs3.sharing.ocm.v1beta1.AccessMethod.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.cs3.sharing.ocm.v1beta1.AccessMethod} returns this
- */
-proto.cs3.sharing.ocm.v1beta1.AccessMethod.prototype.clearTransferOptions = function() {
-  return this.setTransferOptions(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.cs3.sharing.ocm.v1beta1.AccessMethod.prototype.hasTransferOptions = function() {
-  return jspb.Message.getField(this, 3) != null;
 };
 
 

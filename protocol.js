@@ -18,7 +18,6 @@ goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
 goog.require('proto.cs3.sharing.ocm.v1beta1.EmbeddedProtocol');
-goog.require('proto.cs3.sharing.ocm.v1beta1.TransferProtocol');
 goog.require('proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol');
 goog.require('proto.cs3.sharing.ocm.v1beta1.WebappProtocol');
 goog.require('proto.cs3.types.v1beta1.Opaque');
@@ -53,7 +52,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.cs3.sharing.ocm.v1beta1.Protocol.oneofGroups_ = [[1,2,3,4,5]];
+proto.cs3.sharing.ocm.v1beta1.Protocol.oneofGroups_ = [[1,2,4,5]];
 
 /**
  * @enum {number}
@@ -62,7 +61,6 @@ proto.cs3.sharing.ocm.v1beta1.Protocol.TermCase = {
   TERM_NOT_SET: 0,
   WEBDAV_OPTIONS: 1,
   WEBAPP_OPTIONS: 2,
-  TRANSFER_OPTIONS: 3,
   GENERIC_OPTIONS: 4,
   EMBEDDED_OPTIONS: 5
 };
@@ -107,7 +105,6 @@ proto.cs3.sharing.ocm.v1beta1.Protocol.toObject = function(includeInstance, msg)
   var f, obj = {
     webdavOptions: (f = msg.getWebdavOptions()) && proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.toObject(includeInstance, f),
     webappOptions: (f = msg.getWebappOptions()) && proto.cs3.sharing.ocm.v1beta1.WebappProtocol.toObject(includeInstance, f),
-    transferOptions: (f = msg.getTransferOptions()) && proto.cs3.sharing.ocm.v1beta1.TransferProtocol.toObject(includeInstance, f),
     genericOptions: (f = msg.getGenericOptions()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f),
     embeddedOptions: (f = msg.getEmbeddedOptions()) && proto.cs3.sharing.ocm.v1beta1.EmbeddedProtocol.toObject(includeInstance, f)
   };
@@ -155,11 +152,6 @@ proto.cs3.sharing.ocm.v1beta1.Protocol.deserializeBinaryFromReader = function(ms
       var value = new proto.cs3.sharing.ocm.v1beta1.WebappProtocol;
       reader.readMessage(value,proto.cs3.sharing.ocm.v1beta1.WebappProtocol.deserializeBinaryFromReader);
       msg.setWebappOptions(value);
-      break;
-    case 3:
-      var value = new proto.cs3.sharing.ocm.v1beta1.TransferProtocol;
-      reader.readMessage(value,proto.cs3.sharing.ocm.v1beta1.TransferProtocol.deserializeBinaryFromReader);
-      msg.setTransferOptions(value);
       break;
     case 4:
       var value = new proto.cs3.types.v1beta1.Opaque;
@@ -214,14 +206,6 @@ proto.cs3.sharing.ocm.v1beta1.Protocol.serializeBinaryToWriter = function(messag
       2,
       f,
       proto.cs3.sharing.ocm.v1beta1.WebappProtocol.serializeBinaryToWriter
-    );
-  }
-  f = message.getTransferOptions();
-  if (f != null) {
-    writer.writeMessage(
-      3,
-      f,
-      proto.cs3.sharing.ocm.v1beta1.TransferProtocol.serializeBinaryToWriter
     );
   }
   f = message.getGenericOptions();
@@ -314,43 +298,6 @@ proto.cs3.sharing.ocm.v1beta1.Protocol.prototype.clearWebappOptions = function()
  */
 proto.cs3.sharing.ocm.v1beta1.Protocol.prototype.hasWebappOptions = function() {
   return jspb.Message.getField(this, 2) != null;
-};
-
-
-/**
- * optional TransferProtocol transfer_options = 3;
- * @return {?proto.cs3.sharing.ocm.v1beta1.TransferProtocol}
- */
-proto.cs3.sharing.ocm.v1beta1.Protocol.prototype.getTransferOptions = function() {
-  return /** @type{?proto.cs3.sharing.ocm.v1beta1.TransferProtocol} */ (
-    jspb.Message.getWrapperField(this, proto.cs3.sharing.ocm.v1beta1.TransferProtocol, 3));
-};
-
-
-/**
- * @param {?proto.cs3.sharing.ocm.v1beta1.TransferProtocol|undefined} value
- * @return {!proto.cs3.sharing.ocm.v1beta1.Protocol} returns this
-*/
-proto.cs3.sharing.ocm.v1beta1.Protocol.prototype.setTransferOptions = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 3, proto.cs3.sharing.ocm.v1beta1.Protocol.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.cs3.sharing.ocm.v1beta1.Protocol} returns this
- */
-proto.cs3.sharing.ocm.v1beta1.Protocol.prototype.clearTransferOptions = function() {
-  return this.setTransferOptions(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.cs3.sharing.ocm.v1beta1.Protocol.prototype.hasTransferOptions = function() {
-  return jspb.Message.getField(this, 3) != null;
 };
 
 
