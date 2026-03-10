@@ -24,6 +24,8 @@ goog.require('grpc.web.GrpcWebClientBase');
 goog.require('grpc.web.AbstractClientBase');
 goog.require('grpc.web.ClientReadableStream');
 goog.require('grpc.web.RpcError');
+goog.require('proto.cs3.storage.provider.v1beta1.AddFavoriteRequest');
+goog.require('proto.cs3.storage.provider.v1beta1.AddFavoriteResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.AddGrantRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.AddGrantResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.CreateContainerRequest');
@@ -68,6 +70,8 @@ goog.require('proto.cs3.storage.provider.v1beta1.PurgeRecycleRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.PurgeRecycleResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.RefreshLockRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.RefreshLockResponse');
+goog.require('proto.cs3.storage.provider.v1beta1.RemoveFavoriteRequest');
+goog.require('proto.cs3.storage.provider.v1beta1.RemoveFavoriteResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.RemoveGrantRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.RemoveGrantResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.RestoreFileVersionRequest');
@@ -2086,6 +2090,128 @@ proto.cs3.storage.provider.v1beta1.ProviderAPIPromiseClient.prototype.getHome =
       request,
       metadata || {},
       methodDescriptor_ProviderAPI_GetHome);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.storage.provider.v1beta1.AddFavoriteRequest,
+ *   !proto.cs3.storage.provider.v1beta1.AddFavoriteResponse>}
+ */
+const methodDescriptor_ProviderAPI_AddFavorite = new grpc.web.MethodDescriptor(
+  '/cs3.storage.provider.v1beta1.ProviderAPI/AddFavorite',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.storage.provider.v1beta1.AddFavoriteRequest,
+  proto.cs3.storage.provider.v1beta1.AddFavoriteResponse,
+  /**
+   * @param {!proto.cs3.storage.provider.v1beta1.AddFavoriteRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.storage.provider.v1beta1.AddFavoriteResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.AddFavoriteRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cs3.storage.provider.v1beta1.AddFavoriteResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.storage.provider.v1beta1.AddFavoriteResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.storage.provider.v1beta1.ProviderAPIClient.prototype.addFavorite =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.storage.provider.v1beta1.ProviderAPI/AddFavorite',
+      request,
+      metadata || {},
+      methodDescriptor_ProviderAPI_AddFavorite,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.AddFavoriteRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.storage.provider.v1beta1.AddFavoriteResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cs3.storage.provider.v1beta1.ProviderAPIPromiseClient.prototype.addFavorite =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.storage.provider.v1beta1.ProviderAPI/AddFavorite',
+      request,
+      metadata || {},
+      methodDescriptor_ProviderAPI_AddFavorite);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.storage.provider.v1beta1.RemoveFavoriteRequest,
+ *   !proto.cs3.storage.provider.v1beta1.RemoveFavoriteResponse>}
+ */
+const methodDescriptor_ProviderAPI_RemoveFavorite = new grpc.web.MethodDescriptor(
+  '/cs3.storage.provider.v1beta1.ProviderAPI/RemoveFavorite',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.storage.provider.v1beta1.RemoveFavoriteRequest,
+  proto.cs3.storage.provider.v1beta1.RemoveFavoriteResponse,
+  /**
+   * @param {!proto.cs3.storage.provider.v1beta1.RemoveFavoriteRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.storage.provider.v1beta1.RemoveFavoriteResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.RemoveFavoriteRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cs3.storage.provider.v1beta1.RemoveFavoriteResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.storage.provider.v1beta1.RemoveFavoriteResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.storage.provider.v1beta1.ProviderAPIClient.prototype.removeFavorite =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.storage.provider.v1beta1.ProviderAPI/RemoveFavorite',
+      request,
+      metadata || {},
+      methodDescriptor_ProviderAPI_RemoveFavorite,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.RemoveFavoriteRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.storage.provider.v1beta1.RemoveFavoriteResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cs3.storage.provider.v1beta1.ProviderAPIPromiseClient.prototype.removeFavorite =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.storage.provider.v1beta1.ProviderAPI/RemoveFavorite',
+      request,
+      metadata || {},
+      methodDescriptor_ProviderAPI_RemoveFavorite);
 };
 
 
