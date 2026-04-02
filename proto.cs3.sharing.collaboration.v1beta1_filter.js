@@ -19,6 +19,7 @@ goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
 goog.require('proto.cs3.identity.user.v1beta1.UserId');
+goog.require('proto.cs3.storage.provider.v1beta1.Grantee');
 goog.require('proto.cs3.storage.provider.v1beta1.ResourceId');
 
 goog.forwardDeclare('proto.cs3.sharing.collaboration.v1beta1.ShareState');
@@ -53,7 +54,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.cs3.sharing.collaboration.v1beta1.Filter.oneofGroups_ = [[3,4,5,6,7,8]];
+proto.cs3.sharing.collaboration.v1beta1.Filter.oneofGroups_ = [[3,4,5,6,7,8,9]];
 
 /**
  * @enum {number}
@@ -65,7 +66,8 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.TermCase = {
   CREATOR: 5,
   GRANTEE_TYPE: 6,
   SPACE_ID: 7,
-  STATE: 8
+  STATE: 8,
+  GRANTEE: 9
 };
 
 /**
@@ -112,7 +114,8 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.toObject = function(includeInstan
     creator: (f = msg.getCreator()) && proto.cs3.identity.user.v1beta1.UserId.toObject(includeInstance, f),
     granteeType: jspb.Message.getFieldWithDefault(msg, 6, 0),
     spaceId: jspb.Message.getFieldWithDefault(msg, 7, ""),
-    state: jspb.Message.getFieldWithDefault(msg, 8, 0)
+    state: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    grantee: (f = msg.getGrantee()) && proto.cs3.storage.provider.v1beta1.Grantee.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -179,6 +182,11 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.deserializeBinaryFromReader = fun
     case 8:
       var value = /** @type {!proto.cs3.sharing.collaboration.v1beta1.ShareState} */ (reader.readEnum());
       msg.setState(value);
+      break;
+    case 9:
+      var value = new proto.cs3.storage.provider.v1beta1.Grantee;
+      reader.readMessage(value,proto.cs3.storage.provider.v1beta1.Grantee.deserializeBinaryFromReader);
+      msg.setGrantee(value);
       break;
     default:
       reader.skipField();
@@ -261,6 +269,14 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.serializeBinaryToWriter = functio
       f
     );
   }
+  f = message.getGrantee();
+  if (f != null) {
+    writer.writeMessage(
+      9,
+      f,
+      proto.cs3.storage.provider.v1beta1.Grantee.serializeBinaryToWriter
+    );
+  }
 };
 
 
@@ -276,7 +292,8 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.Type = {
   TYPE_GRANTEE_TYPE: 5,
   TYPE_EXCLUDE_DENIALS: 6,
   TYPE_SPACE_ID: 7,
-  TYPE_STATE: 8
+  TYPE_STATE: 8,
+  TYPE_GRANTEE: 9
 };
 
 /**
@@ -513,6 +530,43 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.clearState = function()
  */
 proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.hasState = function() {
   return jspb.Message.getField(this, 8) != null;
+};
+
+
+/**
+ * optional cs3.storage.provider.v1beta1.Grantee grantee = 9;
+ * @return {?proto.cs3.storage.provider.v1beta1.Grantee}
+ */
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.getGrantee = function() {
+  return /** @type{?proto.cs3.storage.provider.v1beta1.Grantee} */ (
+    jspb.Message.getWrapperField(this, proto.cs3.storage.provider.v1beta1.Grantee, 9));
+};
+
+
+/**
+ * @param {?proto.cs3.storage.provider.v1beta1.Grantee|undefined} value
+ * @return {!proto.cs3.sharing.collaboration.v1beta1.Filter} returns this
+*/
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.setGrantee = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 9, proto.cs3.sharing.collaboration.v1beta1.Filter.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.cs3.sharing.collaboration.v1beta1.Filter} returns this
+ */
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.clearGrantee = function() {
+  return this.setGrantee(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.hasGrantee = function() {
+  return jspb.Message.getField(this, 9) != null;
 };
 
 
