@@ -16,6 +16,7 @@ goog.provide('proto.cs3.identity.user.v1beta1.UserId');
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
+goog.require('proto.cs3.identity.user.v1beta1.ExternalIdentity');
 
 goog.forwardDeclare('proto.cs3.identity.user.v1beta1.UserType');
 /**
@@ -29,7 +30,7 @@ goog.forwardDeclare('proto.cs3.identity.user.v1beta1.UserType');
  * @constructor
  */
 proto.cs3.identity.user.v1beta1.UserId = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.cs3.identity.user.v1beta1.UserId.repeatedFields_, null);
 };
 goog.inherits(proto.cs3.identity.user.v1beta1.UserId, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -39,6 +40,13 @@ if (goog.DEBUG && !COMPILED) {
    */
   proto.cs3.identity.user.v1beta1.UserId.displayName = 'proto.cs3.identity.user.v1beta1.UserId';
 }
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.cs3.identity.user.v1beta1.UserId.repeatedFields_ = [5];
 
 
 
@@ -74,7 +82,9 @@ proto.cs3.identity.user.v1beta1.UserId.toObject = function(includeInstance, msg)
     idp: jspb.Message.getFieldWithDefault(msg, 1, ""),
     opaqueId: jspb.Message.getFieldWithDefault(msg, 2, ""),
     type: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    tenantId: jspb.Message.getFieldWithDefault(msg, 4, "")
+    tenantId: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    externalIdentitiesList: jspb.Message.toObjectList(msg.getExternalIdentitiesList(),
+    proto.cs3.identity.user.v1beta1.ExternalIdentity.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -126,6 +136,11 @@ proto.cs3.identity.user.v1beta1.UserId.deserializeBinaryFromReader = function(ms
     case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setTenantId(value);
+      break;
+    case 5:
+      var value = new proto.cs3.identity.user.v1beta1.ExternalIdentity;
+      reader.readMessage(value,proto.cs3.identity.user.v1beta1.ExternalIdentity.deserializeBinaryFromReader);
+      msg.addExternalIdentities(value);
       break;
     default:
       reader.skipField();
@@ -182,6 +197,14 @@ proto.cs3.identity.user.v1beta1.UserId.serializeBinaryToWriter = function(messag
     writer.writeString(
       4,
       f
+    );
+  }
+  f = message.getExternalIdentitiesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      5,
+      f,
+      proto.cs3.identity.user.v1beta1.ExternalIdentity.serializeBinaryToWriter
     );
   }
 };
@@ -256,6 +279,44 @@ proto.cs3.identity.user.v1beta1.UserId.prototype.getTenantId = function() {
  */
 proto.cs3.identity.user.v1beta1.UserId.prototype.setTenantId = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * repeated ExternalIdentity external_identities = 5;
+ * @return {!Array<!proto.cs3.identity.user.v1beta1.ExternalIdentity>}
+ */
+proto.cs3.identity.user.v1beta1.UserId.prototype.getExternalIdentitiesList = function() {
+  return /** @type{!Array<!proto.cs3.identity.user.v1beta1.ExternalIdentity>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.cs3.identity.user.v1beta1.ExternalIdentity, 5));
+};
+
+
+/**
+ * @param {!Array<!proto.cs3.identity.user.v1beta1.ExternalIdentity>} value
+ * @return {!proto.cs3.identity.user.v1beta1.UserId} returns this
+*/
+proto.cs3.identity.user.v1beta1.UserId.prototype.setExternalIdentitiesList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 5, value);
+};
+
+
+/**
+ * @param {!proto.cs3.identity.user.v1beta1.ExternalIdentity=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.cs3.identity.user.v1beta1.ExternalIdentity}
+ */
+proto.cs3.identity.user.v1beta1.UserId.prototype.addExternalIdentities = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.cs3.identity.user.v1beta1.ExternalIdentity, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.cs3.identity.user.v1beta1.UserId} returns this
+ */
+proto.cs3.identity.user.v1beta1.UserId.prototype.clearExternalIdentitiesList = function() {
+  return this.setExternalIdentitiesList([]);
 };
 
 
