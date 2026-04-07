@@ -69,6 +69,10 @@ goog.require('proto.cs3.identity.group.v1beta1.GetMembersRequest');
 goog.require('proto.cs3.identity.group.v1beta1.GetMembersResponse');
 goog.require('proto.cs3.identity.group.v1beta1.HasMemberRequest');
 goog.require('proto.cs3.identity.group.v1beta1.HasMemberResponse');
+goog.require('proto.cs3.identity.tenant.v1beta1.GetTenantByClaimRequest');
+goog.require('proto.cs3.identity.tenant.v1beta1.GetTenantByClaimResponse');
+goog.require('proto.cs3.identity.tenant.v1beta1.GetTenantRequest');
+goog.require('proto.cs3.identity.tenant.v1beta1.GetTenantResponse');
 goog.require('proto.cs3.identity.user.v1beta1.FindUsersRequest');
 goog.require('proto.cs3.identity.user.v1beta1.FindUsersResponse');
 goog.require('proto.cs3.identity.user.v1beta1.GetUserByClaimRequest');
@@ -4975,6 +4979,128 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.findUsers =
       request,
       metadata || {},
       methodDescriptor_GatewayAPI_FindUsers);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.identity.tenant.v1beta1.GetTenantRequest,
+ *   !proto.cs3.identity.tenant.v1beta1.GetTenantResponse>}
+ */
+const methodDescriptor_GatewayAPI_GetTenant = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/GetTenant',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.identity.tenant.v1beta1.GetTenantRequest,
+  proto.cs3.identity.tenant.v1beta1.GetTenantResponse,
+  /**
+   * @param {!proto.cs3.identity.tenant.v1beta1.GetTenantRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.identity.tenant.v1beta1.GetTenantResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.identity.tenant.v1beta1.GetTenantRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cs3.identity.tenant.v1beta1.GetTenantResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.identity.tenant.v1beta1.GetTenantResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.getTenant =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/GetTenant',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_GetTenant,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.identity.tenant.v1beta1.GetTenantRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.identity.tenant.v1beta1.GetTenantResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.getTenant =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/GetTenant',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_GetTenant);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.identity.tenant.v1beta1.GetTenantByClaimRequest,
+ *   !proto.cs3.identity.tenant.v1beta1.GetTenantByClaimResponse>}
+ */
+const methodDescriptor_GatewayAPI_GetTenantByClaim = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/GetTenantByClaim',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.identity.tenant.v1beta1.GetTenantByClaimRequest,
+  proto.cs3.identity.tenant.v1beta1.GetTenantByClaimResponse,
+  /**
+   * @param {!proto.cs3.identity.tenant.v1beta1.GetTenantByClaimRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.identity.tenant.v1beta1.GetTenantByClaimResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.identity.tenant.v1beta1.GetTenantByClaimRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cs3.identity.tenant.v1beta1.GetTenantByClaimResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.identity.tenant.v1beta1.GetTenantByClaimResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.getTenantByClaim =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/GetTenantByClaim',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_GetTenantByClaim,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.identity.tenant.v1beta1.GetTenantByClaimRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.identity.tenant.v1beta1.GetTenantByClaimResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.getTenantByClaim =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/GetTenantByClaim',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_GetTenantByClaim);
 };
 
 
