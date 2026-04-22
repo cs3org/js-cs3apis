@@ -54,7 +54,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.cs3.sharing.collaboration.v1beta1.Filter.oneofGroups_ = [[3,4,5,6,7,8,9]];
+proto.cs3.sharing.collaboration.v1beta1.Filter.oneofGroups_ = [[3,4,5,6,7,8,9,10]];
 
 /**
  * @enum {number}
@@ -67,7 +67,8 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.TermCase = {
   GRANTEE_TYPE: 6,
   SPACE_ID: 7,
   STATE: 8,
-  GRANTEE: 9
+  GRANTEE: 9,
+  SPACE_ROOT: 10
 };
 
 /**
@@ -115,7 +116,8 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.toObject = function(includeInstan
     granteeType: jspb.Message.getFieldWithDefault(msg, 6, 0),
     spaceId: jspb.Message.getFieldWithDefault(msg, 7, ""),
     state: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    grantee: (f = msg.getGrantee()) && proto.cs3.storage.provider.v1beta1.Grantee.toObject(includeInstance, f)
+    grantee: (f = msg.getGrantee()) && proto.cs3.storage.provider.v1beta1.Grantee.toObject(includeInstance, f),
+    spaceRoot: jspb.Message.getBooleanFieldWithDefault(msg, 10, false)
   };
 
   if (includeInstance) {
@@ -187,6 +189,10 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.deserializeBinaryFromReader = fun
       var value = new proto.cs3.storage.provider.v1beta1.Grantee;
       reader.readMessage(value,proto.cs3.storage.provider.v1beta1.Grantee.deserializeBinaryFromReader);
       msg.setGrantee(value);
+      break;
+    case 10:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSpaceRoot(value);
       break;
     default:
       reader.skipField();
@@ -277,6 +283,13 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.serializeBinaryToWriter = functio
       proto.cs3.storage.provider.v1beta1.Grantee.serializeBinaryToWriter
     );
   }
+  f = /** @type {boolean} */ (jspb.Message.getField(message, 10));
+  if (f != null) {
+    writer.writeBool(
+      10,
+      f
+    );
+  }
 };
 
 
@@ -293,7 +306,8 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.Type = {
   TYPE_EXCLUDE_DENIALS: 6,
   TYPE_SPACE_ID: 7,
   TYPE_STATE: 8,
-  TYPE_GRANTEE: 9
+  TYPE_GRANTEE: 9,
+  TYPE_SPACE_ROOT: 10
 };
 
 /**
@@ -567,6 +581,42 @@ proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.clearGrantee = function
  */
 proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.hasGrantee = function() {
   return jspb.Message.getField(this, 9) != null;
+};
+
+
+/**
+ * optional bool space_root = 10;
+ * @return {boolean}
+ */
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.getSpaceRoot = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 10, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.cs3.sharing.collaboration.v1beta1.Filter} returns this
+ */
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.setSpaceRoot = function(value) {
+  return jspb.Message.setOneofField(this, 10, proto.cs3.sharing.collaboration.v1beta1.Filter.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.cs3.sharing.collaboration.v1beta1.Filter} returns this
+ */
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.clearSpaceRoot = function() {
+  return jspb.Message.setOneofField(this, 10, proto.cs3.sharing.collaboration.v1beta1.Filter.oneofGroups_[0], undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.sharing.collaboration.v1beta1.Filter.prototype.hasSpaceRoot = function() {
+  return jspb.Message.getField(this, 10) != null;
 };
 
 
