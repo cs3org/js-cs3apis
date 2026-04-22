@@ -75,7 +75,8 @@ proto.cs3.app.provider.v1beta1.OpenInAppResponse.toObject = function(includeInst
   var f, obj = {
     status: (f = msg.getStatus()) && proto.cs3.rpc.v1beta1.Status.toObject(includeInstance, f),
     opaque: (f = msg.getOpaque()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f),
-    appUrl: (f = msg.getAppUrl()) && proto.cs3.app.provider.v1beta1.OpenInAppURL.toObject(includeInstance, f)
+    appUrl: (f = msg.getAppUrl()) && proto.cs3.app.provider.v1beta1.OpenInAppURL.toObject(includeInstance, f),
+    forcedViewModeReason: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -126,6 +127,10 @@ proto.cs3.app.provider.v1beta1.OpenInAppResponse.deserializeBinaryFromReader = f
       var value = new proto.cs3.app.provider.v1beta1.OpenInAppURL;
       reader.readMessage(value,proto.cs3.app.provider.v1beta1.OpenInAppURL.deserializeBinaryFromReader);
       msg.setAppUrl(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setForcedViewModeReason(value);
       break;
     default:
       reader.skipField();
@@ -178,6 +183,13 @@ proto.cs3.app.provider.v1beta1.OpenInAppResponse.serializeBinaryToWriter = funct
       3,
       f,
       proto.cs3.app.provider.v1beta1.OpenInAppURL.serializeBinaryToWriter
+    );
+  }
+  f = message.getForcedViewModeReason();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
     );
   }
 };
@@ -291,6 +303,24 @@ proto.cs3.app.provider.v1beta1.OpenInAppResponse.prototype.clearAppUrl = functio
  */
 proto.cs3.app.provider.v1beta1.OpenInAppResponse.prototype.hasAppUrl = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string forced_view_mode_reason = 4;
+ * @return {string}
+ */
+proto.cs3.app.provider.v1beta1.OpenInAppResponse.prototype.getForcedViewModeReason = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.cs3.app.provider.v1beta1.OpenInAppResponse} returns this
+ */
+proto.cs3.app.provider.v1beta1.OpenInAppResponse.prototype.setForcedViewModeReason = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
