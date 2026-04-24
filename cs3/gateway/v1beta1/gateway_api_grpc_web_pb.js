@@ -165,8 +165,8 @@ goog.require('proto.cs3.sharing.ocm.v1beta1.UpdateOCMShareRequest');
 goog.require('proto.cs3.sharing.ocm.v1beta1.UpdateOCMShareResponse');
 goog.require('proto.cs3.sharing.ocm.v1beta1.UpdateReceivedOCMShareRequest');
 goog.require('proto.cs3.sharing.ocm.v1beta1.UpdateReceivedOCMShareResponse');
-goog.require('proto.cs3.storage.provider.v1beta1.AddFavoriteRequest');
-goog.require('proto.cs3.storage.provider.v1beta1.AddFavoriteResponse');
+goog.require('proto.cs3.storage.provider.v1beta1.AddLabelRequest');
+goog.require('proto.cs3.storage.provider.v1beta1.AddLabelResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.CreateContainerRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.CreateContainerResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.CreateHomeRequest');
@@ -206,8 +206,8 @@ goog.require('proto.cs3.storage.provider.v1beta1.PurgeRecycleRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.PurgeRecycleResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.RefreshLockRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.RefreshLockResponse');
-goog.require('proto.cs3.storage.provider.v1beta1.RemoveFavoriteRequest');
-goog.require('proto.cs3.storage.provider.v1beta1.RemoveFavoriteResponse');
+goog.require('proto.cs3.storage.provider.v1beta1.RemoveLabelRequest');
+goog.require('proto.cs3.storage.provider.v1beta1.RemoveLabelResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.RestoreFileVersionRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.RestoreFileVersionResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.RestoreRecycleItemRequest');
@@ -2423,122 +2423,122 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.deleteStorageSpace =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.cs3.storage.provider.v1beta1.AddFavoriteRequest,
- *   !proto.cs3.storage.provider.v1beta1.AddFavoriteResponse>}
+ *   !proto.cs3.storage.provider.v1beta1.AddLabelRequest,
+ *   !proto.cs3.storage.provider.v1beta1.AddLabelResponse>}
  */
-const methodDescriptor_GatewayAPI_AddFavorite = new grpc.web.MethodDescriptor(
-  '/cs3.gateway.v1beta1.GatewayAPI/AddFavorite',
+const methodDescriptor_GatewayAPI_AddLabel = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/AddLabel',
   grpc.web.MethodType.UNARY,
-  proto.cs3.storage.provider.v1beta1.AddFavoriteRequest,
-  proto.cs3.storage.provider.v1beta1.AddFavoriteResponse,
+  proto.cs3.storage.provider.v1beta1.AddLabelRequest,
+  proto.cs3.storage.provider.v1beta1.AddLabelResponse,
   /**
-   * @param {!proto.cs3.storage.provider.v1beta1.AddFavoriteRequest} request
+   * @param {!proto.cs3.storage.provider.v1beta1.AddLabelRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.cs3.storage.provider.v1beta1.AddFavoriteResponse.deserializeBinary
+  proto.cs3.storage.provider.v1beta1.AddLabelResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.cs3.storage.provider.v1beta1.AddFavoriteRequest} request The
+ * @param {!proto.cs3.storage.provider.v1beta1.AddLabelRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.cs3.storage.provider.v1beta1.AddFavoriteResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cs3.storage.provider.v1beta1.AddLabelResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.cs3.storage.provider.v1beta1.AddFavoriteResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.storage.provider.v1beta1.AddLabelResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.addFavorite =
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.addLabel =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/cs3.gateway.v1beta1.GatewayAPI/AddFavorite',
+      '/cs3.gateway.v1beta1.GatewayAPI/AddLabel',
       request,
       metadata || {},
-      methodDescriptor_GatewayAPI_AddFavorite,
+      methodDescriptor_GatewayAPI_AddLabel,
       callback);
 };
 
 
 /**
- * @param {!proto.cs3.storage.provider.v1beta1.AddFavoriteRequest} request The
+ * @param {!proto.cs3.storage.provider.v1beta1.AddLabelRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.cs3.storage.provider.v1beta1.AddFavoriteResponse>}
+ * @return {!Promise<!proto.cs3.storage.provider.v1beta1.AddLabelResponse>}
  *     Promise that resolves to the response
  */
-proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.addFavorite =
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.addLabel =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/cs3.gateway.v1beta1.GatewayAPI/AddFavorite',
+      '/cs3.gateway.v1beta1.GatewayAPI/AddLabel',
       request,
       metadata || {},
-      methodDescriptor_GatewayAPI_AddFavorite);
+      methodDescriptor_GatewayAPI_AddLabel);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.cs3.storage.provider.v1beta1.RemoveFavoriteRequest,
- *   !proto.cs3.storage.provider.v1beta1.RemoveFavoriteResponse>}
+ *   !proto.cs3.storage.provider.v1beta1.RemoveLabelRequest,
+ *   !proto.cs3.storage.provider.v1beta1.RemoveLabelResponse>}
  */
-const methodDescriptor_GatewayAPI_RemoveFavorite = new grpc.web.MethodDescriptor(
-  '/cs3.gateway.v1beta1.GatewayAPI/RemoveFavorite',
+const methodDescriptor_GatewayAPI_RemoveLabel = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/RemoveLabel',
   grpc.web.MethodType.UNARY,
-  proto.cs3.storage.provider.v1beta1.RemoveFavoriteRequest,
-  proto.cs3.storage.provider.v1beta1.RemoveFavoriteResponse,
+  proto.cs3.storage.provider.v1beta1.RemoveLabelRequest,
+  proto.cs3.storage.provider.v1beta1.RemoveLabelResponse,
   /**
-   * @param {!proto.cs3.storage.provider.v1beta1.RemoveFavoriteRequest} request
+   * @param {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.cs3.storage.provider.v1beta1.RemoveFavoriteResponse.deserializeBinary
+  proto.cs3.storage.provider.v1beta1.RemoveLabelResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.cs3.storage.provider.v1beta1.RemoveFavoriteRequest} request The
+ * @param {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.cs3.storage.provider.v1beta1.RemoveFavoriteResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cs3.storage.provider.v1beta1.RemoveLabelResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.cs3.storage.provider.v1beta1.RemoveFavoriteResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.storage.provider.v1beta1.RemoveLabelResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.removeFavorite =
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.removeLabel =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/cs3.gateway.v1beta1.GatewayAPI/RemoveFavorite',
+      '/cs3.gateway.v1beta1.GatewayAPI/RemoveLabel',
       request,
       metadata || {},
-      methodDescriptor_GatewayAPI_RemoveFavorite,
+      methodDescriptor_GatewayAPI_RemoveLabel,
       callback);
 };
 
 
 /**
- * @param {!proto.cs3.storage.provider.v1beta1.RemoveFavoriteRequest} request The
+ * @param {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.cs3.storage.provider.v1beta1.RemoveFavoriteResponse>}
+ * @return {!Promise<!proto.cs3.storage.provider.v1beta1.RemoveLabelResponse>}
  *     Promise that resolves to the response
  */
-proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.removeFavorite =
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.removeLabel =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/cs3.gateway.v1beta1.GatewayAPI/RemoveFavorite',
+      '/cs3.gateway.v1beta1.GatewayAPI/RemoveLabel',
       request,
       metadata || {},
-      methodDescriptor_GatewayAPI_RemoveFavorite);
+      methodDescriptor_GatewayAPI_RemoveLabel);
 };
 
 
