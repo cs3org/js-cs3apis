@@ -26,8 +26,6 @@ goog.require('grpc.web.ClientReadableStream');
 goog.require('grpc.web.RpcError');
 goog.require('proto.cs3.storage.provider.v1beta1.AddGrantRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.AddGrantResponse');
-goog.require('proto.cs3.storage.provider.v1beta1.AddLabelRequest');
-goog.require('proto.cs3.storage.provider.v1beta1.AddLabelResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.CreateContainerRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.CreateContainerResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.CreateHomeRequest');
@@ -72,8 +70,6 @@ goog.require('proto.cs3.storage.provider.v1beta1.RefreshLockRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.RefreshLockResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.RemoveGrantRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.RemoveGrantResponse');
-goog.require('proto.cs3.storage.provider.v1beta1.RemoveLabelRequest');
-goog.require('proto.cs3.storage.provider.v1beta1.RemoveLabelResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.RestoreFileVersionRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.RestoreFileVersionResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.RestoreRecycleItemRequest');
@@ -2090,128 +2086,6 @@ proto.cs3.storage.provider.v1beta1.ProviderAPIPromiseClient.prototype.getHome =
       request,
       metadata || {},
       methodDescriptor_ProviderAPI_GetHome);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.cs3.storage.provider.v1beta1.AddLabelRequest,
- *   !proto.cs3.storage.provider.v1beta1.AddLabelResponse>}
- */
-const methodDescriptor_ProviderAPI_AddLabel = new grpc.web.MethodDescriptor(
-  '/cs3.storage.provider.v1beta1.ProviderAPI/AddLabel',
-  grpc.web.MethodType.UNARY,
-  proto.cs3.storage.provider.v1beta1.AddLabelRequest,
-  proto.cs3.storage.provider.v1beta1.AddLabelResponse,
-  /**
-   * @param {!proto.cs3.storage.provider.v1beta1.AddLabelRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cs3.storage.provider.v1beta1.AddLabelResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.cs3.storage.provider.v1beta1.AddLabelRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.cs3.storage.provider.v1beta1.AddLabelResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.cs3.storage.provider.v1beta1.AddLabelResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.cs3.storage.provider.v1beta1.ProviderAPIClient.prototype.addLabel =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/cs3.storage.provider.v1beta1.ProviderAPI/AddLabel',
-      request,
-      metadata || {},
-      methodDescriptor_ProviderAPI_AddLabel,
-      callback);
-};
-
-
-/**
- * @param {!proto.cs3.storage.provider.v1beta1.AddLabelRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.cs3.storage.provider.v1beta1.AddLabelResponse>}
- *     Promise that resolves to the response
- */
-proto.cs3.storage.provider.v1beta1.ProviderAPIPromiseClient.prototype.addLabel =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/cs3.storage.provider.v1beta1.ProviderAPI/AddLabel',
-      request,
-      metadata || {},
-      methodDescriptor_ProviderAPI_AddLabel);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.cs3.storage.provider.v1beta1.RemoveLabelRequest,
- *   !proto.cs3.storage.provider.v1beta1.RemoveLabelResponse>}
- */
-const methodDescriptor_ProviderAPI_RemoveLabel = new grpc.web.MethodDescriptor(
-  '/cs3.storage.provider.v1beta1.ProviderAPI/RemoveLabel',
-  grpc.web.MethodType.UNARY,
-  proto.cs3.storage.provider.v1beta1.RemoveLabelRequest,
-  proto.cs3.storage.provider.v1beta1.RemoveLabelResponse,
-  /**
-   * @param {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cs3.storage.provider.v1beta1.RemoveLabelResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.cs3.storage.provider.v1beta1.RemoveLabelResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.cs3.storage.provider.v1beta1.RemoveLabelResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.cs3.storage.provider.v1beta1.ProviderAPIClient.prototype.removeLabel =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/cs3.storage.provider.v1beta1.ProviderAPI/RemoveLabel',
-      request,
-      metadata || {},
-      methodDescriptor_ProviderAPI_RemoveLabel,
-      callback);
-};
-
-
-/**
- * @param {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.cs3.storage.provider.v1beta1.RemoveLabelResponse>}
- *     Promise that resolves to the response
- */
-proto.cs3.storage.provider.v1beta1.ProviderAPIPromiseClient.prototype.removeLabel =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/cs3.storage.provider.v1beta1.ProviderAPI/RemoveLabel',
-      request,
-      metadata || {},
-      methodDescriptor_ProviderAPI_RemoveLabel);
 };
 
 

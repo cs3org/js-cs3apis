@@ -11,7 +11,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-goog.provide('proto.cs3.labels.v1beta1.AddLabelResponse');
+goog.provide('proto.cs3.labels.v1beta1.ListLabelsResponse');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -29,17 +29,24 @@ goog.require('proto.cs3.types.v1beta1.Opaque');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.cs3.labels.v1beta1.AddLabelResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+proto.cs3.labels.v1beta1.ListLabelsResponse = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.cs3.labels.v1beta1.ListLabelsResponse.repeatedFields_, null);
 };
-goog.inherits(proto.cs3.labels.v1beta1.AddLabelResponse, jspb.Message);
+goog.inherits(proto.cs3.labels.v1beta1.ListLabelsResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.cs3.labels.v1beta1.AddLabelResponse.displayName = 'proto.cs3.labels.v1beta1.AddLabelResponse';
+  proto.cs3.labels.v1beta1.ListLabelsResponse.displayName = 'proto.cs3.labels.v1beta1.ListLabelsResponse';
 }
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.cs3.labels.v1beta1.ListLabelsResponse.repeatedFields_ = [3];
 
 
 
@@ -56,8 +63,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.cs3.labels.v1beta1.AddLabelResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.cs3.labels.v1beta1.AddLabelResponse.toObject(opt_includeInstance, this);
+proto.cs3.labels.v1beta1.ListLabelsResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.cs3.labels.v1beta1.ListLabelsResponse.toObject(opt_includeInstance, this);
 };
 
 
@@ -66,14 +73,15 @@ proto.cs3.labels.v1beta1.AddLabelResponse.prototype.toObject = function(opt_incl
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.cs3.labels.v1beta1.AddLabelResponse} msg The msg instance to transform.
+ * @param {!proto.cs3.labels.v1beta1.ListLabelsResponse} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.cs3.labels.v1beta1.AddLabelResponse.toObject = function(includeInstance, msg) {
+proto.cs3.labels.v1beta1.ListLabelsResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     status: (f = msg.getStatus()) && proto.cs3.rpc.v1beta1.Status.toObject(includeInstance, f),
-    opaque: (f = msg.getOpaque()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f)
+    opaque: (f = msg.getOpaque()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f),
+    labelsList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -87,23 +95,23 @@ proto.cs3.labels.v1beta1.AddLabelResponse.toObject = function(includeInstance, m
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.cs3.labels.v1beta1.AddLabelResponse}
+ * @return {!proto.cs3.labels.v1beta1.ListLabelsResponse}
  */
-proto.cs3.labels.v1beta1.AddLabelResponse.deserializeBinary = function(bytes) {
+proto.cs3.labels.v1beta1.ListLabelsResponse.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.cs3.labels.v1beta1.AddLabelResponse;
-  return proto.cs3.labels.v1beta1.AddLabelResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.cs3.labels.v1beta1.ListLabelsResponse;
+  return proto.cs3.labels.v1beta1.ListLabelsResponse.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.cs3.labels.v1beta1.AddLabelResponse} msg The message object to deserialize into.
+ * @param {!proto.cs3.labels.v1beta1.ListLabelsResponse} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.cs3.labels.v1beta1.AddLabelResponse}
+ * @return {!proto.cs3.labels.v1beta1.ListLabelsResponse}
  */
-proto.cs3.labels.v1beta1.AddLabelResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.cs3.labels.v1beta1.ListLabelsResponse.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -120,6 +128,10 @@ proto.cs3.labels.v1beta1.AddLabelResponse.deserializeBinaryFromReader = function
       reader.readMessage(value,proto.cs3.types.v1beta1.Opaque.deserializeBinaryFromReader);
       msg.setOpaque(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addLabels(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -133,9 +145,9 @@ proto.cs3.labels.v1beta1.AddLabelResponse.deserializeBinaryFromReader = function
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.cs3.labels.v1beta1.AddLabelResponse.prototype.serializeBinary = function() {
+proto.cs3.labels.v1beta1.ListLabelsResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.cs3.labels.v1beta1.AddLabelResponse.serializeBinaryToWriter(this, writer);
+  proto.cs3.labels.v1beta1.ListLabelsResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -143,11 +155,11 @@ proto.cs3.labels.v1beta1.AddLabelResponse.prototype.serializeBinary = function()
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.cs3.labels.v1beta1.AddLabelResponse} message
+ * @param {!proto.cs3.labels.v1beta1.ListLabelsResponse} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.cs3.labels.v1beta1.AddLabelResponse.serializeBinaryToWriter = function(message, writer) {
+proto.cs3.labels.v1beta1.ListLabelsResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getStatus();
   if (f != null) {
@@ -165,6 +177,13 @@ proto.cs3.labels.v1beta1.AddLabelResponse.serializeBinaryToWriter = function(mes
       proto.cs3.types.v1beta1.Opaque.serializeBinaryToWriter
     );
   }
+  f = message.getLabelsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -172,7 +191,7 @@ proto.cs3.labels.v1beta1.AddLabelResponse.serializeBinaryToWriter = function(mes
  * optional cs3.rpc.v1beta1.Status status = 1;
  * @return {?proto.cs3.rpc.v1beta1.Status}
  */
-proto.cs3.labels.v1beta1.AddLabelResponse.prototype.getStatus = function() {
+proto.cs3.labels.v1beta1.ListLabelsResponse.prototype.getStatus = function() {
   return /** @type{?proto.cs3.rpc.v1beta1.Status} */ (
     jspb.Message.getWrapperField(this, proto.cs3.rpc.v1beta1.Status, 1));
 };
@@ -180,18 +199,18 @@ proto.cs3.labels.v1beta1.AddLabelResponse.prototype.getStatus = function() {
 
 /**
  * @param {?proto.cs3.rpc.v1beta1.Status|undefined} value
- * @return {!proto.cs3.labels.v1beta1.AddLabelResponse} returns this
+ * @return {!proto.cs3.labels.v1beta1.ListLabelsResponse} returns this
 */
-proto.cs3.labels.v1beta1.AddLabelResponse.prototype.setStatus = function(value) {
+proto.cs3.labels.v1beta1.ListLabelsResponse.prototype.setStatus = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.cs3.labels.v1beta1.AddLabelResponse} returns this
+ * @return {!proto.cs3.labels.v1beta1.ListLabelsResponse} returns this
  */
-proto.cs3.labels.v1beta1.AddLabelResponse.prototype.clearStatus = function() {
+proto.cs3.labels.v1beta1.ListLabelsResponse.prototype.clearStatus = function() {
   return this.setStatus(undefined);
 };
 
@@ -200,7 +219,7 @@ proto.cs3.labels.v1beta1.AddLabelResponse.prototype.clearStatus = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.cs3.labels.v1beta1.AddLabelResponse.prototype.hasStatus = function() {
+proto.cs3.labels.v1beta1.ListLabelsResponse.prototype.hasStatus = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
@@ -209,7 +228,7 @@ proto.cs3.labels.v1beta1.AddLabelResponse.prototype.hasStatus = function() {
  * optional cs3.types.v1beta1.Opaque opaque = 2;
  * @return {?proto.cs3.types.v1beta1.Opaque}
  */
-proto.cs3.labels.v1beta1.AddLabelResponse.prototype.getOpaque = function() {
+proto.cs3.labels.v1beta1.ListLabelsResponse.prototype.getOpaque = function() {
   return /** @type{?proto.cs3.types.v1beta1.Opaque} */ (
     jspb.Message.getWrapperField(this, proto.cs3.types.v1beta1.Opaque, 2));
 };
@@ -217,18 +236,18 @@ proto.cs3.labels.v1beta1.AddLabelResponse.prototype.getOpaque = function() {
 
 /**
  * @param {?proto.cs3.types.v1beta1.Opaque|undefined} value
- * @return {!proto.cs3.labels.v1beta1.AddLabelResponse} returns this
+ * @return {!proto.cs3.labels.v1beta1.ListLabelsResponse} returns this
 */
-proto.cs3.labels.v1beta1.AddLabelResponse.prototype.setOpaque = function(value) {
+proto.cs3.labels.v1beta1.ListLabelsResponse.prototype.setOpaque = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.cs3.labels.v1beta1.AddLabelResponse} returns this
+ * @return {!proto.cs3.labels.v1beta1.ListLabelsResponse} returns this
  */
-proto.cs3.labels.v1beta1.AddLabelResponse.prototype.clearOpaque = function() {
+proto.cs3.labels.v1beta1.ListLabelsResponse.prototype.clearOpaque = function() {
   return this.setOpaque(undefined);
 };
 
@@ -237,8 +256,45 @@ proto.cs3.labels.v1beta1.AddLabelResponse.prototype.clearOpaque = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.cs3.labels.v1beta1.AddLabelResponse.prototype.hasOpaque = function() {
+proto.cs3.labels.v1beta1.ListLabelsResponse.prototype.hasOpaque = function() {
   return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * repeated string labels = 3;
+ * @return {!Array<string>}
+ */
+proto.cs3.labels.v1beta1.ListLabelsResponse.prototype.getLabelsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 3));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.cs3.labels.v1beta1.ListLabelsResponse} returns this
+ */
+proto.cs3.labels.v1beta1.ListLabelsResponse.prototype.setLabelsList = function(value) {
+  return jspb.Message.setField(this, 3, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.cs3.labels.v1beta1.ListLabelsResponse} returns this
+ */
+proto.cs3.labels.v1beta1.ListLabelsResponse.prototype.addLabels = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 3, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.cs3.labels.v1beta1.ListLabelsResponse} returns this
+ */
+proto.cs3.labels.v1beta1.ListLabelsResponse.prototype.clearLabelsList = function() {
+  return this.setLabelsList([]);
 };
 
 

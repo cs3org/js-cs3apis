@@ -1,4 +1,4 @@
-// source: cs3/storage/provider/v1beta1/provider_api.proto
+// source: cs3/labels/v1beta1/label_api.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -11,7 +11,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-goog.provide('proto.cs3.storage.provider.v1beta1.RemoveLabelRequest');
+goog.provide('proto.cs3.labels.v1beta1.RemoveLabelRequest');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -30,16 +30,16 @@ goog.require('proto.cs3.types.v1beta1.Opaque');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest = function(opt_data) {
+proto.cs3.labels.v1beta1.RemoveLabelRequest = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.cs3.storage.provider.v1beta1.RemoveLabelRequest, jspb.Message);
+goog.inherits(proto.cs3.labels.v1beta1.RemoveLabelRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.displayName = 'proto.cs3.storage.provider.v1beta1.RemoveLabelRequest';
+  proto.cs3.labels.v1beta1.RemoveLabelRequest.displayName = 'proto.cs3.labels.v1beta1.RemoveLabelRequest';
 }
 
 
@@ -57,8 +57,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.toObject(opt_includeInstance, this);
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.cs3.labels.v1beta1.RemoveLabelRequest.toObject(opt_includeInstance, this);
 };
 
 
@@ -67,11 +67,11 @@ proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.toObject = funct
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} msg The msg instance to transform.
+ * @param {!proto.cs3.labels.v1beta1.RemoveLabelRequest} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.toObject = function(includeInstance, msg) {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     opaque: (f = msg.getOpaque()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f),
     ref: (f = msg.getRef()) && proto.cs3.storage.provider.v1beta1.Reference.toObject(includeInstance, f),
@@ -90,23 +90,23 @@ proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.toObject = function(includ
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest}
+ * @return {!proto.cs3.labels.v1beta1.RemoveLabelRequest}
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.deserializeBinary = function(bytes) {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.cs3.storage.provider.v1beta1.RemoveLabelRequest;
-  return proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.cs3.labels.v1beta1.RemoveLabelRequest;
+  return proto.cs3.labels.v1beta1.RemoveLabelRequest.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} msg The message object to deserialize into.
+ * @param {!proto.cs3.labels.v1beta1.RemoveLabelRequest} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest}
+ * @return {!proto.cs3.labels.v1beta1.RemoveLabelRequest}
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -145,9 +145,9 @@ proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.deserializeBinaryFromReade
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.serializeBinary = function() {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.serializeBinaryToWriter(this, writer);
+  proto.cs3.labels.v1beta1.RemoveLabelRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -155,11 +155,11 @@ proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.serializeBinary 
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} message
+ * @param {!proto.cs3.labels.v1beta1.RemoveLabelRequest} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.serializeBinaryToWriter = function(message, writer) {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getOpaque();
   if (f != null) {
@@ -199,7 +199,7 @@ proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.serializeBinaryToWriter = 
  * optional cs3.types.v1beta1.Opaque opaque = 1;
  * @return {?proto.cs3.types.v1beta1.Opaque}
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.getOpaque = function() {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.getOpaque = function() {
   return /** @type{?proto.cs3.types.v1beta1.Opaque} */ (
     jspb.Message.getWrapperField(this, proto.cs3.types.v1beta1.Opaque, 1));
 };
@@ -207,18 +207,18 @@ proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.getOpaque = func
 
 /**
  * @param {?proto.cs3.types.v1beta1.Opaque|undefined} value
- * @return {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} returns this
+ * @return {!proto.cs3.labels.v1beta1.RemoveLabelRequest} returns this
 */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.setOpaque = function(value) {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.setOpaque = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} returns this
+ * @return {!proto.cs3.labels.v1beta1.RemoveLabelRequest} returns this
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.clearOpaque = function() {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.clearOpaque = function() {
   return this.setOpaque(undefined);
 };
 
@@ -227,16 +227,16 @@ proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.clearOpaque = fu
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.hasOpaque = function() {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.hasOpaque = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
 
 /**
- * optional Reference ref = 2;
+ * optional cs3.storage.provider.v1beta1.Reference ref = 2;
  * @return {?proto.cs3.storage.provider.v1beta1.Reference}
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.getRef = function() {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.getRef = function() {
   return /** @type{?proto.cs3.storage.provider.v1beta1.Reference} */ (
     jspb.Message.getWrapperField(this, proto.cs3.storage.provider.v1beta1.Reference, 2));
 };
@@ -244,18 +244,18 @@ proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.getRef = functio
 
 /**
  * @param {?proto.cs3.storage.provider.v1beta1.Reference|undefined} value
- * @return {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} returns this
+ * @return {!proto.cs3.labels.v1beta1.RemoveLabelRequest} returns this
 */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.setRef = function(value) {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.setRef = function(value) {
   return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} returns this
+ * @return {!proto.cs3.labels.v1beta1.RemoveLabelRequest} returns this
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.clearRef = function() {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.clearRef = function() {
   return this.setRef(undefined);
 };
 
@@ -264,7 +264,7 @@ proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.clearRef = funct
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.hasRef = function() {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.hasRef = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -273,7 +273,7 @@ proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.hasRef = functio
  * optional cs3.identity.user.v1beta1.UserId user_id = 3;
  * @return {?proto.cs3.identity.user.v1beta1.UserId}
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.getUserId = function() {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.getUserId = function() {
   return /** @type{?proto.cs3.identity.user.v1beta1.UserId} */ (
     jspb.Message.getWrapperField(this, proto.cs3.identity.user.v1beta1.UserId, 3));
 };
@@ -281,18 +281,18 @@ proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.getUserId = func
 
 /**
  * @param {?proto.cs3.identity.user.v1beta1.UserId|undefined} value
- * @return {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} returns this
+ * @return {!proto.cs3.labels.v1beta1.RemoveLabelRequest} returns this
 */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.setUserId = function(value) {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.setUserId = function(value) {
   return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
- * @return {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} returns this
+ * @return {!proto.cs3.labels.v1beta1.RemoveLabelRequest} returns this
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.clearUserId = function() {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.clearUserId = function() {
   return this.setUserId(undefined);
 };
 
@@ -301,7 +301,7 @@ proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.clearUserId = fu
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.hasUserId = function() {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.hasUserId = function() {
   return jspb.Message.getField(this, 3) != null;
 };
 
@@ -310,16 +310,16 @@ proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.hasUserId = func
  * optional string label = 4;
  * @return {string}
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.getLabel = function() {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.getLabel = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /**
  * @param {string} value
- * @return {!proto.cs3.storage.provider.v1beta1.RemoveLabelRequest} returns this
+ * @return {!proto.cs3.labels.v1beta1.RemoveLabelRequest} returns this
  */
-proto.cs3.storage.provider.v1beta1.RemoveLabelRequest.prototype.setLabel = function(value) {
+proto.cs3.labels.v1beta1.RemoveLabelRequest.prototype.setLabel = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
 };
 
