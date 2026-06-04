@@ -131,7 +131,8 @@ proto.cs3.storage.provider.v1beta1.ResourceInfo.toObject = function(includeInsta
     proto.cs3.storage.provider.v1beta1.Lock.toObject, includeInstance),
     parentId: (f = msg.getParentId()) && proto.cs3.storage.provider.v1beta1.ResourceId.toObject(includeInstance, f),
     name: jspb.Message.getFieldWithDefault(msg, 18, ""),
-    space: (f = msg.getSpace()) && proto.cs3.storage.provider.v1beta1.StorageSpace.toObject(includeInstance, f)
+    space: (f = msg.getSpace()) && proto.cs3.storage.provider.v1beta1.StorageSpace.toObject(includeInstance, f),
+    immutable: jspb.Message.getBooleanFieldWithDefault(msg, 20, false)
   };
 
   if (includeInstance) {
@@ -255,6 +256,10 @@ proto.cs3.storage.provider.v1beta1.ResourceInfo.deserializeBinaryFromReader = fu
       var value = new proto.cs3.storage.provider.v1beta1.StorageSpace;
       reader.readMessage(value,proto.cs3.storage.provider.v1beta1.StorageSpace.deserializeBinaryFromReader);
       msg.setSpace(value);
+      break;
+    case 20:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setImmutable(value);
       break;
     default:
       reader.skipField();
@@ -428,6 +433,13 @@ proto.cs3.storage.provider.v1beta1.ResourceInfo.serializeBinaryToWriter = functi
       19,
       f,
       proto.cs3.storage.provider.v1beta1.StorageSpace.serializeBinaryToWriter
+    );
+  }
+  f = message.getImmutable();
+  if (f) {
+    writer.writeBool(
+      20,
+      f
     );
   }
 };
@@ -1001,6 +1013,24 @@ proto.cs3.storage.provider.v1beta1.ResourceInfo.prototype.clearSpace = function(
  */
 proto.cs3.storage.provider.v1beta1.ResourceInfo.prototype.hasSpace = function() {
   return jspb.Message.getField(this, 19) != null;
+};
+
+
+/**
+ * optional bool immutable = 20;
+ * @return {boolean}
+ */
+proto.cs3.storage.provider.v1beta1.ResourceInfo.prototype.getImmutable = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 20, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.cs3.storage.provider.v1beta1.ResourceInfo} returns this
+ */
+proto.cs3.storage.provider.v1beta1.ResourceInfo.prototype.setImmutable = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 20, value);
 };
 
 

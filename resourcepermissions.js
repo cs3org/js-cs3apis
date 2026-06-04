@@ -88,7 +88,11 @@ proto.cs3.storage.provider.v1beta1.ResourcePermissions.toObject = function(inclu
     restoreRecycleItem: jspb.Message.getBooleanFieldWithDefault(msg, 17, false),
     stat: jspb.Message.getBooleanFieldWithDefault(msg, 18, false),
     updateGrant: jspb.Message.getBooleanFieldWithDefault(msg, 19, false),
-    denyGrant: jspb.Message.getBooleanFieldWithDefault(msg, 20, false)
+    denyGrant: jspb.Message.getBooleanFieldWithDefault(msg, 20, false),
+    deleteContainer: jspb.Message.getBooleanFieldWithDefault(msg, 21, false),
+    moveContainer: jspb.Message.getBooleanFieldWithDefault(msg, 22, false),
+    setImmutableFile: jspb.Message.getBooleanFieldWithDefault(msg, 23, false),
+    setImmutableContainer: jspb.Message.getBooleanFieldWithDefault(msg, 24, false)
   };
 
   if (includeInstance) {
@@ -200,6 +204,22 @@ proto.cs3.storage.provider.v1beta1.ResourcePermissions.deserializeBinaryFromRead
     case 20:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setDenyGrant(value);
+      break;
+    case 21:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setDeleteContainer(value);
+      break;
+    case 22:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setMoveContainer(value);
+      break;
+    case 23:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSetImmutableFile(value);
+      break;
+    case 24:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSetImmutableContainer(value);
       break;
     default:
       reader.skipField();
@@ -360,6 +380,34 @@ proto.cs3.storage.provider.v1beta1.ResourcePermissions.serializeBinaryToWriter =
   if (f) {
     writer.writeBool(
       20,
+      f
+    );
+  }
+  f = message.getDeleteContainer();
+  if (f) {
+    writer.writeBool(
+      21,
+      f
+    );
+  }
+  f = message.getMoveContainer();
+  if (f) {
+    writer.writeBool(
+      22,
+      f
+    );
+  }
+  f = message.getSetImmutableFile();
+  if (f) {
+    writer.writeBool(
+      23,
+      f
+    );
+  }
+  f = message.getSetImmutableContainer();
+  if (f) {
+    writer.writeBool(
+      24,
       f
     );
   }
@@ -705,6 +753,78 @@ proto.cs3.storage.provider.v1beta1.ResourcePermissions.prototype.getDenyGrant = 
  */
 proto.cs3.storage.provider.v1beta1.ResourcePermissions.prototype.setDenyGrant = function(value) {
   return jspb.Message.setProto3BooleanField(this, 20, value);
+};
+
+
+/**
+ * optional bool delete_container = 21;
+ * @return {boolean}
+ */
+proto.cs3.storage.provider.v1beta1.ResourcePermissions.prototype.getDeleteContainer = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 21, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.cs3.storage.provider.v1beta1.ResourcePermissions} returns this
+ */
+proto.cs3.storage.provider.v1beta1.ResourcePermissions.prototype.setDeleteContainer = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 21, value);
+};
+
+
+/**
+ * optional bool move_container = 22;
+ * @return {boolean}
+ */
+proto.cs3.storage.provider.v1beta1.ResourcePermissions.prototype.getMoveContainer = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 22, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.cs3.storage.provider.v1beta1.ResourcePermissions} returns this
+ */
+proto.cs3.storage.provider.v1beta1.ResourcePermissions.prototype.setMoveContainer = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 22, value);
+};
+
+
+/**
+ * optional bool set_immutable_file = 23;
+ * @return {boolean}
+ */
+proto.cs3.storage.provider.v1beta1.ResourcePermissions.prototype.getSetImmutableFile = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 23, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.cs3.storage.provider.v1beta1.ResourcePermissions} returns this
+ */
+proto.cs3.storage.provider.v1beta1.ResourcePermissions.prototype.setSetImmutableFile = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 23, value);
+};
+
+
+/**
+ * optional bool set_immutable_container = 24;
+ * @return {boolean}
+ */
+proto.cs3.storage.provider.v1beta1.ResourcePermissions.prototype.getSetImmutableContainer = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 24, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.cs3.storage.provider.v1beta1.ResourcePermissions} returns this
+ */
+proto.cs3.storage.provider.v1beta1.ResourcePermissions.prototype.setSetImmutableContainer = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 24, value);
 };
 
 
