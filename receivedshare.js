@@ -106,7 +106,8 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.toObject = function(includeInstance,
     code: jspb.Message.getFieldWithDefault(msg, 15, ""),
     recipientType: jspb.Message.getFieldWithDefault(msg, 16, 0),
     sharedResourceType: jspb.Message.getFieldWithDefault(msg, 17, 0),
-    destination: jspb.Message.getFieldWithDefault(msg, 18, "")
+    destination: jspb.Message.getFieldWithDefault(msg, 18, ""),
+    hidden: jspb.Message.getBooleanFieldWithDefault(msg, 19, false)
   };
 
   if (includeInstance) {
@@ -223,6 +224,10 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.deserializeBinaryFromReader = functi
     case 18:
       var value = /** @type {string} */ (reader.readString());
       msg.setDestination(value);
+      break;
+    case 19:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setHidden(value);
       break;
     default:
       reader.skipField();
@@ -385,6 +390,13 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.serializeBinaryToWriter = function(m
   if (f.length > 0) {
     writer.writeString(
       18,
+      f
+    );
+  }
+  f = message.getHidden();
+  if (f) {
+    writer.writeBool(
+      19,
       f
     );
   }
@@ -884,6 +896,24 @@ proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.getDestination = function(
  */
 proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.setDestination = function(value) {
   return jspb.Message.setProto3StringField(this, 18, value);
+};
+
+
+/**
+ * optional bool hidden = 19;
+ * @return {boolean}
+ */
+proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.getHidden = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 19, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.cs3.sharing.ocm.v1beta1.ReceivedShare} returns this
+ */
+proto.cs3.sharing.ocm.v1beta1.ReceivedShare.prototype.setHidden = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 19, value);
 };
 
 

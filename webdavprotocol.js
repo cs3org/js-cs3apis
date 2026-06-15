@@ -17,6 +17,7 @@ goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
 goog.require('proto.cs3.sharing.ocm.v1beta1.SharePermissions');
+goog.require('proto.cs3.storage.provider.v1beta1.ResourcePermissions');
 
 goog.forwardDeclare('proto.cs3.sharing.ocm.v1beta1.AccessType');
 /**
@@ -83,7 +84,8 @@ proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.toObject = function(includeInstance
     permissions: (f = msg.getPermissions()) && proto.cs3.sharing.ocm.v1beta1.SharePermissions.toObject(includeInstance, f),
     uri: jspb.Message.getFieldWithDefault(msg, 3, ""),
     requirementsList: (f = jspb.Message.getRepeatedField(msg, 4)) == null ? undefined : f,
-    accessTypesList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f
+    accessTypesList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f,
+    sharePermissions: (f = msg.getSharePermissions()) && proto.cs3.storage.provider.v1beta1.ResourcePermissions.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -142,6 +144,11 @@ proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.deserializeBinaryFromReader = funct
       for (var i = 0; i < values.length; i++) {
         msg.addAccessTypes(values[i]);
       }
+      break;
+    case 6:
+      var value = new proto.cs3.storage.provider.v1beta1.ResourcePermissions;
+      reader.readMessage(value,proto.cs3.storage.provider.v1beta1.ResourcePermissions.deserializeBinaryFromReader);
+      msg.setSharePermissions(value);
       break;
     default:
       reader.skipField();
@@ -206,6 +213,14 @@ proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.serializeBinaryToWriter = function(
     writer.writePackedEnum(
       5,
       f
+    );
+  }
+  f = message.getSharePermissions();
+  if (f != null) {
+    writer.writeMessage(
+      6,
+      f,
+      proto.cs3.storage.provider.v1beta1.ResourcePermissions.serializeBinaryToWriter
     );
   }
 };
@@ -355,6 +370,43 @@ proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.prototype.addAccessTypes = function
  */
 proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.prototype.clearAccessTypesList = function() {
   return this.setAccessTypesList([]);
+};
+
+
+/**
+ * optional cs3.storage.provider.v1beta1.ResourcePermissions share_permissions = 6;
+ * @return {?proto.cs3.storage.provider.v1beta1.ResourcePermissions}
+ */
+proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.prototype.getSharePermissions = function() {
+  return /** @type{?proto.cs3.storage.provider.v1beta1.ResourcePermissions} */ (
+    jspb.Message.getWrapperField(this, proto.cs3.storage.provider.v1beta1.ResourcePermissions, 6));
+};
+
+
+/**
+ * @param {?proto.cs3.storage.provider.v1beta1.ResourcePermissions|undefined} value
+ * @return {!proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol} returns this
+*/
+proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.prototype.setSharePermissions = function(value) {
+  return jspb.Message.setWrapperField(this, 6, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol} returns this
+ */
+proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.prototype.clearSharePermissions = function() {
+  return this.setSharePermissions(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.sharing.ocm.v1beta1.WebDAVProtocol.prototype.hasSharePermissions = function() {
+  return jspb.Message.getField(this, 6) != null;
 };
 
 
