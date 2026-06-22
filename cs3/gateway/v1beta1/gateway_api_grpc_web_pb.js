@@ -218,6 +218,8 @@ goog.require('proto.cs3.storage.provider.v1beta1.RestoreRecycleItemRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.RestoreRecycleItemResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.SetArbitraryMetadataRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.SetArbitraryMetadataResponse');
+goog.require('proto.cs3.storage.provider.v1beta1.SetImmutableRequest');
+goog.require('proto.cs3.storage.provider.v1beta1.SetImmutableResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.SetLockRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.SetLockResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.StatRequest');
@@ -228,6 +230,8 @@ goog.require('proto.cs3.storage.provider.v1beta1.UnlockRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.UnlockResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.UnsetArbitraryMetadataRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.UnsetArbitraryMetadataResponse');
+goog.require('proto.cs3.storage.provider.v1beta1.UnsetImmutableRequest');
+goog.require('proto.cs3.storage.provider.v1beta1.UnsetImmutableResponse');
 goog.require('proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceRequest');
 goog.require('proto.cs3.storage.provider.v1beta1.UpdateStorageSpaceResponse');
 goog.require('proto.cs3.tx.v1beta1.CancelTransferRequest');
@@ -2421,6 +2425,128 @@ proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.deleteStorageSpace =
       request,
       metadata || {},
       methodDescriptor_GatewayAPI_DeleteStorageSpace);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.storage.provider.v1beta1.SetImmutableRequest,
+ *   !proto.cs3.storage.provider.v1beta1.SetImmutableResponse>}
+ */
+const methodDescriptor_GatewayAPI_SetImmutable = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/SetImmutable',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.storage.provider.v1beta1.SetImmutableRequest,
+  proto.cs3.storage.provider.v1beta1.SetImmutableResponse,
+  /**
+   * @param {!proto.cs3.storage.provider.v1beta1.SetImmutableRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.storage.provider.v1beta1.SetImmutableResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.SetImmutableRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cs3.storage.provider.v1beta1.SetImmutableResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.storage.provider.v1beta1.SetImmutableResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.setImmutable =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/SetImmutable',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_SetImmutable,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.SetImmutableRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.storage.provider.v1beta1.SetImmutableResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.setImmutable =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/SetImmutable',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_SetImmutable);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.cs3.storage.provider.v1beta1.UnsetImmutableRequest,
+ *   !proto.cs3.storage.provider.v1beta1.UnsetImmutableResponse>}
+ */
+const methodDescriptor_GatewayAPI_UnsetImmutable = new grpc.web.MethodDescriptor(
+  '/cs3.gateway.v1beta1.GatewayAPI/UnsetImmutable',
+  grpc.web.MethodType.UNARY,
+  proto.cs3.storage.provider.v1beta1.UnsetImmutableRequest,
+  proto.cs3.storage.provider.v1beta1.UnsetImmutableResponse,
+  /**
+   * @param {!proto.cs3.storage.provider.v1beta1.UnsetImmutableRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.cs3.storage.provider.v1beta1.UnsetImmutableResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.UnsetImmutableRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.cs3.storage.provider.v1beta1.UnsetImmutableResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.cs3.storage.provider.v1beta1.UnsetImmutableResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIClient.prototype.unsetImmutable =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/UnsetImmutable',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_UnsetImmutable,
+      callback);
+};
+
+
+/**
+ * @param {!proto.cs3.storage.provider.v1beta1.UnsetImmutableRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.cs3.storage.provider.v1beta1.UnsetImmutableResponse>}
+ *     Promise that resolves to the response
+ */
+proto.cs3.gateway.v1beta1.GatewayAPIPromiseClient.prototype.unsetImmutable =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/cs3.gateway.v1beta1.GatewayAPI/UnsetImmutable',
+      request,
+      metadata || {},
+      methodDescriptor_GatewayAPI_UnsetImmutable);
 };
 
 
