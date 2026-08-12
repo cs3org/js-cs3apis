@@ -79,7 +79,8 @@ proto.cs3.storage.provider.v1beta1.Lock.toObject = function(includeInstance, msg
     type: jspb.Message.getFieldWithDefault(msg, 3, 0),
     user: (f = msg.getUser()) && proto.cs3.identity.user.v1beta1.UserId.toObject(includeInstance, f),
     appName: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    expiration: (f = msg.getExpiration()) && proto.cs3.types.v1beta1.Timestamp.toObject(includeInstance, f)
+    expiration: (f = msg.getExpiration()) && proto.cs3.types.v1beta1.Timestamp.toObject(includeInstance, f),
+    creationTime: (f = msg.getCreationTime()) && proto.cs3.types.v1beta1.Timestamp.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -142,6 +143,11 @@ proto.cs3.storage.provider.v1beta1.Lock.deserializeBinaryFromReader = function(m
       var value = new proto.cs3.types.v1beta1.Timestamp;
       reader.readMessage(value,proto.cs3.types.v1beta1.Timestamp.deserializeBinaryFromReader);
       msg.setExpiration(value);
+      break;
+    case 7:
+      var value = new proto.cs3.types.v1beta1.Timestamp;
+      reader.readMessage(value,proto.cs3.types.v1beta1.Timestamp.deserializeBinaryFromReader);
+      msg.setCreationTime(value);
       break;
     default:
       reader.skipField();
@@ -213,6 +219,14 @@ proto.cs3.storage.provider.v1beta1.Lock.serializeBinaryToWriter = function(messa
   if (f != null) {
     writer.writeMessage(
       6,
+      f,
+      proto.cs3.types.v1beta1.Timestamp.serializeBinaryToWriter
+    );
+  }
+  f = message.getCreationTime();
+  if (f != null) {
+    writer.writeMessage(
+      7,
       f,
       proto.cs3.types.v1beta1.Timestamp.serializeBinaryToWriter
     );
@@ -382,6 +396,43 @@ proto.cs3.storage.provider.v1beta1.Lock.prototype.clearExpiration = function() {
  */
 proto.cs3.storage.provider.v1beta1.Lock.prototype.hasExpiration = function() {
   return jspb.Message.getField(this, 6) != null;
+};
+
+
+/**
+ * optional cs3.types.v1beta1.Timestamp creation_time = 7;
+ * @return {?proto.cs3.types.v1beta1.Timestamp}
+ */
+proto.cs3.storage.provider.v1beta1.Lock.prototype.getCreationTime = function() {
+  return /** @type{?proto.cs3.types.v1beta1.Timestamp} */ (
+    jspb.Message.getWrapperField(this, proto.cs3.types.v1beta1.Timestamp, 7));
+};
+
+
+/**
+ * @param {?proto.cs3.types.v1beta1.Timestamp|undefined} value
+ * @return {!proto.cs3.storage.provider.v1beta1.Lock} returns this
+*/
+proto.cs3.storage.provider.v1beta1.Lock.prototype.setCreationTime = function(value) {
+  return jspb.Message.setWrapperField(this, 7, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.cs3.storage.provider.v1beta1.Lock} returns this
+ */
+proto.cs3.storage.provider.v1beta1.Lock.prototype.clearCreationTime = function() {
+  return this.setCreationTime(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.cs3.storage.provider.v1beta1.Lock.prototype.hasCreationTime = function() {
+  return jspb.Message.getField(this, 7) != null;
 };
 
 
