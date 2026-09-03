@@ -26,6 +26,7 @@ goog.require('proto.cs3.storage.provider.v1beta1.Quota');
 goog.require('proto.cs3.storage.provider.v1beta1.ResourceChecksum');
 goog.require('proto.cs3.storage.provider.v1beta1.ResourceId');
 goog.require('proto.cs3.storage.provider.v1beta1.ResourcePermissions');
+goog.require('proto.cs3.storage.provider.v1beta1.SpaceRole');
 goog.require('proto.cs3.storage.provider.v1beta1.StorageSpaceId');
 goog.require('proto.cs3.types.v1beta1.Opaque');
 goog.require('proto.cs3.types.v1beta1.Timestamp');
@@ -63,7 +64,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.cs3.storage.provider.v1beta1.StorageSpace = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.cs3.storage.provider.v1beta1.StorageSpace.repeatedFields_, null);
 };
 goog.inherits(proto.cs3.storage.provider.v1beta1.StorageSpace, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -1035,6 +1036,13 @@ proto.cs3.storage.provider.v1beta1.ResourceInfo.prototype.setImmutable = functio
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.cs3.storage.provider.v1beta1.StorageSpace.repeatedFields_ = [16];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -1079,7 +1087,8 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.toObject = function(includeInsta
     description: jspb.Message.getFieldWithDefault(msg, 11, ""),
     thumbnailId: jspb.Message.getFieldWithDefault(msg, 13, ""),
     readmeId: jspb.Message.getFieldWithDefault(msg, 14, ""),
-    permissionSet: (f = msg.getPermissionSet()) && proto.cs3.storage.provider.v1beta1.ResourcePermissions.toObject(includeInstance, f)
+    rolesList: jspb.Message.toObjectList(msg.getRolesList(),
+    proto.cs3.storage.provider.v1beta1.SpaceRole.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -1175,10 +1184,10 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.deserializeBinaryFromReader = fu
       var value = /** @type {string} */ (reader.readString());
       msg.setReadmeId(value);
       break;
-    case 15:
-      var value = new proto.cs3.storage.provider.v1beta1.ResourcePermissions;
-      reader.readMessage(value,proto.cs3.storage.provider.v1beta1.ResourcePermissions.deserializeBinaryFromReader);
-      msg.setPermissionSet(value);
+    case 16:
+      var value = new proto.cs3.storage.provider.v1beta1.SpaceRole;
+      reader.readMessage(value,proto.cs3.storage.provider.v1beta1.SpaceRole.deserializeBinaryFromReader);
+      msg.addRoles(value);
       break;
     default:
       reader.skipField();
@@ -1307,12 +1316,12 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.serializeBinaryToWriter = functi
       f
     );
   }
-  f = message.getPermissionSet();
-  if (f != null) {
-    writer.writeMessage(
-      15,
+  f = message.getRolesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      16,
       f,
-      proto.cs3.storage.provider.v1beta1.ResourcePermissions.serializeBinaryToWriter
+      proto.cs3.storage.provider.v1beta1.SpaceRole.serializeBinaryToWriter
     );
   }
 };
@@ -1686,39 +1695,40 @@ proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.setReadmeId = function
 
 
 /**
- * optional ResourcePermissions permission_set = 15;
- * @return {?proto.cs3.storage.provider.v1beta1.ResourcePermissions}
+ * repeated SpaceRole roles = 16;
+ * @return {!Array<!proto.cs3.storage.provider.v1beta1.SpaceRole>}
  */
-proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.getPermissionSet = function() {
-  return /** @type{?proto.cs3.storage.provider.v1beta1.ResourcePermissions} */ (
-    jspb.Message.getWrapperField(this, proto.cs3.storage.provider.v1beta1.ResourcePermissions, 15));
+proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.getRolesList = function() {
+  return /** @type{!Array<!proto.cs3.storage.provider.v1beta1.SpaceRole>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.cs3.storage.provider.v1beta1.SpaceRole, 16));
 };
 
 
 /**
- * @param {?proto.cs3.storage.provider.v1beta1.ResourcePermissions|undefined} value
+ * @param {!Array<!proto.cs3.storage.provider.v1beta1.SpaceRole>} value
  * @return {!proto.cs3.storage.provider.v1beta1.StorageSpace} returns this
 */
-proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.setPermissionSet = function(value) {
-  return jspb.Message.setWrapperField(this, 15, value);
+proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.setRolesList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 16, value);
 };
 
 
 /**
- * Clears the message field making it undefined.
+ * @param {!proto.cs3.storage.provider.v1beta1.SpaceRole=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.cs3.storage.provider.v1beta1.SpaceRole}
+ */
+proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.addRoles = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 16, opt_value, proto.cs3.storage.provider.v1beta1.SpaceRole, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
  * @return {!proto.cs3.storage.provider.v1beta1.StorageSpace} returns this
  */
-proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.clearPermissionSet = function() {
-  return this.setPermissionSet(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.hasPermissionSet = function() {
-  return jspb.Message.getField(this, 15) != null;
+proto.cs3.storage.provider.v1beta1.StorageSpace.prototype.clearRolesList = function() {
+  return this.setRolesList([]);
 };
 
 
