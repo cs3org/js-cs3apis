@@ -76,7 +76,8 @@ proto.cs3.app.provider.v1beta1.OpenInAppResponse.toObject = function(includeInst
     status: (f = msg.getStatus()) && proto.cs3.rpc.v1beta1.Status.toObject(includeInstance, f),
     opaque: (f = msg.getOpaque()) && proto.cs3.types.v1beta1.Opaque.toObject(includeInstance, f),
     appUrl: (f = msg.getAppUrl()) && proto.cs3.app.provider.v1beta1.OpenInAppURL.toObject(includeInstance, f),
-    forcedViewModeReason: jspb.Message.getFieldWithDefault(msg, 4, "")
+    forcedViewModeReason: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    appForEdit: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -131,6 +132,10 @@ proto.cs3.app.provider.v1beta1.OpenInAppResponse.deserializeBinaryFromReader = f
     case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setForcedViewModeReason(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAppForEdit(value);
       break;
     default:
       reader.skipField();
@@ -189,6 +194,13 @@ proto.cs3.app.provider.v1beta1.OpenInAppResponse.serializeBinaryToWriter = funct
   if (f.length > 0) {
     writer.writeString(
       4,
+      f
+    );
+  }
+  f = message.getAppForEdit();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
       f
     );
   }
@@ -321,6 +333,24 @@ proto.cs3.app.provider.v1beta1.OpenInAppResponse.prototype.getForcedViewModeReas
  */
 proto.cs3.app.provider.v1beta1.OpenInAppResponse.prototype.setForcedViewModeReason = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional string app_for_edit = 5;
+ * @return {string}
+ */
+proto.cs3.app.provider.v1beta1.OpenInAppResponse.prototype.getAppForEdit = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.cs3.app.provider.v1beta1.OpenInAppResponse} returns this
+ */
+proto.cs3.app.provider.v1beta1.OpenInAppResponse.prototype.setAppForEdit = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
