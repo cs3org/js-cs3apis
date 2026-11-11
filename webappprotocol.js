@@ -16,6 +16,7 @@ goog.provide('proto.cs3.sharing.ocm.v1beta1.WebappProtocol');
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
+goog.require('proto.cs3.sharing.ocm.v1beta1.WebappApp');
 goog.require('proto.cs3.storage.provider.v1beta1.ResourcePermissions');
 
 /**
@@ -45,7 +46,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.cs3.sharing.ocm.v1beta1.WebappProtocol.repeatedFields_ = [4,5,8];
+proto.cs3.sharing.ocm.v1beta1.WebappProtocol.repeatedFields_ = [4,5,6];
 
 
 
@@ -83,9 +84,9 @@ proto.cs3.sharing.ocm.v1beta1.WebappProtocol.toObject = function(includeInstance
     uri: jspb.Message.getFieldWithDefault(msg, 3, ""),
     requirementsList: (f = jspb.Message.getRepeatedField(msg, 4)) == null ? undefined : f,
     targetsList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f,
-    appName: jspb.Message.getFieldWithDefault(msg, 6, ""),
-    appIconHint: jspb.Message.getFieldWithDefault(msg, 7, ""),
-    mediaTypesList: (f = jspb.Message.getRepeatedField(msg, 8)) == null ? undefined : f
+    appsList: jspb.Message.toObjectList(msg.getAppsList(),
+    proto.cs3.sharing.ocm.v1beta1.WebappApp.toObject, includeInstance),
+    appIconHint: jspb.Message.getFieldWithDefault(msg, 7, "")
   };
 
   if (includeInstance) {
@@ -144,16 +145,13 @@ proto.cs3.sharing.ocm.v1beta1.WebappProtocol.deserializeBinaryFromReader = funct
       msg.addTargets(value);
       break;
     case 6:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setAppName(value);
+      var value = new proto.cs3.sharing.ocm.v1beta1.WebappApp;
+      reader.readMessage(value,proto.cs3.sharing.ocm.v1beta1.WebappApp.deserializeBinaryFromReader);
+      msg.addApps(value);
       break;
     case 7:
       var value = /** @type {string} */ (reader.readString());
       msg.setAppIconHint(value);
-      break;
-    case 8:
-      var value = /** @type {string} */ (reader.readString());
-      msg.addMediaTypes(value);
       break;
     default:
       reader.skipField();
@@ -220,24 +218,18 @@ proto.cs3.sharing.ocm.v1beta1.WebappProtocol.serializeBinaryToWriter = function(
       f
     );
   }
-  f = message.getAppName();
+  f = message.getAppsList();
   if (f.length > 0) {
-    writer.writeString(
+    writer.writeRepeatedMessage(
       6,
-      f
+      f,
+      proto.cs3.sharing.ocm.v1beta1.WebappApp.serializeBinaryToWriter
     );
   }
   f = message.getAppIconHint();
   if (f.length > 0) {
     writer.writeString(
       7,
-      f
-    );
-  }
-  f = message.getMediaTypesList();
-  if (f.length > 0) {
-    writer.writeRepeatedString(
-      8,
       f
     );
   }
@@ -392,20 +384,40 @@ proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.clearTargetsList = functi
 
 
 /**
- * optional string app_name = 6;
- * @return {string}
+ * repeated WebappApp apps = 6;
+ * @return {!Array<!proto.cs3.sharing.ocm.v1beta1.WebappApp>}
  */
-proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.getAppName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.getAppsList = function() {
+  return /** @type{!Array<!proto.cs3.sharing.ocm.v1beta1.WebappApp>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.cs3.sharing.ocm.v1beta1.WebappApp, 6));
 };
 
 
 /**
- * @param {string} value
+ * @param {!Array<!proto.cs3.sharing.ocm.v1beta1.WebappApp>} value
+ * @return {!proto.cs3.sharing.ocm.v1beta1.WebappProtocol} returns this
+*/
+proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.setAppsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 6, value);
+};
+
+
+/**
+ * @param {!proto.cs3.sharing.ocm.v1beta1.WebappApp=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.cs3.sharing.ocm.v1beta1.WebappApp}
+ */
+proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.addApps = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 6, opt_value, proto.cs3.sharing.ocm.v1beta1.WebappApp, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
  * @return {!proto.cs3.sharing.ocm.v1beta1.WebappProtocol} returns this
  */
-proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.setAppName = function(value) {
-  return jspb.Message.setProto3StringField(this, 6, value);
+proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.clearAppsList = function() {
+  return this.setAppsList([]);
 };
 
 
@@ -424,43 +436,6 @@ proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.getAppIconHint = function
  */
 proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.setAppIconHint = function(value) {
   return jspb.Message.setProto3StringField(this, 7, value);
-};
-
-
-/**
- * repeated string media_types = 8;
- * @return {!Array<string>}
- */
-proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.getMediaTypesList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 8));
-};
-
-
-/**
- * @param {!Array<string>} value
- * @return {!proto.cs3.sharing.ocm.v1beta1.WebappProtocol} returns this
- */
-proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.setMediaTypesList = function(value) {
-  return jspb.Message.setField(this, 8, value || []);
-};
-
-
-/**
- * @param {string} value
- * @param {number=} opt_index
- * @return {!proto.cs3.sharing.ocm.v1beta1.WebappProtocol} returns this
- */
-proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.addMediaTypes = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 8, value, opt_index);
-};
-
-
-/**
- * Clears the list making it empty but non-null.
- * @return {!proto.cs3.sharing.ocm.v1beta1.WebappProtocol} returns this
- */
-proto.cs3.sharing.ocm.v1beta1.WebappProtocol.prototype.clearMediaTypesList = function() {
-  return this.setMediaTypesList([]);
 };
 
 

@@ -45,7 +45,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod.repeatedFields_ = [2];
+proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod.repeatedFields_ = [2,3];
 
 
 
@@ -80,7 +80,7 @@ proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod.toObject = function(includeInst
   var f, obj = {
     permissions: (f = msg.getPermissions()) && proto.cs3.storage.provider.v1beta1.ResourcePermissions.toObject(includeInstance, f),
     requirementsList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
-    appName: jspb.Message.getFieldWithDefault(msg, 3, "")
+    appNamesList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -128,7 +128,7 @@ proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod.deserializeBinaryFromReader = f
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setAppName(value);
+      msg.addAppNames(value);
       break;
     default:
       reader.skipField();
@@ -174,9 +174,9 @@ proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod.serializeBinaryToWriter = funct
       f
     );
   }
-  f = message.getAppName();
+  f = message.getAppNamesList();
   if (f.length > 0) {
-    writer.writeString(
+    writer.writeRepeatedString(
       3,
       f
     );
@@ -259,20 +259,39 @@ proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod.prototype.clearRequirementsList
 
 
 /**
- * optional string app_name = 3;
- * @return {string}
+ * repeated string app_names = 3;
+ * @return {!Array<string>}
  */
-proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod.prototype.getAppName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod.prototype.getAppNamesList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 3));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod} returns this
+ */
+proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod.prototype.setAppNamesList = function(value) {
+  return jspb.Message.setField(this, 3, value || []);
 };
 
 
 /**
  * @param {string} value
+ * @param {number=} opt_index
  * @return {!proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod} returns this
  */
-proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod.prototype.setAppName = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
+proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod.prototype.addAppNames = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 3, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod} returns this
+ */
+proto.cs3.sharing.ocm.v1beta1.WebappAccessMethod.prototype.clearAppNamesList = function() {
+  return this.setAppNamesList([]);
 };
 
 
