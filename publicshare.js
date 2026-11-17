@@ -91,7 +91,8 @@ proto.cs3.sharing.link.v1beta1.PublicShare.toObject = function(includeInstance, 
     quicklink: jspb.Message.getBooleanFieldWithDefault(msg, 13, false),
     description: jspb.Message.getFieldWithDefault(msg, 14, ""),
     notifyUploads: jspb.Message.getBooleanFieldWithDefault(msg, 15, false),
-    notifyUploadsExtraRecipients: jspb.Message.getFieldWithDefault(msg, 16, "")
+    notifyUploadsExtraRecipients: jspb.Message.getFieldWithDefault(msg, 16, ""),
+    url: jspb.Message.getFieldWithDefault(msg, 17, "")
   };
 
   if (includeInstance) {
@@ -200,6 +201,10 @@ proto.cs3.sharing.link.v1beta1.PublicShare.deserializeBinaryFromReader = functio
     case 16:
       var value = /** @type {string} */ (reader.readString());
       msg.setNotifyUploadsExtraRecipients(value);
+      break;
+    case 17:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUrl(value);
       break;
     default:
       reader.skipField();
@@ -348,6 +353,13 @@ proto.cs3.sharing.link.v1beta1.PublicShare.serializeBinaryToWriter = function(me
   if (f.length > 0) {
     writer.writeString(
       16,
+      f
+    );
+  }
+  f = message.getUrl();
+  if (f.length > 0) {
+    writer.writeString(
+      17,
       f
     );
   }
@@ -810,6 +822,24 @@ proto.cs3.sharing.link.v1beta1.PublicShare.prototype.getNotifyUploadsExtraRecipi
  */
 proto.cs3.sharing.link.v1beta1.PublicShare.prototype.setNotifyUploadsExtraRecipients = function(value) {
   return jspb.Message.setProto3StringField(this, 16, value);
+};
+
+
+/**
+ * optional string url = 17;
+ * @return {string}
+ */
+proto.cs3.sharing.link.v1beta1.PublicShare.prototype.getUrl = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 17, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.cs3.sharing.link.v1beta1.PublicShare} returns this
+ */
+proto.cs3.sharing.link.v1beta1.PublicShare.prototype.setUrl = function(value) {
+  return jspb.Message.setProto3StringField(this, 17, value);
 };
 
 
